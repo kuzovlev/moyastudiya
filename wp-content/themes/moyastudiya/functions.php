@@ -146,6 +146,7 @@ function moyastudiya_scripts() {
 	wp_enqueue_style( 'moyastudiya-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css', array(), _S_VERSION );
 	wp_enqueue_style( 'moyastudiya-style-bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), _S_VERSION );
+	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/css/stylesheet.css', array(), _S_VERSION );
 	wp_style_add_data( 'moyastudiya-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'moyastudiya-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );

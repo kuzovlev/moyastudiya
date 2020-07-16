@@ -1,5 +1,22 @@
+* {
+  font-family: "Aeroport";
+}
+
 body {
   background: url("../src/main_back.jpg") no-repeat fixed;
+}
+body header .navbar-brand {
+  font-size: 18px !important;
+  text-transform: uppercase;
+}
+body header .custom-logo-link {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+}
+body header .custom-logo-link .custom-logo {
+  height: 50px;
+  width: auto;
 }
 
 /*# sourceMappingURL=style.css.map */
