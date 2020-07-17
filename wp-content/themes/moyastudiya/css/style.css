@@ -1,9 +1,16 @@
 * {
-  font-family: "Aeroport";
+  font-family: "Aeroport", sans-serif;
 }
 
 body {
   background: url("../src/main_back.jpg") no-repeat fixed;
+}
+body header a {
+  color: white;
+}
+body header a:hover {
+  transition: color 0.3s;
+  color: #ca9b65 !important;
 }
 body header .navbar-brand {
   font-size: 18px !important;
@@ -17,6 +24,16 @@ body header .custom-logo-link {
 body header .custom-logo-link .custom-logo {
   height: 50px;
   width: auto;
+}
+body header .main_rus li, body header .main_eng li {
+  list-style: none;
+}
+body header .lang-item a {
+  text-transform: uppercase;
+  color: white;
+}
+body header .lang-item a:hover {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */

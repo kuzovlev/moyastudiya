@@ -25,15 +25,23 @@
     <div class="featurebox col-md-12 col-sm-12 col-xs-12">
         <div class="row">
             <div class="navbar navbar-light col-md-4">
-                <a class="navbar-brand text-white"><?= get_bloginfo() ?></a>
-				<? $custom_logo__url = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' ); ?>
+                <a class="navbar-brand text-white" href="<?=get_home_url();?>"><?= get_bloginfo() ?></a>
             </div>
             <div class="col-md-4">
 				<?= the_custom_logo() ?>
             </div>
-            <div class="navbar navbar-light col-md-4">
-                <a class="navbar-brand text-white">Eng</a>
-                <a class="navbar-brand text-white">Navbar</a>
+            <div class="navbar navbar-light col-md-4 row justify-content-end">
+	            <?php wp_nav_menu( [
+		            'menu'       => 'main_rus',
+		            'container'  => 'div',
+		            'container_class' => 'main_rus',
+		            'items_wrap' => '%3$s'
+	            ] ); ?>
+                <?
+                    pll_the_languages(array('hide_current'=>1,
+                                            'hide_if_no_translation' => 1,
+                                            'display_names_as'=>'slug'));
+                ?>
             </div>
         </div>
     </div>
