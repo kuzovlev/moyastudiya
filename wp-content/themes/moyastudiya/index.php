@@ -14,6 +14,23 @@
 
 get_header();
 ?>
+    <section class="section-main_top">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <h1 class="text-white text-center col-md-8 col-sm-12 col-lg-6 col-xl-5 col-xs-12">
+					<?php echo get_bloginfo( 'description' ); ?>
+                </h1>
+            </div>
+        </div>
+        <div id="video-bg">
+            <div id="player"></div>
+            <div id="thumbnail_container" class="thumbnail_container">
+                <img class="thumbnail" id="thumbnail"/>
+            </div>
+            <a class="start-video"><img width="64" src="http://image.flaticon.com/icons/png/512/0/375.png"
+                                        style="filter: invert(100%); -webkit-filter: invert(100%);"></a>
+        </div>
+    </section>
 
 <?php
 get_footer();

@@ -5,12 +5,19 @@
 body {
   background: url("../src/main_back.jpg") no-repeat fixed;
 }
-body header a {
+body header a, body header button {
   color: white;
 }
-body header a:hover {
+body header a:hover, body header button:hover {
   transition: color 0.3s;
   color: #ca9b65 !important;
+  text-decoration: none;
+}
+body header a:active, body header button:active {
+  font-weight: 500;
+}
+body header button:active, body header button:focus, body header button:visited {
+  outline: none;
 }
 body header .navbar-brand {
   font-size: 18px !important;
@@ -28,12 +35,53 @@ body header .custom-logo-link .custom-logo {
 body header .main_rus li, body header .main_eng li {
   list-style: none;
 }
+@media screen and (max-width: 767px) {
+  body header .main_rus, body header .main_eng {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+body header .lang-item {
+  list-style: none;
+  margin: 0 20px;
+}
 body header .lang-item a {
   text-transform: uppercase;
   color: white;
 }
-body header .lang-item a:hover {
-  text-decoration: none;
+body .section-main_top {
+  margin-top: 200px;
+}
+body .section-main_top h1 {
+  font-size: 48px;
+  font-weight: 300;
+}
+body .section-main_top #video-bg {
+  position: relative;
+}
+body .section-main_top #video-bg .start-video {
+  position: absolute;
+  top: 80px;
+  padding: 12px;
+  left: 174px;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+body .section-main_top #video-bg .start-video:hover {
+  opacity: 1;
+  -webkit-filter: brightness 1;
+}
+body .section-main_top #video-bg div.thumbnail_container {
+  width: 434px;
+  height: 244px;
+  overflow: hidden;
+  background-color: #000;
+}
+body .section-main_top #video-bg img.thumbnail {
+  margin-top: -50px;
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=style.css.map */

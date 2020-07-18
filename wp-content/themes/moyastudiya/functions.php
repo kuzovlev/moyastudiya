@@ -149,7 +149,10 @@ function moyastudiya_scripts() {
 	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/fonts/stylesheet.css', array(), _S_VERSION );
 	wp_style_add_data( 'moyastudiya-style', 'rtl', 'replace' );
 
+	wp_enqueue_script( 'moyastudiya-jquery', get_template_directory_uri() . '/js/jquery.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'moyastudiya-custom', get_template_directory_uri() . '/js/custom.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'moyastudiya-bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -183,4 +186,11 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
+/**
+ * Добавляем класс к пунктам меню
+ */
+add_filter( 'nav_menu_css_class', 'special_nav_class', 10, 2 );
+function special_nav_class($classes, $item){
+		$classes[] = "nav-item";
+	return $classes;
+}
