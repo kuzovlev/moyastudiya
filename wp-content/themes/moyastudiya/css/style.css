@@ -59,13 +59,16 @@ body .section-main_top h1 {
 }
 body .section-main_top #video-bg {
   position: relative;
+  width: 1087px;
+  margin: 0 auto;
 }
 body .section-main_top #video-bg .start-video {
   position: absolute;
-  top: 80px;
+  top: 50%;
   padding: 12px;
-  left: 174px;
+  left: 50%;
   opacity: 0.3;
+  transform: translate(-50%, -50%);
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -74,10 +77,12 @@ body .section-main_top #video-bg .start-video:hover {
   -webkit-filter: brightness 1;
 }
 body .section-main_top #video-bg div.thumbnail_container {
-  width: 434px;
-  height: 244px;
+  width: 1087px;
+  height: 498px;
   overflow: hidden;
   background-color: #000;
+  border-radius: 20px;
+  margin: 0 auto;
 }
 body .section-main_top #video-bg img.thumbnail {
   margin-top: -50px;

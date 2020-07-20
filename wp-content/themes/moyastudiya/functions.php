@@ -194,3 +194,30 @@ function special_nav_class($classes, $item){
 		$classes[] = "nav-item";
 	return $classes;
 }
+
+function my_site_custom_languages_selector_template () {
+	if (function_exists('wpm_get_languages')) {
+		$languages = wpm_get_languages();
+		$current = wpm_get_language();
+
+		$out = '<div class="b-language-selector">';
+
+		foreach ($languages as $code => $language) {
+			$toggle_url = esc_url(wpm_translate_current_url($code));
+			$css_classes = 'b-language-selector-link ';
+
+			if ($code === $current) {
+				$css_classes .= 'b-language-selector-link--active';
+			}
+
+			$out .= '<a href="' . $toggle_url . '" class="' . $css_classes . '" data-lang="' . esc_attr($code) . '">';
+			$out .= $language['name'];
+			$out .= '</a>';
+			$out .= '&nbsp;';
+		}
+
+		$out .= '</div>';
+
+		return $out;
+	}
+}

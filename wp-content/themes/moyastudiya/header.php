@@ -45,13 +45,9 @@
 					'container_id'    => 'collapsibleNavbar',
 					'items_wrap'      => '<ul class="navbar-nav">%3$s</ul>',
 				] ); ?>
-				<?
-				pll_the_languages( array(
-					'hide_current'           => 1,
-					'hide_if_no_translation' => 1,
-					'display_names_as'       => 'slug'
-				) );
-				?>
+                <pre class="text-white">
+                    <?var_dump(wpm_get_languages());?>
+                </pre>
             </nav>
         </div>
     </div>

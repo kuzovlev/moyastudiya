@@ -22,7 +22,7 @@ get_header();
                 </h1>
             </div>
         </div>
-        <div id="video-bg">
+        <div id="video-bg" data-videoid="<?=get_field("mainpage_video")?>">
             <div id="player"></div>
             <div id="thumbnail_container" class="thumbnail_container">
                 <img class="thumbnail" id="thumbnail"/>
