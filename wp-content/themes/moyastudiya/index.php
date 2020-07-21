@@ -22,14 +22,25 @@ get_header();
                 </h1>
             </div>
         </div>
-        <div id="video-bg" data-videoid="<?=get_field("mainpage_video")?>">
+        <div id="video-bg" data-videoid="<?= get_field( "mainpage_video" ) ?>">
             <div id="player"></div>
             <div id="thumbnail_container" class="thumbnail_container">
                 <img class="thumbnail" id="thumbnail"/>
             </div>
-            <a class="start-video"><img width="64" src="http://image.flaticon.com/icons/png/512/0/375.png"
-                                        style="filter: invert(100%); -webkit-filter: invert(100%);"></a>
+            <div class="showreel-container">
+                <a class="start-video"></a>
+                <a class="start-video start-video_text">
+					<? if ( wpm_get_language() === "ru" ):
+						echo 'Смотреть шоурил';
+					else:
+						echo "Watch video";
+					endif; ?>
+                </a>
+            </div>
         </div>
+    </section>
+    <section id="our_projects">
+
     </section>
 
 <?php

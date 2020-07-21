@@ -1,6 +1,5 @@
 //youtube script
 var videoID = $('#video-bg').data('videoid');
-console.log (videoID);
 var tag = document.createElement('script');
 tag.src = "//www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -16,7 +15,10 @@ onYouTubeIframeAPIReady = function () {
         playerVars: {
             'autoplay': 0,
             'rel': 0,
-            'showinfo': 0
+            'showinfo': 0,
+            'controls': 0,
+            'modestbranding': 0,
+
         },
         events: {
             'onStateChange': onPlayerStateChange
@@ -24,11 +26,11 @@ onYouTubeIframeAPIReady = function () {
     });
 }
 
-var p = document.getElementById ("player");
+var p = document.getElementById("player");
 $(p).hide();
 
-var t = document.getElementById ("thumbnail");
-t.src = "http://i3.ytimg.com/vi/"+videoID+"/maxresdefault.jpg";
+var t = document.getElementById("thumbnail");
+t.src = "http://i3.ytimg.com/vi/" + videoID + "/maxresdefault.jpg";
 
 onPlayerStateChange = function (event) {
     if (event.data == YT.PlayerState.ENDED) {
@@ -37,7 +39,7 @@ onPlayerStateChange = function (event) {
 }
 
 $(document).on('click', '.start-video', function () {
-    $(this).hide();
+    $('.start-video').hide();
     $("#player").show();
     $("#thumbnail_container").hide();
     player.playVideo();
