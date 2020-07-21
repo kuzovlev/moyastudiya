@@ -26,9 +26,9 @@
         </div>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 footer-information">
             <div class="my-0 mr-md-auto footer-information__left">
-                <a href="mailto:<?=get_field('elektronnaya_pochta')?>"><?=get_field('elektronnaya_pochta');?></a>
-                <a href="tel:<?=get_field('telefon');?>"><?=get_field('telefon');?></a>
-                <p><?=get_field('address');?></p>
+                <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block" href="mailto:<?=get_field('elektronnaya_pochta')?>"><?=get_field('elektronnaya_pochta');?></a>
+                <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block" href="tel:<?=get_field('telefon');?>"><?=get_field('telefon');?></a>
+                <p class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block"><?=get_field('address');?></p>
             </div>
             <div class="my-2 my-md-0 mr-md-3 social-links">
                 <a href="https://facebook.com/<?=get_field('facebook');?>" target="_blank">
