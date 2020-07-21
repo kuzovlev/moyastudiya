@@ -44,3 +44,13 @@ $(document).on('click', '.start-video', function () {
     $("#thumbnail_container").hide();
     player.playVideo();
 });
+
+$(document).ready(function () {
+    var singlePost = $('.single-post');
+    singlePost.mouseenter(function () {
+        $(this).find('.post-gradient').fadeOut(300);
+    });
+    singlePost.mouseleave(function () {
+        $(this).find('.post-gradient').fadeIn(300);
+    });
+});

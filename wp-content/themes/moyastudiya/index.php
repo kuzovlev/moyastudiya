@@ -40,7 +40,35 @@ get_header();
         </div>
     </section>
     <section id="our_projects">
+        <?
+        $posts = get_posts( array(
+	        'numberposts' => 4,
+	        'category'    => 0,
+	        'orderby'     => 'date',
+	        'order'       => 'DESC',
+	        'include'     => array(),
+	        'exclude'     => array(),
+	        'meta_key'    => '',
+	        'meta_value'  =>'',
+	        'post_type'   => 'post',
+	        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+        ) );
 
+        foreach( $posts as $post ){
+	        setup_postdata($post);?>
+            <a href="<?=get_permalink()?>" class="single-post">
+	            <img src="<?the_post_thumbnail_url(); ?>" alt="" class="single-post_image">
+	            <div class="post-contents col-4">
+		            <h2 class="text-white post-title"><?=the_title()?></h2>
+					<p class="post-text"><?the_field('additional_text');?></p>
+	            </div>
+                <div class="post-gradient"></div>
+            </a>
+            <?// формат вывода the_title() ...
+        }
+
+        wp_reset_postdata(); // сброс
+        ?>
     </section>
 
 <?php
