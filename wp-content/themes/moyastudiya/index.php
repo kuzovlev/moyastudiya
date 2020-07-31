@@ -66,10 +66,61 @@ get_header();
             </a>
 			<?// формат вывода the_title() ...
 		}
-
 		wp_reset_postdata(); // сброс
 		?>
+        <a href="/moyastudiya/projects/" class="link-button">
+            <?
+            if ( wpm_get_language() === "ru" ):
+	            echo 'Больше кейсов';
+            else:
+	            echo "More projects";
+            endif;
+            ?>
+        </a>
     </section>
+<?php if ( ! empty( get_field( 'what_do_title_1' ) ) || ! empty( get_field( 'what_do_title_2' ) ) || ! empty( get_field( 'what_do_title_3' ) ) ) { ?>
+    <section id="activities">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <h2 class="text-white">
+	                <?
+	                if ( wpm_get_language() === "ru" ):
+		                echo 'Чем мы занимаемся?';
+	                else:
+		                echo "What are we doing?";
+	                endif;
+	                ?>
 
-<?php
+                </h2>
+            </div>
+        </div>
+        <div class="activities-block">
+            <div class="container activities-container">
+                <div class="first-activity p-3 px-md-4 text-white">
+					<?= get_field( 'what_do_title_1' ); ?>
+                </div>
+                <div class="second-activity p-3 px-md-4 text-white">
+					<?= get_field( 'what_do_title_2' ); ?>
+                </div>
+                <div class="third-activity p-3 px-md-4 text-white">
+					<?= get_field( 'what_do_title_3' ); ?>
+                </div>
+            </div>
+            <svg width="1440" height="230" viewBox="0 0 1440 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5"
+                      stroke="#C99B69" stroke-width="2"/>
+            </svg>
+        </div>
+        <a href="/moyastudiya/projects/" class="link-button">
+		    <?
+		    if ( wpm_get_language() === "ru" ):
+			    echo 'Больше о нас';
+		    else:
+			    echo "More about us";
+		    endif;
+		    ?>
+        </a>
+    </section>
+	<?php
+}
 get_footer();

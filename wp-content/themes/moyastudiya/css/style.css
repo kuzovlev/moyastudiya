@@ -4,13 +4,13 @@
 }
 
 body {
-  background: url("../src/main_back.jpg") no-repeat fixed;
+  background: url("../src/main_back_2.png") repeat;
 }
 body a, body button {
   color: white;
 }
 body a:hover, body button:hover {
-  transition: color 0.3s;
+  transition: all 0.3s;
   color: #ca9b65 !important;
   text-decoration: none;
 }
@@ -19,6 +19,26 @@ body a:active, body button:active {
 }
 body button:active, body button:focus, body button:visited {
   outline: none;
+}
+body .link-button {
+  background: transparent;
+  border: 1px solid #C99B69;
+  color: #C99B69;
+  border-radius: 10px;
+  padding: 10px 42px;
+  margin: 42px auto 0 auto;
+  display: block;
+  width: fit-content;
+  font-size: 18px;
+  font-weight: lighter;
+  transition: all 0.3s;
+}
+body .link-button:hover {
+  background: #C99B69;
+  color: white !important;
+}
+body .link-button:active {
+  font-weight: 400;
 }
 body header .navbar-brand {
   font-size: 18px !important;
@@ -35,6 +55,7 @@ body header .custom-logo-link .custom-logo {
 }
 body header .main_rus li, body header .main_eng li {
   list-style: none;
+  margin: 0 50px;
 }
 @media screen and (max-width: 767px) {
   body header .main_rus, body header .main_eng {
@@ -153,6 +174,10 @@ body footer .footer-logo img {
 body footer .foot_menu, body footer .social-links {
   font-size: 18px;
   font-weight: 300;
+}
+body footer .foot_menu ul li {
+  display: inline;
+  margin: 0 30px;
 }
 body footer .footer-information .footer-information__left a, body footer .footer-information .footer-information__left p {
   color: rgba(255, 255, 255, 0.5);
@@ -301,6 +326,72 @@ body #our_projects .single-post:nth-child(4n+4) .post-contents:before {
   body #our_projects .single-post {
     height: 142px;
   }
+}
+body #activities {
+  margin-top: 150px;
+}
+body #activities h2 {
+  font-size: 26px;
+  font-weight: lighter;
+  margin-bottom: 144px;
+}
+body #activities .activities-block {
+  position: relative;
+}
+body #activities .activities-block svg {
+  position: absolute;
+  top: 0;
+}
+@media screen and (max-width: 1024px) {
+  body #activities .activities-block svg {
+    left: -100px;
+  }
+}
+body #activities .activities-block .activities-container {
+  display: flex;
+  height: 230px;
+}
+body #activities .activities-block .activities-container .first-activity, body #activities .activities-block .activities-container .second-activity, body #activities .activities-block .activities-container .third-activity {
+  display: flex;
+  margin-left: 32px;
+  font-size: 18px;
+  position: relative;
+}
+body #activities .activities-block .activities-container .first-activity:before, body #activities .activities-block .activities-container .second-activity:before, body #activities .activities-block .activities-container .third-activity:before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url("../src/star_4.png") no-repeat;
+  position: absolute;
+}
+body #activities .activities-block .activities-container .first-activity {
+  width: 40%;
+}
+body #activities .activities-block .activities-container .first-activity:before {
+  bottom: 0;
+  left: 0;
+}
+body #activities .activities-block .activities-container .second-activity {
+  align-items: flex-end;
+}
+body #activities .activities-block .activities-container .second-activity:before {
+  bottom: -15px;
+  left: 0;
+}
+body #activities .activities-block .activities-container .third-activity:before {
+  top: -15px;
+  left: 0;
+}
+body #activities .activities-block .activities-container .second-activity, body #activities .activities-block .activities-container .third-activity {
+  width: 30%;
+}
+body #activities .activities-block .activities-container .first-activity, body #activities .activities-block .activities-container .third-activity {
+  height: 92px;
+  line-height: 40px;
+}
+body .projects-title {
+  margin: 120px auto;
 }
 
 /*# sourceMappingURL=style.css.map */
