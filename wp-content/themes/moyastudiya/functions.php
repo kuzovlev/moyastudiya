@@ -153,6 +153,7 @@ function moyastudiya_scripts() {
 	wp_enqueue_script( 'moyastudiya-custom', get_template_directory_uri() . '/js/custom.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'moyastudiya-tween', get_template_directory_uri() . '/js/TweenMax.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -220,4 +221,62 @@ function my_site_custom_languages_selector_template () {
 
 		return $out;
 	}
+}
+
+add_action( 'init', 'processes_reg' ); // Использовать функцию только внутри хука init
+
+function processes_reg() {
+	$labels = array(
+		'name' => 'Процессы',
+		'singular_name' => 'Процесс', // админ панель Добавить->Функцию
+		'add_new' => 'Добавить этап',
+		'add_new_item' => 'Добавить новый этап', // заголовок тега <title>
+		'edit_item' => 'Редактировать этап',
+		'new_item' => 'Новый этап',
+		'all_items' => 'Все этапы',
+		'view_item' => 'Просмотр',
+		'search_items' => 'Найти этап',
+		'not_found' =>  'Этапов не найдено',
+		'not_found_in_trash' => 'В корзине нет этапов.',
+		'menu_name' => 'Процессы' // ссылка в меню в админке
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'show_ui' => true, // показывать интерфейс в админке
+		'has_archive' => true,
+		'menu_icon' => get_stylesheet_directory_uri() .'/img/function_icon.png', // иконка в меню
+		'menu_position' => 20, // порядок в меню
+		'supports' => array( 'title', 'editor', 'comments', 'author', 'thumbnail')
+	);
+	register_post_type('processes', $args);
+}
+
+add_action( 'init', 'services_reg' ); // Использовать функцию только внутри хука init
+
+function services_reg() {
+	$labels = array(
+		'name' => 'Услуги',
+		'singular_name' => 'Услуга', // админ панель Добавить->Функцию
+		'add_new' => 'Добавить услугу',
+		'add_new_item' => 'Добавить новую услугу', // заголовок тега <title>
+		'edit_item' => 'Редактировать услугу',
+		'new_item' => 'Новая услуга',
+		'all_items' => 'Все услуги',
+		'view_item' => 'Просмотр',
+		'search_items' => 'Найти услугу',
+		'not_found' =>  'Услуг не найдено',
+		'not_found_in_trash' => 'В корзине нет услуг.',
+		'menu_name' => 'Услуги' // ссылка в меню в админке
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'show_ui' => true, // показывать интерфейс в админке
+		'has_archive' => true,
+		'menu_icon' => get_stylesheet_directory_uri() .'/img/function_icon.png', // иконка в меню
+		'menu_position' => 21, // порядок в меню
+		'supports' => array( 'title', 'editor', 'comments', 'author', 'thumbnail')
+	);
+	register_post_type('services', $args);
 }
