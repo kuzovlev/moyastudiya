@@ -1,3 +1,12 @@
+$(window).on('load', function () {
+    var $preloader = $('.preloader-1'),
+        // $svg_anm = $preloader.find('.svg_anm'),
+        $main_content = $('.main-content');
+    // $svg_anm.fadeOut();
+    $preloader.delay(500).fadeOut('slow');
+    $main_content.delay(500).fadeIn('slow');
+});
+
 //youtube script
 var videoID = $('#video-bg').data('videoid');
 var tag = document.createElement('script');
@@ -9,8 +18,8 @@ var player;
 if (videoID) {
     onYouTubeIframeAPIReady = function () {
         player = new YT.Player('player', {
-            height: '498',
-            width: '1087',
+            height: '',
+            width: '100%',
             videoId: videoID,  // youtube video id
             playerVars: {
                 'autoplay': 0,
