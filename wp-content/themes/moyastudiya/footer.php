@@ -10,6 +10,14 @@
  */
 
 ?>
+<section id="c-form">
+    <div class="container">
+        <div class="row justify-content-center">
+            <h3 class="text-white">Давайте познакомимся</h3>
+        </div>
+    </div>
+    <?=do_shortcode('[contact-form-7 id="119" title="Contact form 1"]')?>
+</section>
 <footer>
     <div class="container">
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 text-white">

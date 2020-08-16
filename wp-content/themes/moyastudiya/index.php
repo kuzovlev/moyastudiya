@@ -22,19 +22,15 @@ get_header();
                 </h1>
             </div>
         </div>
-        <div id="video-bg" data-videoid="<?= get_field( "mainpage_video" ) ?>">
-            <div id="player"></div>
-            <div id="thumbnail_container" class="thumbnail_container">
-                <img class="thumbnail" id="thumbnail"/>
-            </div>
+        <div id="video-bg" class="youtube" data-videoid="<?= get_field( "mainpage_video" ) ?>">
             <div class="showreel-container">
                 <a class="start-video"></a>
                 <a class="start-video start-video_text">
-					<? if ( wpm_get_language() === "ru" ):
-						echo 'Смотреть шоурил';
-					else:
-						echo "Watch video";
-					endif; ?>
+			        <? if ( wpm_get_language() === "ru" ):
+				        echo 'Смотреть шоурил';
+			        else:
+				        echo "Watch video";
+			        endif; ?>
                 </a>
             </div>
         </div>
@@ -57,7 +53,7 @@ get_header();
 		foreach ( $posts as $post ) {
 			setup_postdata( $post ); ?>
             <a href="<?= get_permalink() ?>" class="single-post">
-                <img src="<? the_post_thumbnail_url(); ?>" alt="" class="single-post_image">
+                <img src="<? the_post_thumbnail_url(); ?>" alt="" class="single-post_image lazy">
                 <div class="post-contents">
                     <h2 class="text-white post-title"><?= the_title() ?></h2>
                     <p class="post-text"><? the_field( 'additional_text' ); ?></p>

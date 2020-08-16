@@ -8,52 +8,27 @@ $(window).on('load', function () {
 });
 
 //youtube script
-var videoID = $('#video-bg').data('videoid');
-var tag = document.createElement('script');
-tag.src = "//www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player;
-if (videoID) {
-    onYouTubeIframeAPIReady = function () {
-        player = new YT.Player('player', {
-            height: '',
-            width: '100%',
-            videoId: videoID,  // youtube video id
-            playerVars: {
-                'autoplay': 0,
-                'rel': 0,
-                'showinfo': 0,
-                'controls': 0,
-                'modestbranding': 0,
+"use strict";
+$(function() {
+    var videoID = $('#video-bg').data('videoid');
+    $(".youtube").each(function() {
+        // Based on the YouTube ID, we can easily find the thumbnail image
+        $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + videoID + '/maxresdefault.jpg)');
 
-            },
-            events: {
-                'onStateChange': onPlayerStateChange
-            }
+        $(document).delegate('#'+this.id, 'click', function() {
+            // Create an iFrame with autoplay set to true
+            var iframe_url = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&autohide=1";
+            if ($(this).data('params')) iframe_url+='&'+$(this).data('params');
+
+            // The height and width of the iFrame should be the same as parent
+            var iframe = $('<iframe/>', {id:'player', 'frameborder': '0', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height() })
+
+            // Replace the YouTube thumbnail with YouTube HTML5 Player
+            $(this).replaceWith(iframe);
         });
-    }
-
-    var p = document.getElementById("player");
-    $(p).hide();
-
-    var t = document.getElementById("thumbnail");
-    t.src = "http://i3.ytimg.com/vi/" + videoID + "/maxresdefault.jpg";
-
-    onPlayerStateChange = function (event) {
-        if (event.data == YT.PlayerState.ENDED) {
-            $('.start-video').fadeIn('normal');
-        }
-    }
-
-    $(document).on('click', '.start-video', function () {
-        $('.start-video').hide();
-        $("#player").show();
-        $("#thumbnail_container").hide();
-        player.playVideo();
     });
-}
+});
 
 $(document).ready(function () {
     var singlePost = $('.single-post');

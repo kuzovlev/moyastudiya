@@ -312,7 +312,12 @@ body .section-main_top h1 {
 body .section-main_top #video-bg {
   position: relative;
   max-width: 1087px;
+  width: 1087px;
+  height: 458px;
   margin: 92px auto 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 50%;
 }
 body .section-main_top #video-bg iframe {
   height: 498px;
@@ -418,8 +423,12 @@ body .section-main_top #video-bg img.thumbnail {
   width: 100%;
   height: 100%;
 }
-body .section-main_top #video-bg #player {
+body .section-main_top #player {
   border-radius: 20px;
+  width: 100%;
+  height: 458px;
+  display: block;
+  margin: 0 auto;
 }
 body footer .footer-logo img {
   width: 130px;
@@ -1048,6 +1057,87 @@ body #process .process-container:hover .process-title {
 body #process .process-container:hover .process-text {
   visibility: visible;
   opacity: 1;
+}
+body #c-form h3 {
+  font-size: 36px;
+  line-height: 43px;
+  margin: 100px 0;
+  font-weight: 300;
+}
+@media screen and (max-width: 425px) {
+  body #c-form h3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+body #c-form form {
+  width: 500px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 500px) {
+  body #c-form form {
+    width: 90%;
+  }
+}
+body #c-form form input[name=your-email], body #c-form form input[name=your-phone], body #c-form form input[name=your-name], body #c-form form textarea {
+  width: 100%;
+  background: transparent;
+  color: #C99B69;
+  outline: none;
+  padding: 10px;
+  margin: 15px auto;
+}
+body #c-form form input[name=your-email]::-webkit-input-placeholder, body #c-form form input[name=your-phone]::-webkit-input-placeholder, body #c-form form input[name=your-name]::-webkit-input-placeholder, body #c-form form textarea::-webkit-input-placeholder {
+  color: #C99B69;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+body #c-form form input[name=your-email]:-moz-placeholder, body #c-form form input[name=your-phone]:-moz-placeholder, body #c-form form input[name=your-name]:-moz-placeholder, body #c-form form textarea:-moz-placeholder {
+  color: #C99B69;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+body #c-form form input[name=your-email]::-moz-placeholder, body #c-form form input[name=your-phone]::-moz-placeholder, body #c-form form input[name=your-name]::-moz-placeholder, body #c-form form textarea::-moz-placeholder {
+  color: #C99B69;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+body #c-form form input[name=your-email]:-ms-input-placeholder, body #c-form form input[name=your-phone]:-ms-input-placeholder, body #c-form form input[name=your-name]:-ms-input-placeholder, body #c-form form textarea:-ms-input-placeholder {
+  color: #C99B69;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+body #c-form form input[name=your-email], body #c-form form input[name=your-phone], body #c-form form input[name=your-name] {
+  border: none;
+  border-bottom: 1px solid rgba(201, 155, 105, 0.5);
+}
+body #c-form form textarea {
+  border: 1px solid rgba(201, 155, 105, 0.5);
+  border-radius: 10px;
+}
+body #c-form form input[type=submit] {
+  background: transparent;
+  color: #C99B69;
+  border: 1px solid #C99B69;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 21px;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px 60px;
+  transition: all 0.3s;
+}
+body #c-form form input[type=submit]:hover {
+  background: #C99B69;
+  color: white;
+}
+body #c-form form input[type=submit]:active {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
