@@ -26,8 +26,8 @@ if ( ! empty( $next_post ) ) {
 	$post      = get_post( $prev_post->ID );
 	setup_postdata( $post ); ?>
     <section id="our_projects">
-        <a href="<?= get_permalink( $next_post->ID ) ?>" class="single-post">
-            <img src="<? the_post_thumbnail_url( $next_post->ID ); ?>" alt="" class="single-post_image">
+        <a href="<?= get_permalink( $prev_post->ID ) ?>" class="single-post">
+            <img src="<? the_post_thumbnail_url( $prev_post->ID ); ?>" alt="" class="single-post_image">
             <div class="post-contents">
                 <h2 class="text-white post-title"><?= the_title() ?></h2>
                 <p class="post-text"><? the_field( 'additional_text' ); ?></p>
