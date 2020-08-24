@@ -48,7 +48,7 @@ input[type=text], div[type=button] {
   width: 1px;
   height: 12px;
   background: #fff;
-  margin: 0 1px;
+  margin: 5px 1px;
   display: inline-block;
   animation: opacity-1 1000ms infinite ease-in-out;
 }
@@ -161,6 +161,10 @@ body .link-button:hover {
 body .link-button:active {
   font-weight: 400;
 }
+body header {
+  max-width: 1440px;
+  margin: 0 auto;
+}
 body header .navbar-brand {
   font-size: 18px !important;
   text-transform: uppercase;
@@ -217,6 +221,9 @@ body header .main_rus li, body header .main_eng li {
   margin: 0 30px;
   text-transform: uppercase;
   width: max-content;
+}
+body header .main_rus li a, body header .main_eng li a {
+  font-weight: 300;
 }
 @media screen and (max-width: 767px) {
   body header .main_rus, body header .main_eng {
@@ -431,6 +438,9 @@ body .section-main_top #player {
   height: 458px;
   display: block;
   margin: 92px auto 0 auto;
+}
+body footer {
+  margin-top: 200px;
 }
 body footer .footer-logo img {
   width: 130px;
@@ -649,10 +659,11 @@ body #activities .activities-block .activities-container {
   height: 230px;
 }
 body #activities .activities-block .activities-container .first-activity, body #activities .activities-block .activities-container .second-activity, body #activities .activities-block .activities-container .third-activity {
-  display: flex;
+  display: none;
   margin-left: 32px;
   font-size: 18px;
   position: relative;
+  transition: visibility 0.5s ease-in-out;
 }
 body #activities .activities-block .activities-container .first-activity:before, body #activities .activities-block .activities-container .second-activity:before, body #activities .activities-block .activities-container .third-activity:before {
   content: "";
@@ -663,29 +674,32 @@ body #activities .activities-block .activities-container .first-activity:before,
   position: absolute;
 }
 body #activities .activities-block .activities-container .first-activity {
-  width: 40%;
+  width: 35%;
+  line-height: 50px;
 }
 body #activities .activities-block .activities-container .first-activity:before {
-  bottom: 0;
+  bottom: 1.5px;
   left: 0;
 }
 body #activities .activities-block .activities-container .second-activity {
-  align-items: flex-end;
+  line-height: 370px;
 }
 body #activities .activities-block .activities-container .second-activity:before {
   bottom: -15px;
   left: 0;
+}
+body #activities .activities-block .activities-container .third-activity {
+  line-height: 40px;
 }
 body #activities .activities-block .activities-container .third-activity:before {
   top: -15px;
   left: 0;
 }
 body #activities .activities-block .activities-container .second-activity, body #activities .activities-block .activities-container .third-activity {
-  width: 30%;
+  width: 27%;
 }
 body #activities .activities-block .activities-container .first-activity, body #activities .activities-block .activities-container .third-activity {
   height: 92px;
-  line-height: 40px;
 }
 @media screen and (max-width: 767px) {
   body #activities .activities-block .activities-container {
@@ -854,6 +868,12 @@ body #clients svg {
   position: absolute;
   top: 0;
 }
+@media screen and (min-width: 1440px) {
+  body #clients svg {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 @media screen and (max-width: 768px) {
   body #clients svg {
     left: -250px;
@@ -920,7 +940,7 @@ body #services h3 {
 body #services .services-item {
   padding-top: 37px;
   margin-bottom: 75px;
-  border-top: #C99B69 1px solid;
+  border-top: rgba(201, 155, 105, 0.5) 2px solid;
   display: flex;
 }
 @media screen and (max-width: 425px) {

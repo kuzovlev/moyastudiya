@@ -102,9 +102,8 @@ get_header();
 					<?= get_field( 'what_do_title_3' ); ?>
                 </div>
             </div>
-            <svg class="mainpage-svg-lg" width="1440" height="230" viewBox="0 0 1440 230" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5"
-                      stroke="#C99B69" stroke-width="2"/>
+            <svg class="mainpage-svg-lg lazy-line-painter" width="1440" height="230" viewBox="0 0 1440 230" fill="none" xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="animate">
+                <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5" data-llp-id="animate-0" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke: rgb(34, 47, 61); stroke-opacity: 1; stroke-width: 1; stroke-linecap: square; stroke-dasharray: 1733.2, 1733.2; stroke-dashoffset: 0;"></path>
             </svg>
 	        <svg class="mainpage-svg-sm" width="165" height="448" viewBox="0 0 165 448" fill="none" xmlns="http://www.w3.org/2000/svg">
 		        <path d="M79.5 448L79.5 296.852L79.5 283.648C79.5 279.433 82.9174 276.015 87.133 276.015V276.015L153.5 276.015C159.023 276.015 163.5 271.538 163.5 266.015L163.5 183.54C163.5 178.017 159.023 173.54 153.5 173.54L11 173.54C5.47714 173.54 0.999988 169.063 0.999988 163.54L0.99998 0" stroke="#C99B69" stroke-width="2"/>

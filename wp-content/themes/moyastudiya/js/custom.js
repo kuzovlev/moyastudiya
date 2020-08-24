@@ -10,19 +10,25 @@ $(window).on('load', function () {
 //youtube script
 
 "use strict";
-$(function() {
+$(function () {
     var videoID = $('#video-bg').data('videoid');
-    $(".youtube").each(function() {
+    $(".youtube").each(function () {
         // Based on the YouTube ID, we can easily find the thumbnail image
         $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + videoID + '/maxresdefault.jpg)');
 
-        $(document).delegate('#'+this.id, 'click', function() {
+        $(document).delegate('#' + this.id, 'click', function () {
             // Create an iFrame with autoplay set to true
             var iframe_url = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&autohide=1";
-            if ($(this).data('params')) iframe_url+='&'+$(this).data('params');
+            if ($(this).data('params')) iframe_url += '&' + $(this).data('params');
 
             // The height and width of the iFrame should be the same as parent
-            var iframe = $('<iframe/>', {id:'player', 'frameborder': '0', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height() })
+            var iframe = $('<iframe/>', {
+                id: 'player',
+                'frameborder': '0',
+                'src': iframe_url,
+                'width': $(this).width(),
+                'height': $(this).height()
+            })
 
             // Replace the YouTube thumbnail with YouTube HTML5 Player
             $(this).replaceWith(iframe);
@@ -119,4 +125,44 @@ $(document).ready(function () {
             });
         }
     });
+    var jqBar = $('.mainpage-svg-lg'); // селектор для вашего блока
+    var jqBarStatus = true;
+    $(window).scroll(function () {
+        var scrollEvent = ($(window).scrollTop() > (jqBar.position().top - $(window).height()));
+        if (scrollEvent && jqBarStatus) {
+            jqBarStatus = false;
+            let el = document.querySelector('#animate');
+            let myAnimation = new LazyLinePainter(el, {
+                "ease": "easeLinear",
+                "strokeWidth": 1,
+                "strokeOpacity": 1,
+                "strokeColor": "#C99B69",
+                "strokeCap": "square"
+            });
+            myAnimation.paint();
+            let firstAct = $('.first-activity');
+            let secondAct = $('.second-activity');
+            let thirdAct = $('.third-activity');
+            setTimeout(function () {
+                firstAct.fadeIn(300);
+            }, 1500);
+            console.log('ok1');
+            setTimeout(function () {
+                secondAct.fadeIn(300);
+            }, 2000);
+            console.log('ok2');
+            setTimeout(function () {
+                thirdAct.fadeIn(300);
+            }, 2500);
+            console.log('ok3');
+        }
+    });
+    // (function(){
+    //     document.onreadystatechange = () => {
+    //         if (document.readyState === 'complete') {
+    //
+    //         }
+    //     }
+    // })();
+
 });
