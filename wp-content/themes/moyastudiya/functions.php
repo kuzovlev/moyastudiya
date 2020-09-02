@@ -191,11 +191,18 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * Добавляем класс к пунктам меню
  */
-add_filter( 'nav_menu_css_class', 'special_nav_class', 10, 2 );
-function special_nav_class($classes, $item){
-		$classes[] = "nav-item";
+//add_filter( 'nav_menu_css_class', 'special_nav_class', 10, 2 );
+//function special_nav_class($classes, $item){
+//		$classes[] = "nav-item";
+//	return $classes;
+//}
+function add_additional_class_on_li($classes, $item, $args) {
+	if(isset($args->add_li_class)) {
+		$classes[] = $args->add_li_class;
+	}
 	return $classes;
 }
+add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 
 function my_site_custom_languages_selector_template () {
 	if (function_exists('wpm_get_languages')) {

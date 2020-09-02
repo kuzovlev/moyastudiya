@@ -2,6 +2,8 @@
   "post_types": {
     "page": {},
     "post": {},
+    "processes": {},
+    "services": {},
     "wp_block": {},
     "attachment": {},
     "nav_menu_item": {

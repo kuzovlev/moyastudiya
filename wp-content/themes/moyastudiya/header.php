@@ -66,7 +66,8 @@
 						'container'       => false,
 						'container_class' => '',
 //					'container_id'    => 'collapsibleNavbar',
-						'items_wrap'      => '<ul class="navbar-nav lang-nav">%3$s</ul>',
+						'items_wrap'      => '<ul class="navbar-nav lang-nav lang-menu">%3$s</ul>',
+						'add_li_class'  => 'lang-menu_item'
 					] ); ?>
                 </nav>
             </div>

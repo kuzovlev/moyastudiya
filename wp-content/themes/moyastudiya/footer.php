@@ -13,7 +13,17 @@
 <section id="c-form">
     <div class="container">
         <div class="row justify-content-center">
-            <h3 class="text-white">Давайте познакомимся</h3>
+            <h3 class="text-white">
+	            <?
+	            if ( wpm_get_language() === "ru" ):
+		            echo 'Давайте познакомимся';
+                elseif (wpm_get_language() === "uk" ):
+		            echo "Давайте знайомитися";
+	            else:
+		            echo "Let's get acquainted";
+	            endif;
+	            ?>
+            </h3>
         </div>
     </div>
     <?=do_shortcode('[contact-form-7 id="119" title="Contact form 1"]')?>

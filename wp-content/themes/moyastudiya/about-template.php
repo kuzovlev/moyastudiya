@@ -16,7 +16,7 @@ get_header(); ?>
                 </div>
                 <div class="col-md-5">
                     <div class="image-container">
-                        <img src="<?= get_template_directory_uri() ?>/src/portrait.png" alt="">
+                        <img src="<?=get_field('main_image')?>" alt="">
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@ get_header(); ?>
 					'numberposts'      => 0,
 					'category'         => 0,
 					'orderby'          => 'date',
-					'order'            => 'DESC',
+					'order'            => 'ASC',
 					'include'          => array(),
 					'exclude'          => array(),
 					'meta_key'         => '',
@@ -74,6 +74,10 @@ get_header(); ?>
     </section>
     <section id="process">
         <div class="container">
+            <h3 class="text-white">Этапы работы</h3>
+            <p class="col-md-5 process-header_text">
+	            <?= get_field( "proc_text" ) ?>
+            </p>
             <div class="row justify-content-between">
 				<? $posts = get_posts( array(
 					'numberposts'      => 0,

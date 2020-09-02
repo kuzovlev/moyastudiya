@@ -115,3 +115,13 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Garamond';
+    src: url('AGaramondPro-Regular.eot');
+    src: url('AGaramondPro-Regular.eot?#iefix') format('embedded-opentype'),
+    url('AGaramondPro-Regular.woff') format('woff'),
+    url('AGaramondPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

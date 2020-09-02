@@ -68,6 +68,8 @@ get_header();
             <?
             if ( wpm_get_language() === "ru" ):
 	            echo 'Больше кейсов';
+            elseif (wpm_get_language() === "uk" ):
+	            echo "Більше проєктів";
             else:
 	            echo "More projects";
             endif;
@@ -82,6 +84,8 @@ get_header();
 	                <?
 	                if ( wpm_get_language() === "ru" ):
 		                echo 'Чем мы занимаемся?';
+                    elseif (wpm_get_language() === "uk" ):
+		                echo "Чим ми займаємося?";
 	                else:
 		                echo "What are we doing?";
 	                endif;
@@ -114,6 +118,8 @@ get_header();
 		    <?
 		    if ( wpm_get_language() === "ru" ):
 			    echo 'Больше о нас';
+		    elseif (wpm_get_language() === "uk" ):
+                echo "Більше про нас";
 		    else:
 			    echo "More about us";
 		    endif;

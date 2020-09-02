@@ -3,8 +3,22 @@ $(window).on('load', function () {
         // $svg_anm = $preloader.find('.svg_anm'),
         $main_content = $('.main-content');
     // $svg_anm.fadeOut();
+    if (window.location.href.indexOf("uk") > -1) {
+        $('#menu-item-language-uk').remove();
+    }
+    if (window.location.href.indexOf("en") > -1) {
+        $('#menu-item-language-en').remove();
+    }
+    if (window.location.href.indexOf("uk") === -1 && window.location.href.indexOf("en") === -1) {
+        $('#menu-item-language-ru').remove();
+    }
+    $(".active-lang a").click(function(e){
+        if (e.target == this)
+            e.preventDefault();
+    });
     $preloader.delay(500).fadeOut('slow');
     $main_content.delay(500).fadeIn('slow');
+
 });
 
 //youtube script
@@ -125,38 +139,70 @@ $(document).ready(function () {
             });
         }
     });
-    var jqBar = $('.mainpage-svg-lg'); // селектор для вашего блока
-    var jqBarStatus = true;
-    $(window).scroll(function () {
-        var scrollEvent = ($(window).scrollTop() > (jqBar.position().top - $(window).height()));
-        if (scrollEvent && jqBarStatus) {
-            jqBarStatus = false;
-            let el = document.querySelector('#animate');
-            let myAnimation = new LazyLinePainter(el, {
-                "ease": "easeLinear",
-                "strokeWidth": 1,
-                "strokeOpacity": 1,
-                "strokeColor": "#C99B69",
-                "strokeCap": "square"
+    if ($('.mainpage-svg-lg').length) {
+        var jqBar = $('.mainpage-svg-lg'); // селектор для вашего блока
+        var jqBarStatus = true;
+        $(window).scroll(function () {
+            var scrollEvent = ($(window).scrollTop() > (jqBar.position().top - $(window).height()));
+            if (scrollEvent && jqBarStatus) {
+                jqBarStatus = false;
+                let el = document.querySelector('#animate');
+                let myAnimation = new LazyLinePainter(el, {
+                    "ease": "easeLinear",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1,
+                    "strokeColor": "#C99B69",
+                    "strokeCap": "square"
+                });
+                myAnimation.paint();
+                let firstAct = $('.first-activity');
+                let secondAct = $('.second-activity');
+                let thirdAct = $('.third-activity');
+                setTimeout(function () {
+                    firstAct.fadeIn(300);
+                }, 168);
+                setTimeout(function () {
+                    secondAct.fadeIn(300);
+                }, 655);
+                setTimeout(function () {
+                    thirdAct.fadeIn(300);
+                }, 1040);
+            }
+        });
+    }
+
+// Create a lightbox
+    (function () {
+        var $lightbox = $("<div class='lightbox'></div>");
+        var $img = $("<img>");
+        var $caption = $("<p class='caption'></p>");
+
+        // Add image and caption to lightbox
+
+        $lightbox
+            .append($img);
+        // .append($caption);
+
+        // Add lighbox to document
+
+        $('body').append($lightbox);
+
+        $('.mgl-img-container img').click(function (e) {
+            e.preventDefault();
+            var src = $(this).attr("src");
+            var cap = $(this).attr("alt");
+
+            $img.attr('src', src);
+            $caption.text(cap);
+
+            $lightbox.fadeIn('fast');
+
+            $lightbox.click(function () {
+                $lightbox.fadeOut('fast');
             });
-            myAnimation.paint();
-            let firstAct = $('.first-activity');
-            let secondAct = $('.second-activity');
-            let thirdAct = $('.third-activity');
-            setTimeout(function () {
-                firstAct.fadeIn(300);
-            }, 1500);
-            console.log('ok1');
-            setTimeout(function () {
-                secondAct.fadeIn(300);
-            }, 2000);
-            console.log('ok2');
-            setTimeout(function () {
-                thirdAct.fadeIn(300);
-            }, 2500);
-            console.log('ok3');
-        }
-    });
+        });
+
+    }());
     // (function(){
     //     document.onreadystatechange = () => {
     //         if (document.readyState === 'complete') {
@@ -164,5 +210,21 @@ $(document).ready(function () {
     //         }
     //     }
     // })();
+    var wpcf7Elm = document.querySelector( '.wpcf7' );
+    wpcf7Elm.addEventListener( 'wpcf7submit', function( event ) {
+        if (window.location.href.indexOf("uk") > -1) {
+            var formMess = "<div class='respon_mess'><p>Дякуємо! Незабаром мі з Вамі зв'яжемось!</p></div>"
+        }
+        if (window.location.href.indexOf("en") > -1) {
+            var formMess = "<div class='respon_mess'><p>Thanks! Will contact you as soon as possible!</p></div>"
+        }
+        if (window.location.href.indexOf("uk") === -1 && window.location.href.indexOf("en") === -1) {
+            var formMess = "<div class='respon_mess'><p>Спасибо! Мы скоро с Вами свяжемся!</p></div>"
+        }
+        $(this).fadeOut(300);
 
+        $('#c-form').append(formMess);
+
+        // Либо что-то более полезное
+    }, false );
 });

@@ -21,3 +21,41 @@ input[type=text], div[type=button] {
 .main-content{
   display: none;
 }
+.mgl-row{
+  height: 500px!important;
+}
+.post-header{
+  font-size: 48px;
+  line-height: 57px;
+  font-weight: 300;
+  margin-top: 100px;
+}
+.post-text-head{
+  color: rgba(255,255,255,.7);
+  font-size: 24px;
+  line-height: 22px;
+  margin-bottom: 90px;
+}
+
+.neighbour_projects{
+  color: white;
+  font-size: 36px;
+  line-height: 43px;
+  margin-bottom: 75px;
+  margin-top: 100px;
+  font-weight: 300;
+}
+
+.wpcf7-response-output{
+  display: none;
+}
+#c-form{
+  .respon_mess{
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    p{
+      color: #C99B69;
+    }
+  }
+}
