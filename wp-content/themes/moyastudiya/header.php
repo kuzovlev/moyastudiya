@@ -22,7 +22,9 @@
 
 <body>
 <div class="preloader-1">
-    <div>Loading
+    <div>
+        <span>Loading</span>
+<!--        <div class="lines">-->
         <span class="line line-1"></span>
         <span class="line line-2"></span>
         <span class="line line-3"></span>
@@ -32,6 +34,7 @@
         <span class="line line-7"></span>
         <span class="line line-8"></span>
         <span class="line line-9"></span>
+<!--        </div>-->
     </div>
 </div>
 <div class="main-content">
@@ -51,7 +54,6 @@
                             <div class="line" id="line0"></div>
                             <div class="line" id="line1"></div>
                             <div class="line" id="line2"></div>
-                            <div class="txt-container"><span>MENU</span></div>
                         </div>
                     </div>
 					<?php wp_nav_menu( [

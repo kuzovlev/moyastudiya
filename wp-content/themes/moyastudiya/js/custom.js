@@ -28,7 +28,7 @@ $(function () {
     var videoID = $('#video-bg').data('videoid');
     $(".youtube").each(function () {
         // Based on the YouTube ID, we can easily find the thumbnail image
-        $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + videoID + '/maxresdefault.jpg)');
+        $(this).css('background-image', 'url(https://i.ytimg.com/vi/' + videoID + '/maxresdefault.jpg)');
 
         $(document).delegate('#' + this.id, 'click', function () {
             // Create an iFrame with autoplay set to true
@@ -118,6 +118,7 @@ $(document).ready(function () {
                 ease: ease,
                 overwrite: overwrite
             });
+            line1.fadeOut(300);
             TweenMax.to(line2, 0.3, {
                 rotation: -45,
                 y: -(hLine) - (sepLine),
@@ -136,6 +137,21 @@ $(document).ready(function () {
                 delay: 0.3,
                 ease: ease,
                 overwrite: overwrite
+            });
+            line1.fadeIn(300);
+        }
+    });
+    var scrollProjects = $('#our_projects');
+    var scrollProjStatus = true;
+    $(window).scroll(function () {
+        var scrollEvent = ($(window).scrollTop() > (scrollProjects.position().top - $(window).height()));
+        if (scrollEvent && scrollProjStatus) {
+            scrollProjStatus = false;
+            [].forEach.call(document.querySelectorAll('img[data-src]'),    function(img) {
+                img.setAttribute('src', img.getAttribute('data-src'));
+                img.onload = function() {
+                    img.removeAttribute('data-src');
+                };
             });
         }
     });

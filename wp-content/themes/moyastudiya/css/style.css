@@ -66,6 +66,54 @@ input[type=text], div[type=button] {
   color: #C99B69;
 }
 
+.single-post-content p {
+  color: #929292;
+  font-family: "Garamond", Serif;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 300;
+  max-width: 811px;
+  margin: 0 auto 20px;
+}
+.single-post-content p:last-of-type {
+  margin-bottom: 150px;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  #activities .activities-block .activities-container .second-activity {
+    width: 38% !important;
+  }
+  #activities .activities-block .activities-container .third-activity {
+    width: 40% !important;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .footer-logo {
+    display: block !important;
+  }
+  .footer-logo .logo-container {
+    width: 100% !important;
+  }
+  .footer-logo .logo_soc-buttons {
+    justify-content: space-evenly;
+    width: 100% !important;
+    display: flex !important;
+    max-width: 100% !important;
+  }
+
+  .contacts {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 425px) {
+  footer .top-footer-line .foot_menu ul li {
+    display: block;
+    margin: 10px 0;
+  }
+  footer .footer-logo {
+    margin: 100px auto !important;
+  }
+}
 .preloader-1 {
   width: 100%;
   height: 100%;
@@ -88,7 +136,13 @@ input[type=text], div[type=button] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 66px;
+  width: 100%;
+  height: 66px;
+}
+
+.preloader-1 div span {
+  width: 100%;
+  display: block;
 }
 
 .preloader-1 .line {
@@ -170,7 +224,7 @@ input[type=text], div[type=button] {
   display: none;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -183,6 +237,15 @@ input[type=text], div[type=button] {
   display: block;
   margin: auto;
   height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .lightbox img {
+    height: unset;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .lightbox .caption {
@@ -201,7 +264,8 @@ input[type=text], div[type=button] {
 }
 
 body {
-  background: url("../src/image-8-edit.jpg") repeat;
+  background: url("../src/main_back_2.png") repeat;
+  background-size: 14%;
 }
 body a, body button {
   color: white;
@@ -545,9 +609,70 @@ body .section-main_top #player {
 body footer {
   margin-top: 200px;
 }
+body footer .contacts {
+  color: #929292;
+  position: relative;
+  font-size: 18px;
+  font-weight: 300;
+}
+body footer .contacts a {
+  color: #929292;
+}
+body footer .contacts:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 25px;
+  background: url(https://api.iconify.design/bi:geo-alt.svg?color=%23929292) no-repeat center center/contain;
+  position: absolute;
+  left: -25px;
+}
+body footer .top-footer-line .email-foot-link {
+  color: #929292;
+  margin-left: 20px;
+  position: relative;
+  padding-left: 20px;
+}
+body footer .top-footer-line .email-foot-link:before {
+  content: "";
+  display: block;
+  background: url(https://api.iconify.design/simple-line-icons:envelope.svg?color=%23929292) no-repeat center center/contain;
+  width: 20px;
+  height: 30px;
+  position: absolute;
+  left: -5px;
+}
+body footer .top-footer-line .email-foot-link:hover:before {
+  background: url(https://api.iconify.design/simple-line-icons:envelope.svg?color=%23ca9b65) no-repeat center center/contain;
+}
+@media screen and (max-width: 425px) {
+  body footer .top-footer-line .email-foot-link {
+    margin-left: -20px;
+  }
+}
+body footer .footer-logo {
+  display: flex;
+}
+body footer .footer-logo .logo-container {
+  width: 50%;
+  display: flex;
+}
+body footer .footer-logo .logo_soc-buttons {
+  justify-content: space-evenly;
+  width: 50%;
+  display: flex;
+}
+body footer .footer-logo .logo_soc-buttons a {
+  color: #929292;
+}
 body footer .footer-logo img {
   width: 130px;
   height: 100%;
+}
+@media screen and (max-width: 425px) {
+  body footer .footer-logo {
+    order: 5;
+  }
 }
 body footer .foot_menu, body footer .social-links {
   font-size: 18px;
@@ -556,6 +681,11 @@ body footer .foot_menu, body footer .social-links {
 body footer .foot_menu ul li {
   display: inline;
   margin: 0 30px;
+}
+@media screen and (max-width: 425px) {
+  body footer .foot_menu {
+    order: -1;
+  }
 }
 body footer .footer-information .footer-information__left a, body footer .footer-information .footer-information__left p {
   color: rgba(255, 255, 255, 0.5);
@@ -799,6 +929,16 @@ body #activities .activities-block .activities-container .second-activity {
 body #activities .activities-block .activities-container .second-activity:before {
   bottom: -15px;
   left: 0;
+}
+@media screen and (max-width: 425px) {
+  body #activities .activities-block .activities-container .second-activity:before {
+    left: 4px;
+  }
+}
+@media screen and (max-width: 375px) {
+  body #activities .activities-block .activities-container .second-activity:before {
+    left: 0;
+  }
 }
 body #activities .activities-block .activities-container .third-activity {
   line-height: 40px;

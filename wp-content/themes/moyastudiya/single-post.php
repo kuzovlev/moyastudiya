@@ -8,7 +8,9 @@ $prev_post = get_previous_post( true, '' );?>
 			<? the_title(); ?>
         </h1>
         <p class="post-text-head text-center"><? the_field( 'additional_text' ); ?></p>
-		<? the_content(); ?>
+        <div class="single-post-content">
+		    <? the_content(); ?>
+        </div>
     </div>
 <?php if ( ! empty( $prev_post ) ) { ?>
     <section id="our_projects">

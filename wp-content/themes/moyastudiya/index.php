@@ -53,7 +53,7 @@ get_header();
 		foreach ( $posts as $post ) {
 			setup_postdata( $post ); ?>
             <a href="<?= get_permalink() ?>" class="single-post">
-                <img src="<? the_post_thumbnail_url(); ?>" alt="" class="single-post_image lazy">
+                <img data-src="<? the_post_thumbnail_url(); ?>" alt="" class="single-post_image">
                 <div class="post-contents">
                     <h2 class="text-white post-title"><?= the_title() ?></h2>
                     <p class="post-text"><? the_field( 'additional_text' ); ?></p>

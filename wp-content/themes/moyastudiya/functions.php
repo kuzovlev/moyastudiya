@@ -143,10 +143,10 @@ add_action( 'widgets_init', 'moyastudiya_widgets_init' );
  * Enqueue scripts and styles.
  */
 function moyastudiya_scripts() {
+	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/fonts/stylesheet.css', array(), _S_VERSION );
 	wp_enqueue_style( 'moyastudiya-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?3', array(), false );
+	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?4', array(), false );
 	wp_enqueue_style( 'moyastudiya-style-bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), _S_VERSION );
-//	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/fonts/stylesheet.css', array(), _S_VERSION );
 	wp_style_add_data( 'moyastudiya-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'moyastudiya-jquery', get_template_directory_uri() . '/js/jquery.js', array(), _S_VERSION, true );
