@@ -44,7 +44,7 @@
 			] ); ?>
         </div>
         <div class="d-flex flex-column flex-md-row align-items-md-center p-3 px-md-4 footer-information justify-content-between">
-            <div class="my-2 my-md-0 mr-md-3 col-md-4 col-xs-12 footer-logo">
+            <div class="my-2 my-md-0 mr-md-3 col-md-2 col-xs-12 footer-logo">
                 <div class="col-6 logo-container"><?= the_custom_logo() ?></div>
                 <div class="col-6 logo_soc-buttons" style="justify-content: space-evenly">
                     <a href="https://facebook.com/<?= get_field( 'facebook', 32 ); ?>" target="_blank">
@@ -55,7 +55,7 @@
                     </a>
                 </div>
             </div>
-            <div class="my-2 my-md-0 mr-md-3 col-xs-12  contacts">
+            <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
                 <p><?= get_field( 'address_ukr', 32 ); ?>
                 </p>
                 <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block "
@@ -63,7 +63,7 @@
 					<?= get_field( 'telefon_ukr', 32 ); ?>
                 </a>
             </div>
-            <div class="my-2 my-md-0 mr-md-3 col-xs-12  contacts">
+            <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
                 <p><?= get_field( 'address_rus', 32 ); ?>
                 </p>
                 <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block "
@@ -71,7 +71,7 @@
 					<?= get_field( 'telefon_rus', 32 ); ?>
                 </a>
             </div>
-            <div class="my-2 my-md-0 mr-md-3 col-xs-12  contacts">
+            <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
                 <p><?= get_field( 'address_pol', 32 ); ?>
                 </p>
                 <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block "

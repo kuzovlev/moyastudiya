@@ -26,11 +26,11 @@ get_header();
             <div class="showreel-container">
                 <a class="start-video"></a>
                 <a class="start-video start-video_text">
-			        <? if ( wpm_get_language() === "ru" ):
-				        echo 'Смотреть шоурил';
-			        else:
-				        echo "Watch video";
-			        endif; ?>
+					<? if ( wpm_get_language() === "ru" ):
+						echo 'Смотреть шоурил';
+					else:
+						echo "Watch video";
+					endif; ?>
                 </a>
             </div>
         </div>
@@ -65,15 +65,15 @@ get_header();
 		wp_reset_postdata(); // сброс
 		?>
         <a href="/moyastudiya/projects/" class="link-button">
-            <?
-            if ( wpm_get_language() === "ru" ):
-	            echo 'Больше кейсов';
-            elseif (wpm_get_language() === "uk" ):
-	            echo "Більше проєктів";
-            else:
-	            echo "More projects";
-            endif;
-            ?>
+			<?
+			if ( wpm_get_language() === "ru" ):
+				echo 'Больше кейсов';
+            elseif ( wpm_get_language() === "uk" ):
+				echo "Більше проєктів";
+			else:
+				echo "More projects";
+			endif;
+			?>
         </a>
     </section>
 <?php if ( ! empty( get_field( 'what_do_title_1' ) ) || ! empty( get_field( 'what_do_title_2' ) ) || ! empty( get_field( 'what_do_title_3' ) ) ) { ?>
@@ -81,15 +81,15 @@ get_header();
         <div class="container">
             <div class="row justify-content-md-center">
                 <h2 class="text-white">
-	                <?
-	                if ( wpm_get_language() === "ru" ):
-		                echo 'Чем мы занимаемся?';
-                    elseif (wpm_get_language() === "uk" ):
-		                echo "Чим ми займаємося?";
-	                else:
-		                echo "What are we doing?";
-	                endif;
-	                ?>
+					<?
+					if ( wpm_get_language() === "ru" ):
+						echo 'Чем мы занимаемся?';
+                    elseif ( wpm_get_language() === "uk" ):
+						echo "Чим ми займаємося?";
+					else:
+						echo "What are we doing?";
+					endif;
+					?>
 
                 </h2>
             </div>
@@ -106,24 +106,36 @@ get_header();
 					<?= get_field( 'what_do_title_3' ); ?>
                 </div>
             </div>
-            <svg class="mainpage-svg-lg lazy-line-painter" width="1440" height="230" viewBox="0 0 1440 230" fill="none" xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="animate">
-                <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5" data-llp-id="animate-0" data-llp-duration="1500" data-llp-delay="0" fill-opacity="0" style="stroke: rgb(34, 47, 61); stroke-opacity: 1; stroke-width: 1; stroke-linecap: square; stroke-dasharray: 1733.2, 1733.2; stroke-dashoffset: 0;"></path>
+            <svg class="mainpage-svg-xxl lazy-line-painter" width="2560" height="230" viewBox="0 0 2560 230" fill="none" xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="Vectorxxl">
+                <path d="M0.5 77.5H1053H1070C1097.61 77.5 1120 99.8858 1120 127.5V153V178.5C1120 206.114 1142.39 228.5 1170 228.5H1399.5C1427.11 228.5 1449.5 206.114 1449.5 178.5V51C1449.5 23.3858 1471.89 1 1499.5 1L2560 1" data-llp-id="Vectorxxl-0" data-llp-duration="1750" data-llp-delay="0" fill-opacity="0" style=""/>
             </svg>
-	        <svg class="mainpage-svg-sm" width="165" height="448" viewBox="0 0 165 448" fill="none" xmlns="http://www.w3.org/2000/svg">
-		        <path d="M79.5 448L79.5 296.852L79.5 283.648C79.5 279.433 82.9174 276.015 87.133 276.015V276.015L153.5 276.015C159.023 276.015 163.5 271.538 163.5 266.015L163.5 183.54C163.5 178.017 159.023 173.54 153.5 173.54L11 173.54C5.47714 173.54 0.999988 169.063 0.999988 163.54L0.99998 0" stroke="#C99B69" stroke-width="2"/>
-	        </svg>
+            <svg class="mainpage-svg-xl lazy-line-painter" width="1920" height="230" viewBox="0 0 1920 230" fill="none" xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="Vector2000">
+                <path d="M-31 77.5H726H743C770.614 77.5 793 99.8858 793 127.5V153V178.5C793 206.114 815.386 228.5 843 228.5H1072.5C1100.11 228.5 1122.5 206.114 1122.5 178.5V51C1122.5 23.3858 1144.89 1 1172.5 1H1936.5" data-llp-id="Vector2000-0" data-llp-duration="1750" data-llp-delay="0" fill-opacity="0" style=""/>
+            </svg>
+            <svg class="mainpage-svg-lg lazy-line-painter" width="1440" height="230" viewBox="0 0 1440 230" fill="none" xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="VectorLg">
+                <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5" data-llp-id="VectorLg-0" data-llp-duration="500" data-llp-delay="0" fill-opacity="0" style=""/>
+            </svg>
+<!--            <svg class="mainpage-svg-lg" width="1440" height="230" viewBox="0 0 1440 230" fill="none" xmlns="http://www.w3.org/2000/svg" id="animate">-->
+<!--                <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5"-->
+<!--                      stroke="#C99B69" stroke-width="2"/>-->
+<!--            </svg>-->
+            <svg class="mainpage-svg-sm" width="165" height="448" viewBox="0 0 165 448" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M79.5 448L79.5 296.852L79.5 283.648C79.5 279.433 82.9174 276.015 87.133 276.015V276.015L153.5 276.015C159.023 276.015 163.5 271.538 163.5 266.015L163.5 183.54C163.5 178.017 159.023 173.54 153.5 173.54L11 173.54C5.47714 173.54 0.999988 169.063 0.999988 163.54L0.99998 0"
+                      stroke="#C99B69" stroke-width="2"/>
+            </svg>
 
         </div>
         <a href="/moyastudiya/projects/" class="link-button">
-		    <?
-		    if ( wpm_get_language() === "ru" ):
-			    echo 'Больше о нас';
-		    elseif (wpm_get_language() === "uk" ):
-                echo "Більше про нас";
-		    else:
-			    echo "More about us";
-		    endif;
-		    ?>
+			<?
+			if ( wpm_get_language() === "ru" ):
+				echo 'Больше о нас';
+            elseif ( wpm_get_language() === "uk" ):
+				echo "Більше про нас";
+			else:
+				echo "More about us";
+			endif;
+			?>
         </a>
     </section>
 	<?php

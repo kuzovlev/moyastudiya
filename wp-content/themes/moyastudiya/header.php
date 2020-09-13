@@ -42,9 +42,9 @@
         <div class="featurebox col-md-12 col-sm-12 col-xs-12">
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="navbar navbar-light d-none d-sm-block col-4">
-                    <a class="navbar-brand text-white" href="<?= get_home_url(); ?>"><?= get_bloginfo() ?></a>
+                    <a class="navbar-brand header-brand" href="<?= get_home_url(); ?>"><?= get_bloginfo() ?></a>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-center">
 					<?= the_custom_logo() ?>
                 </div>
                 <nav class="navbar navbar-expand-md col-sm-4 col-xs-6 justify-content-end navigation nav-container">

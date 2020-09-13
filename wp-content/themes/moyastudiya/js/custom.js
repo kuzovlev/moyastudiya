@@ -153,6 +153,14 @@ $(document).ready(function () {
                     img.removeAttribute('data-src');
                 };
             });
+            //
+            // ОДИН ИЗ ВАРИАНТОВ РЕШЕНИЯ ПРОБЛЕМЫ ВЫСОТЫ БЛОКА //
+
+            // var postImages = $('.single-post_image').toArray();
+            // $.each(postImages, function () {
+            //     var naturalHeight =  this.naturalHeight;
+            //     $(this).parent('.single-post').css({'height':naturalHeight});
+            // })
         }
     });
     if ($('.mainpage-svg-lg').length) {
@@ -162,8 +170,8 @@ $(document).ready(function () {
             var scrollEvent = ($(window).scrollTop() > (jqBar.position().top - $(window).height()));
             if (scrollEvent && jqBarStatus) {
                 jqBarStatus = false;
-                let el = document.querySelector('#animate');
-                let myAnimation = new LazyLinePainter(el, {
+                var el = document.querySelector('#VectorLg');
+                var myAnimation = new LazyLinePainter(el, {
                     "ease": "easeLinear",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
@@ -171,9 +179,74 @@ $(document).ready(function () {
                     "strokeCap": "square"
                 });
                 myAnimation.paint();
-                let firstAct = $('.first-activity');
-                let secondAct = $('.second-activity');
-                let thirdAct = $('.third-activity');
+                var firstAct = $('.first-activity');
+                var secondAct = $('.second-activity');
+                var thirdAct = $('.third-activity');
+                setTimeout(function () {
+                    firstAct.css({
+                        "animation-duration":"1s",
+                        "animation-name":"fade-in-left",
+                        "visibility":"visible"
+                    });
+                }, 168);
+                setTimeout(function () {
+                    secondAct.css({
+                        "animation-duration":".5s",
+                        "animation-name":"fade-in-down",
+                        "visibility":"visible"
+                    });
+                }, 655);
+                setTimeout(function () {
+                    thirdAct.css({
+                        "animation-duration":".5s",
+                        "animation-name":"fade-in-left",
+                        "visibility":"visible"
+                    });
+                }, 1040);
+            }
+        });
+    }
+
+
+    if($('.mainpage-svg-xxl').length){
+        var mpxxl = $('.mainpage-svg-xxl');
+        var mpxxlStatus = true;
+        $(window).scroll(function(){
+            var scrollEvent = ($(window).scrollTop() > (mpxxl.position().top - $(window).height()));
+            if (scrollEvent && mpxxlStatus){
+                mpxxlStatus = false;
+                var el = document.querySelector('#Vectorxxl');
+                var myAnimationXXL = new LazyLinePainter(el, {
+                    "ease": "easeLinear",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1,
+                    "strokeColor": "#C99B69",
+                    "strokeCap": "square"
+                });
+                myAnimationXXL.paint();
+            }
+        })
+    }
+
+    if($('.mainpage-svg-xl').length){
+        var mpxl = $('.mainpage-svg-xl');
+        var mpxlStatus = true;
+        $(window).scroll(function(){
+            var scrollEvent = ($(window).scrollTop() > (mpxl.position().top - $(window).height()));
+            if (scrollEvent && mpxlStatus){
+                mpxlStatus = false;
+                var el = document.querySelector('#Vector2000');
+                var myAnimationXL = new LazyLinePainter(el, {
+                    "ease": "easeLinear",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1,
+                    "strokeColor": "#C99B69",
+                    "strokeCap": "square"
+                });
+                myAnimationXL.paint();
+                var firstAct = $('.first-activity');
+                var secondAct = $('.second-activity');
+                var thirdAct = $('.third-activity');
                 setTimeout(function () {
                     firstAct.fadeIn(300);
                 }, 168);
@@ -184,7 +257,7 @@ $(document).ready(function () {
                     thirdAct.fadeIn(300);
                 }, 1040);
             }
-        });
+        })
     }
 
 // Create a lightbox
