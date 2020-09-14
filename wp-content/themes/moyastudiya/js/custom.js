@@ -12,7 +12,7 @@ $(window).on('load', function () {
     if (window.location.href.indexOf("uk") === -1 && window.location.href.indexOf("en") === -1) {
         $('#menu-item-language-ru').remove();
     }
-    $(".active-lang a").click(function(e){
+    $(".active-lang a").click(function (e) {
         if (e.target == this)
             e.preventDefault();
     });
@@ -20,7 +20,47 @@ $(window).on('load', function () {
     $main_content.delay(500).fadeIn('slow');
 
 });
+$(document).ready(function () {
+    var menuInfoPhone = $('.phone-Ukr').html(),
+        menuInfoMail = $('.email-foot-link').html(),
+        menuInfoAddr = $('.addr-Ukr').html(),
+        logoMobile = $('footer .custom-logo-link').html(),
+        mobileSocial = $('footer .logo_soc-buttons').html();
 
+    $('#collapsibleNavbar').append(`
+        <div class="mobile-langmenu" style="position:absolute; bottom: 0;">
+            <ul>
+                <li class="mobile-lang-rus">
+                    <a href="/">РУС</a>
+                </li>
+                <li class="mobile-lang-ukr">
+                    <a href="/uk">УКР</a>
+                </li>
+                <li class="mobile-lang-eng">
+                    <a href="/en">ENG</a>
+                </li>
+            </ul>
+            <div class="mobile-menu-contacts">
+                <a mailto="`+menuInfoMail+`">` + menuInfoMail + `</a>
+                <a tel="`+menuInfoPhone+`">` + menuInfoPhone + `</a>
+                <p>` + menuInfoAddr + `</p>
+            </div>
+        </div>
+        <div class="mobile-menu-footer">
+            <div class="logo">`+logoMobile+`</div>
+            <div class="soc-netw">`+mobileSocial+`</div>
+        </div>
+    `);
+    if (window.location.href.indexOf("uk") > -1) {
+        $('.mobile-lang-ukr').remove();
+    }
+    if (window.location.href.indexOf("en") > -1) {
+        $('.mobile-lang-eng').remove();
+    }
+    if (window.location.href.indexOf("uk") === -1 && window.location.href.indexOf("en") === -1) {
+        $('.mobile-lang-rus').remove();
+    }
+})
 //youtube script
 
 "use strict";
@@ -80,20 +120,6 @@ $(document).ready(function () {
     $('.burger-menu').hover(
         function (e) {
             if (!menuOpened) {
-                TweenMax.to(txtBurger, 0.3, {
-                    y: 0,
-                    height: (hLine) + (sepLine * 2),
-                    delay: 0.05,
-                    ease: ease,
-                    overwrite: overwrite
-                });
-                TweenMax.to(line1, 0.3, {y: (hLine) + (sepLine), ease: ease, overwrite: overwrite});
-                TweenMax.to(line1, 0.01, {autoAlpha: 0, delay: 0.3});
-            }
-        },
-
-        function (e) {
-            if (!menuOpened) {
                 TweenMax.to(line1, 0.01, {autoAlpha: 1, overwrite: overwrite});
                 TweenMax.to(txtBurger, 0.3, {
                     y: (hLine + sepLine),
@@ -109,8 +135,9 @@ $(document).ready(function () {
         //tlOver.pause();
         if (!menuOpened) {
             menuOpened = true;
-
-            TweenMax.to(txtBurger, 0.3, {y: (hLine + sepLine), height: 0, ease: ease, overwrite: overwrite});
+            $('.burger-menu').css({"position":"fixed"});
+            $('.header-logo').css({"position":"fixed"});
+            // TweenMax.to(txtBurger, 0.3, {y: (hLine + sepLine), height: 0, ease: ease, overwrite: overwrite});
             TweenMax.to(line0, 0.3, {
                 rotation: 45,
                 y: (hLine) + (sepLine),
@@ -128,41 +155,38 @@ $(document).ready(function () {
             });
 
         } else {
+            $('.burger-menu').css({"position":"absolute"});
+            $('.header-logo').css({"position":"unset"});
             menuOpened = undefined;
             TweenMax.to(line0, 0.3, {rotation: 0, y: 0, ease: ease, overwrite: overwrite});
             TweenMax.to(line2, 0.3, {rotation: 0, y: 0, ease: ease, overwrite: overwrite});
-            TweenMax.to(txtBurger, 0.3, {
-                y: 0,
-                height: (hLine) + (sepLine * 2),
-                delay: 0.3,
-                ease: ease,
-                overwrite: overwrite
-            });
             line1.fadeIn(300);
         }
     });
     var scrollProjects = $('#our_projects');
     var scrollProjStatus = true;
-    $(window).scroll(function () {
-        var scrollEvent = ($(window).scrollTop() > (scrollProjects.position().top - $(window).height()));
-        if (scrollEvent && scrollProjStatus) {
-            scrollProjStatus = false;
-            [].forEach.call(document.querySelectorAll('img[data-src]'),    function(img) {
-                img.setAttribute('src', img.getAttribute('data-src'));
-                img.onload = function() {
-                    img.removeAttribute('data-src');
-                };
-            });
-            //
-            // ОДИН ИЗ ВАРИАНТОВ РЕШЕНИЯ ПРОБЛЕМЫ ВЫСОТЫ БЛОКА //
+    if (scrollProjects.length) {
+        $(window).scroll(function () {
+            var scrollEvent = ($(window).scrollTop() > (scrollProjects.position().top - $(window).height()));
+            if (scrollEvent && scrollProjStatus) {
+                scrollProjStatus = false;
+                [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
+                    img.setAttribute('src', img.getAttribute('data-src'));
+                    img.onload = function () {
+                        img.removeAttribute('data-src');
+                    };
+                });
+                //
+                // ОДИН ИЗ ВАРИАНТОВ РЕШЕНИЯ ПРОБЛЕМЫ ВЫСОТЫ БЛОКА //
 
-            // var postImages = $('.single-post_image').toArray();
-            // $.each(postImages, function () {
-            //     var naturalHeight =  this.naturalHeight;
-            //     $(this).parent('.single-post').css({'height':naturalHeight});
-            // })
-        }
-    });
+                // var postImages = $('.single-post_image').toArray();
+                // $.each(postImages, function () {
+                //     var naturalHeight =  this.naturalHeight;
+                //     $(this).parent('.single-post').css({'height':naturalHeight});
+                // })
+            }
+        });
+    }
     if ($('.mainpage-svg-lg').length) {
         var jqBar = $('.mainpage-svg-lg'); // селектор для вашего блока
         var jqBarStatus = true;
@@ -184,23 +208,23 @@ $(document).ready(function () {
                 var thirdAct = $('.third-activity');
                 setTimeout(function () {
                     firstAct.css({
-                        "animation-duration":"1s",
-                        "animation-name":"fade-in-left",
-                        "visibility":"visible"
+                        "animation-duration": "1s",
+                        "animation-name": "fade-in-left",
+                        "visibility": "visible"
                     });
                 }, 168);
                 setTimeout(function () {
                     secondAct.css({
-                        "animation-duration":".5s",
-                        "animation-name":"fade-in-down",
-                        "visibility":"visible"
+                        "animation-duration": ".5s",
+                        "animation-name": "fade-in-down",
+                        "visibility": "visible"
                     });
                 }, 655);
                 setTimeout(function () {
                     thirdAct.css({
-                        "animation-duration":".5s",
-                        "animation-name":"fade-in-left",
-                        "visibility":"visible"
+                        "animation-duration": ".5s",
+                        "animation-name": "fade-in-left",
+                        "visibility": "visible"
                     });
                 }, 1040);
             }
@@ -208,12 +232,12 @@ $(document).ready(function () {
     }
 
 
-    if($('.mainpage-svg-xxl').length){
+    if ($('.mainpage-svg-xxl').length) {
         var mpxxl = $('.mainpage-svg-xxl');
         var mpxxlStatus = true;
-        $(window).scroll(function(){
+        $(window).scroll(function () {
             var scrollEvent = ($(window).scrollTop() > (mpxxl.position().top - $(window).height()));
-            if (scrollEvent && mpxxlStatus){
+            if (scrollEvent && mpxxlStatus) {
                 mpxxlStatus = false;
                 var el = document.querySelector('#Vectorxxl');
                 var myAnimationXXL = new LazyLinePainter(el, {
@@ -228,12 +252,12 @@ $(document).ready(function () {
         })
     }
 
-    if($('.mainpage-svg-xl').length){
+    if ($('.mainpage-svg-xl').length) {
         var mpxl = $('.mainpage-svg-xl');
         var mpxlStatus = true;
-        $(window).scroll(function(){
+        $(window).scroll(function () {
             var scrollEvent = ($(window).scrollTop() > (mpxl.position().top - $(window).height()));
-            if (scrollEvent && mpxlStatus){
+            if (scrollEvent && mpxlStatus) {
                 mpxlStatus = false;
                 var el = document.querySelector('#Vector2000');
                 var myAnimationXL = new LazyLinePainter(el, {
@@ -292,15 +316,14 @@ $(document).ready(function () {
         });
 
     }());
-    // (function(){
-    //     document.onreadystatechange = () => {
-    //         if (document.readyState === 'complete') {
-    //
-    //         }
-    //     }
-    // })();
-    var wpcf7Elm = document.querySelector( '.wpcf7' );
-    wpcf7Elm.addEventListener( 'wpcf7submit', function( event ) {
+    $('.agree').attr('checked', false);
+    var wpcf7Elm = document.querySelector('.wpcf7');
+    $('.but-to-submit').on("click", function () {
+        console.log('ss');
+        $('.wpcf7-form-control.wpcf7-submit.submit-hidden').click();
+    });
+    wpcf7Elm.addEventListener('wpcf7mailsent', function (event) {
+        event.preventDefault();
         if (window.location.href.indexOf("uk") > -1) {
             var formMess = "<div class='respon_mess'><p>Дякуємо! Незабаром мі з Вамі зв'яжемось!</p></div>"
         }
@@ -315,5 +338,17 @@ $(document).ready(function () {
         $('#c-form').append(formMess);
 
         // Либо что-то более полезное
-    }, false );
+    }, false);
+    var buttonsToHover = $('.link-button.draw');
+    $.each(buttonsToHover, function (i) {
+        var btnHov = $(this);
+        var btnHovStat = true;
+        $(window).scroll(function () {
+            var btnEvent = ($(window).scrollTop() > (btnHov.position().top - $(window).height()));
+            if (btnEvent && btnHovStat) {
+                btnHovStat = false;
+                btnHov.addClass('hovered');
+            }
+        })
+    });
 });

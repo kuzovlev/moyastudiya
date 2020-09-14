@@ -56,9 +56,9 @@
                 </div>
             </div>
             <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
-                <p><?= get_field( 'address_ukr', 32 ); ?>
+                <p class="addr-Ukr"><?= get_field( 'address_ukr', 32 ); ?>
                 </p>
-                <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block "
+                <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block phone-Ukr"
                    href="tel:<?= get_field( 'telefon_ukr', 32 ); ?>">
 					<?= get_field( 'telefon_ukr', 32 ); ?>
                 </a>

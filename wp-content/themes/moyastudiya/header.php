@@ -44,7 +44,7 @@
                 <div class="navbar navbar-light d-none d-sm-block col-4">
                     <a class="navbar-brand header-brand" href="<?= get_home_url(); ?>"><?= get_bloginfo() ?></a>
                 </div>
-                <div class="col-4 text-center">
+                <div class="col-4 text-center header-logo"style="z-index: 1000">
 					<?= the_custom_logo() ?>
                 </div>
                 <nav class="navbar navbar-expand-md col-sm-4 col-xs-6 justify-content-end navigation nav-container">
