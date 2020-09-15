@@ -100,6 +100,9 @@ get_header();
             </div>
         </div>
         <div class="activities-block">
+            <div class="star-1-overlay"></div>
+            <div class="star-2-overlay"></div>
+            <div class="star-3-overlay"></div>
             <div class="container activities-container">
                 <div class="first-activity p-3 px-md-4 text-white">
 					<?= get_field( 'what_do_title_1' ); ?>
@@ -114,28 +117,34 @@ get_header();
             <svg class="mainpage-svg-xxl lazy-line-painter" width="2560" height="230" viewBox="0 0 2560 230" fill="none"
                  xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="Vectorxxl">
                 <path d="M0.5 77.5H1053H1070C1097.61 77.5 1120 99.8858 1120 127.5V153V178.5C1120 206.114 1142.39 228.5 1170 228.5H1399.5C1427.11 228.5 1449.5 206.114 1449.5 178.5V51C1449.5 23.3858 1471.89 1 1499.5 1L2560 1"
-                      data-llp-id="Vectorxxl-0" data-llp-duration="1750" data-llp-delay="0" fill-opacity="0" style=""/>
+                      data-llp-id="Vectorxxl-0" data-llp-duration="750" data-llp-delay="0" fill-opacity="0" style=""/>
             </svg>
             <svg class="mainpage-svg-xl lazy-line-painter" width="1920" height="230" viewBox="0 0 1920 230" fill="none"
                  xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="Vector2000">
                 <path d="M-31 77.5H726H743C770.614 77.5 793 99.8858 793 127.5V153V178.5C793 206.114 815.386 228.5 843 228.5H1072.5C1100.11 228.5 1122.5 206.114 1122.5 178.5V51C1122.5 23.3858 1144.89 1 1172.5 1H1936.5"
-                      data-llp-id="Vector2000-0" data-llp-duration="1750" data-llp-delay="0" fill-opacity="0" style=""/>
+                      data-llp-id="Vector2000-0" data-llp-duration="750" data-llp-delay="0" fill-opacity="0" style=""/>
             </svg>
             <svg class="mainpage-svg-lg lazy-line-painter" width="1440" height="230" viewBox="0 0 1440 230" fill="none"
                  xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="VectorLg">
                 <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5"
-                      data-llp-id="VectorLg-0" data-llp-duration="500" data-llp-delay="0" fill-opacity="0" style=""/>
+                      data-llp-id="VectorLg-0" data-llp-duration="750" data-llp-delay="0" style=""/>
             </svg>
-            <!--            <svg class="mainpage-svg-lg" width="1440" height="230" viewBox="0 0 1440 230" fill="none" xmlns="http://www.w3.org/2000/svg" id="animate">-->
-            <!--                <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5"-->
-            <!--                      stroke="#C99B69" stroke-width="2"/>-->
-            <!--            </svg>-->
+<!--            <svg class="mainpage-svg-lg lazy-line-painter" width="1440" height="230" viewBox="0 0 1440 230" fill="none"-->
+<!--                 xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="VectorLg">-->
+<!--                <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5"-->
+<!--                      data-llp-id="VectorLg-0" data-llp-duration="500" data-llp-delay="0" fill-opacity="0" style=""/>-->
+<!--            </svg>-->
             <svg class="mainpage-svg-sm" width="165" height="448" viewBox="0 0 165 448" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M79.5 448L79.5 296.852L79.5 283.648C79.5 279.433 82.9174 276.015 87.133 276.015V276.015L153.5 276.015C159.023 276.015 163.5 271.538 163.5 266.015L163.5 183.54C163.5 178.017 159.023 173.54 153.5 173.54L11 173.54C5.47714 173.54 0.999988 169.063 0.999988 163.54L0.99998 0"
                       stroke="#C99B69" stroke-width="2"/>
             </svg>
-
+            <svg width="878" height="259" viewBox="0 0 878 259" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 class="stars-overlay">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M865.04 14.1987L864 0L862.96 14.1987L850.144 8L861.92 16L850.144 24L862.96 17.8013L864 32L865.04 17.8013L877.856 24L866.08 16L877.856 8L865.04 14.1987ZM15.36 89.6444L14 76L12.64 89.6444L0.143616 84L11.28 92L0.143616 100L12.64 94.3556L14 108L15.36 94.3556L27.8564 100L16.72 92L27.8564 84L15.36 89.6444ZM481 227L482.36 240.644L494.856 235L483.72 243L494.856 251L482.36 245.356L481 259L479.64 245.356L467.144 251L478.28 243L467.144 235L479.64 240.644L481 227Z"
+                      fill="#C99B69"/>
+            </svg>
         </div>
         <a href="/moyastudiya/projects/" class="link-button draw">
 			<?

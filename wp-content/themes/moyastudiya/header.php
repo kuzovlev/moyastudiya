@@ -18,6 +18,7 @@
     <!--    <link rel="profile" href="https://gmpg.org/xfn/11">-->
     <script src="https://use.fontawesome.com/f3f98404c8.js"></script>
 	<?php wp_head(); ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 </head>
 
 <body>

@@ -19,8 +19,60 @@ $(window).on('load', function () {
     $preloader.delay(500).fadeOut('slow');
     $main_content.delay(500).fadeIn('slow');
 
+    $('header').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-in-up'
+    });
+    if ($('#about-us').length){
+        $('.about-left-block').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-in-left'
+        });
+        $('.about-right-block').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-in-right'
+        })
+    }
+    if ($('.about-us-underline').length) {
+        var aboutUnder = $('.about-us-underline'); // селектор для вашего блока
+        var aboutUnderStatus = true;
+        $(window).scroll(function () {
+            var scrollAbout = ($(window).scrollTop() > (aboutUnder.position().top - $(window).height()));
+            if (scrollAbout && aboutUnderStatus) {
+                aboutUnderStatus = false;
+                var el = document.querySelector('#aboutUsLine');
+                var myAnimation = new LazyLinePainter(el, {
+                    "ease":"easeOutQuad",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1,
+                    "strokeColor": "#C99B69",
+                    "strokeCap": "square"
+                });
+                myAnimation.paint();
+                $('.about-header').css({
+                    'animation-duration': '.3s',
+                    'animation-name': 'fade-in-up'
+                })
+            }
+        });
+    }
 });
 $(document).ready(function () {
+    if($('.project_image').length){
+        [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
+            img.setAttribute('src', img.getAttribute('data-src'));
+            img.onload = function () {
+                img.removeAttribute('data-src');
+            };
+        });
+    }
+    $("a").click(function(event){
+        event.preventDefault();
+        var linkLocation = this.href;
+        $('.main-content').delay(100).fadeOut(200);
+        $('.preloader-1').delay(100).fadeIn(200);
+        window.location = linkLocation;
+    });
     var menuInfoPhone = $('.phone-Ukr').html(),
         menuInfoMail = $('.email-foot-link').html(),
         menuInfoAddr = $('.addr-Ukr').html(),
@@ -93,10 +145,12 @@ $(function () {
 $(document).ready(function () {
     var singlePost = $('.single-post');
     singlePost.mouseenter(function () {
-        $(this).find('.post-gradient').fadeOut(300);
+        $(this).find('.post-contents').fadeOut(200);
+        $(this).find('.post-gradient').fadeOut(200);
     });
     singlePost.mouseleave(function () {
-        $(this).find('.post-gradient').fadeIn(300);
+        $(this).find('.post-contents').fadeIn(200);
+        $(this).find('.post-gradient').fadeIn(200);
     });
 });
 
@@ -187,7 +241,7 @@ $(document).ready(function () {
             }
         });
     }
-    if ($('.mainpage-svg-lg').length) {
+    if ($('.mainpage-svg-lg').length && $(".mainpage-svg-lg").css("display")!=="none") {
         var jqBar = $('.mainpage-svg-lg'); // селектор для вашего блока
         var jqBarStatus = true;
         $(window).scroll(function () {
@@ -196,7 +250,7 @@ $(document).ready(function () {
                 jqBarStatus = false;
                 var el = document.querySelector('#VectorLg');
                 var myAnimation = new LazyLinePainter(el, {
-                    "ease": "easeLinear",
+                    "ease":"easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
                     "strokeColor": "#C99B69",
@@ -207,32 +261,39 @@ $(document).ready(function () {
                 var secondAct = $('.second-activity');
                 var thirdAct = $('.third-activity');
                 setTimeout(function () {
+                    $('.star-1-overlay').fadeOut(100);
                     firstAct.css({
                         "animation-duration": "1s",
                         "animation-name": "fade-in-left",
-                        "visibility": "visible"
+                        "visibility": "visible",
+                        "display":"block"
                     });
-                }, 168);
+                }, 77);
+
                 setTimeout(function () {
+                    $('.star-2-overlay').fadeOut(100);
                     secondAct.css({
                         "animation-duration": ".5s",
                         "animation-name": "fade-in-down",
-                        "visibility": "visible"
+                        "visibility": "visible",
+                        "display":"block"
                     });
-                }, 655);
+                }, 319);
                 setTimeout(function () {
+                    $('.star-3-overlay').fadeOut(100);
                     thirdAct.css({
                         "animation-duration": ".5s",
                         "animation-name": "fade-in-left",
-                        "visibility": "visible"
+                        "visibility": "visible",
+                        "display":"block"
                     });
-                }, 1040);
+                }, 520);
             }
         });
     }
 
 
-    if ($('.mainpage-svg-xxl').length) {
+    if ($('.mainpage-svg-xxl').length && $(".mainpage-svg-xxl").css("display")!=="none") {
         var mpxxl = $('.mainpage-svg-xxl');
         var mpxxlStatus = true;
         $(window).scroll(function () {
@@ -241,18 +302,48 @@ $(document).ready(function () {
                 mpxxlStatus = false;
                 var el = document.querySelector('#Vectorxxl');
                 var myAnimationXXL = new LazyLinePainter(el, {
-                    "ease": "easeLinear",
+                    "ease":"easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
                     "strokeColor": "#C99B69",
                     "strokeCap": "square"
                 });
                 myAnimationXXL.paint();
+                var firstAct = $('.first-activity');
+                var secondAct = $('.second-activity');
+                var thirdAct = $('.third-activity');
+                setTimeout(function () {
+                    $('.star-1-overlay').fadeOut(100);
+                    firstAct.css({
+                        "animation-duration": "1s",
+                        "animation-name": "fade-in-left",
+                        "visibility": "visible",
+                        "display":"block"
+                    });
+                }, 204);
+                setTimeout(function () {
+                    $('.star-2-overlay').fadeOut(100);
+                    secondAct.css({
+                        "animation-duration": ".5s",
+                        "animation-name": "fade-in-down",
+                        "visibility": "visible",
+                        "display":"block"
+                    });
+                }, 345);
+                setTimeout(function () {
+                    $('.star-3-overlay').fadeOut(100);
+                    thirdAct.css({
+                        "animation-duration": ".5s",
+                        "animation-name": "fade-in-left",
+                        "visibility": "visible",
+                        "display":"block"
+                    });
+                }, 457);
             }
         })
     }
 
-    if ($('.mainpage-svg-xl').length) {
+    if ($('.mainpage-svg-xl').length && $(".mainpage-svg-xl").css("display")!=="none") {
         var mpxl = $('.mainpage-svg-xl');
         var mpxlStatus = true;
         $(window).scroll(function () {
@@ -261,7 +352,7 @@ $(document).ready(function () {
                 mpxlStatus = false;
                 var el = document.querySelector('#Vector2000');
                 var myAnimationXL = new LazyLinePainter(el, {
-                    "ease": "easeLinear",
+                    "ease":"easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
                     "strokeColor": "#C99B69",
@@ -272,14 +363,33 @@ $(document).ready(function () {
                 var secondAct = $('.second-activity');
                 var thirdAct = $('.third-activity');
                 setTimeout(function () {
-                    firstAct.fadeIn(300);
-                }, 168);
+                    $('.star-1-overlay').fadeOut(100);
+                    firstAct.css({
+                        "animation-duration": "1s",
+                        "animation-name": "fade-in-left",
+                        "visibility": "visible",
+                        "display":"block"
+                    });
+                }, 150);
+
                 setTimeout(function () {
-                    secondAct.fadeIn(300);
-                }, 655);
+                    $('.star-2-overlay').fadeOut(100);
+                    secondAct.css({
+                        "animation-duration": ".5s",
+                        "animation-name": "fade-in-down",
+                        "visibility": "visible",
+                        "display":"block"
+                    });
+                }, 333);
                 setTimeout(function () {
-                    thirdAct.fadeIn(300);
-                }, 1040);
+                    $('.star-3-overlay').fadeOut(100);
+                    thirdAct.css({
+                        "animation-duration": ".5s",
+                        "animation-name": "fade-in-left",
+                        "visibility": "visible",
+                        "display":"block"
+                    });
+                }, 600);
             }
         })
     }

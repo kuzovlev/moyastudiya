@@ -160,6 +160,29 @@ input[type=text], div[type=button] {
       margin-bottom: 150px;
     }
   }
+  .proj-one-img {
+    .full_width {
+      width: 100%;
+    }
+  }
+  .proj-two-img {
+    justify-content: space-between;
+    span{
+      width: 49%;
+      .half_width{
+        width: 100%;
+      }
+      @media screen and (max-width: 568px){
+        width: 100%!important;
+        &:last-child{
+          padding-top: 25px;
+        }
+      }
+    }
+    @media screen and (max-width: 568px){
+      display: block!important;
+    }
+  }
 }
 @media (min-width: 769px) and (max-width: 1023px)  {
   #activities{

@@ -6,7 +6,7 @@ get_header(); ?>
     <section id="about-us">
         <div class="container">
             <div class="row">
-                <div class="col-md-7 text-white">
+                <div class="col-md-7 text-white about-left-block">
                     <h1>
 						<? the_title() ?>
                     </h1>
@@ -14,9 +14,9 @@ get_header(); ?>
 						<?= get_field( "main_text" ) ?>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 about-right-block">
                     <div class="image-container">
-                        <img src="<?=get_field('main_image')?>" alt="">
+                        <img src="<?= get_field( 'main_image' ) ?>" alt="">
                     </div>
                 </div>
             </div>
@@ -24,11 +24,12 @@ get_header(); ?>
     </section>
     <section id="clients">
         <div class="container header-container">
-            <h3 class="text-white"><?= get_field( 'second_block_title' ); ?></h3>
+            <h3 class="text-white about-header"><?= get_field( 'second_block_title' ); ?></h3>
         </div>
-        <svg width="1436" height="65" viewBox="0 0 1436 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-1036 41.5967H-35.2335C-29.3922 41.5967 -26.8968 49.0198 -31.5519 52.5484V52.5484C-36.207 56.0769 -33.7116 63.5 -27.8703 63.5H123.361H782.906C800.165 63.5 814.156 49.5089 814.156 32.25V32.25C814.156 14.9911 828.147 1 845.406 1L1436 1"
-                  stroke="#C99B69" stroke-width="2"/>
+        <svg width="2559" height="65" viewBox="0 0 2559 65" fill="none" xmlns="http://www.w3.org/2000/svg"
+             data-llp-composed="true" id="aboutUsLine" class="lazy-line-painter about-us-underline">
+            <path d="M0.5 63.5H707.361H1321.75C1339.01 63.5 1353 49.5089 1353 32.25V32.25C1353 14.9911 1366.99 1 1384.25 1H2560.5"
+                  data-llp-id="Vector2-0" data-llp-duration="750" data-llp-delay="0" style=""/>
         </svg>
         <div class="container">
             <div class="row">
@@ -76,7 +77,7 @@ get_header(); ?>
         <div class="container">
             <h3 class="text-white">Этапы работы</h3>
             <p class="col-md-5 process-header_text">
-	            <?= get_field( "proc_text" ) ?>
+				<?= get_field( "proc_text" ) ?>
             </p>
             <div class="row justify-content-between">
 				<? $posts = get_posts( array(

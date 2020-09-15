@@ -117,6 +117,7 @@ function moyastudiya_content_width() {
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = apply_filters( 'moyastudiya_content_width', 640 );
 }
+
 add_action( 'after_setup_theme', 'moyastudiya_content_width', 0 );
 
 /**
@@ -137,6 +138,7 @@ function moyastudiya_widgets_init() {
 		)
 	);
 }
+
 add_action( 'widgets_init', 'moyastudiya_widgets_init' );
 
 /**
@@ -153,13 +155,14 @@ function moyastudiya_scripts() {
 	wp_enqueue_script( 'moyastudiya-custom', get_template_directory_uri() . '/js/custom.js?5', array(), false, true );
 	wp_enqueue_script( 'moyastudiya-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'moyastudiya-lines', get_template_directory_uri().'/js/lazy-line-painter-1.9.6.min.js', array(), _S_VERSION, true);
-//	wp_enqueue_script( 'moyastudiya-tween', get_template_directory_uri() . '/js/TweenMax.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'moyastudiya-lines', get_template_directory_uri() . '/js/lazy-line-painter-1.9.6.min.js', array(), _S_VERSION, true );
+	//	wp_enqueue_script( 'moyastudiya-tween', get_template_directory_uri() . '/js/TweenMax.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', 'moyastudiya_scripts' );
 
 /**
@@ -196,30 +199,32 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 //		$classes[] = "nav-item";
 //	return $classes;
 //}
-function add_additional_class_on_li($classes, $item, $args) {
-	if(isset($args->add_li_class)) {
+function add_additional_class_on_li( $classes, $item, $args ) {
+	if ( isset( $args->add_li_class ) ) {
 		$classes[] = $args->add_li_class;
 	}
+
 	return $classes;
 }
-add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 
-function my_site_custom_languages_selector_template () {
-	if (function_exists('wpm_get_languages')) {
+add_filter( 'nav_menu_css_class', 'add_additional_class_on_li', 1, 3 );
+
+function my_site_custom_languages_selector_template() {
+	if ( function_exists( 'wpm_get_languages' ) ) {
 		$languages = wpm_get_languages();
-		$current = wpm_get_language();
+		$current   = wpm_get_language();
 
 		$out = '<div class="b-language-selector">';
 
-		foreach ($languages as $code => $language) {
-			$toggle_url = esc_url(wpm_translate_current_url($code));
+		foreach ( $languages as $code => $language ) {
+			$toggle_url  = esc_url( wpm_translate_current_url( $code ) );
 			$css_classes = 'b-language-selector-link ';
 
-			if ($code === $current) {
+			if ( $code === $current ) {
 				$css_classes .= 'b-language-selector-link--active';
 			}
 
-			$out .= '<a href="' . $toggle_url . '" class="' . $css_classes . '" data-lang="' . esc_attr($code) . '">';
+			$out .= '<a href="' . $toggle_url . '" class="' . $css_classes . '" data-lang="' . esc_attr( $code ) . '">';
 			$out .= $language['name'];
 			$out .= '</a>';
 			$out .= '&nbsp;';
@@ -235,56 +240,79 @@ add_action( 'init', 'processes_reg' ); // Использовать функци�
 
 function processes_reg() {
 	$labels = array(
-		'name' => 'Процессы',
-		'singular_name' => 'Процесс', // админ панель Добавить->Функцию
-		'add_new' => 'Добавить этап',
-		'add_new_item' => 'Добавить новый этап', // заголовок тега <title>
-		'edit_item' => 'Редактировать этап',
-		'new_item' => 'Новый этап',
-		'all_items' => 'Все этапы',
-		'view_item' => 'Просмотр',
-		'search_items' => 'Найти этап',
-		'not_found' =>  'Этапов не найдено',
+		'name'               => 'Процессы',
+		'singular_name'      => 'Процесс', // админ панель Добавить->Функцию
+		'add_new'            => 'Добавить этап',
+		'add_new_item'       => 'Добавить новый этап', // заголовок тега <title>
+		'edit_item'          => 'Редактировать этап',
+		'new_item'           => 'Новый этап',
+		'all_items'          => 'Все этапы',
+		'view_item'          => 'Просмотр',
+		'search_items'       => 'Найти этап',
+		'not_found'          => 'Этапов не найдено',
 		'not_found_in_trash' => 'В корзине нет этапов.',
-		'menu_name' => 'Процессы' // ссылка в меню в админке
+		'menu_name'          => 'Процессы' // ссылка в меню в админке
 	);
-	$args = array(
-		'labels' => $labels,
-		'public' => true,
-		'show_ui' => true, // показывать интерфейс в админке
-		'has_archive' => true,
-		'menu_icon' => get_stylesheet_directory_uri() .'/img/function_icon.png', // иконка в меню
+	$args   = array(
+		'labels'        => $labels,
+		'public'        => true,
+		'show_ui'       => true, // показывать интерфейс в админке
+		'has_archive'   => true,
+		'menu_icon'     => get_stylesheet_directory_uri() . '/img/function_icon.png', // иконка в меню
 		'menu_position' => 20, // порядок в меню
-		'supports' => array( 'title', 'editor', 'comments', 'author', 'thumbnail')
+		'supports'      => array( 'title', 'editor', 'comments', 'author', 'thumbnail' )
 	);
-	register_post_type('processes', $args);
+	register_post_type( 'processes', $args );
 }
 
 add_action( 'init', 'services_reg' ); // Использовать функцию только внутри хука init
 
 function services_reg() {
 	$labels = array(
-		'name' => 'Услуги',
-		'singular_name' => 'Услуга', // админ панель Добавить->Функцию
-		'add_new' => 'Добавить услугу',
-		'add_new_item' => 'Добавить новую услугу', // заголовок тега <title>
-		'edit_item' => 'Редактировать услугу',
-		'new_item' => 'Новая услуга',
-		'all_items' => 'Все услуги',
-		'view_item' => 'Просмотр',
-		'search_items' => 'Найти услугу',
-		'not_found' =>  'Услуг не найдено',
+		'name'               => 'Услуги',
+		'singular_name'      => 'Услуга', // админ панель Добавить->Функцию
+		'add_new'            => 'Добавить услугу',
+		'add_new_item'       => 'Добавить новую услугу', // заголовок тега <title>
+		'edit_item'          => 'Редактировать услугу',
+		'new_item'           => 'Новая услуга',
+		'all_items'          => 'Все услуги',
+		'view_item'          => 'Просмотр',
+		'search_items'       => 'Найти услугу',
+		'not_found'          => 'Услуг не найдено',
 		'not_found_in_trash' => 'В корзине нет услуг.',
-		'menu_name' => 'Услуги' // ссылка в меню в админке
+		'menu_name'          => 'Услуги' // ссылка в меню в админке
 	);
-	$args = array(
-		'labels' => $labels,
-		'public' => true,
-		'show_ui' => true, // показывать интерфейс в админке
-		'has_archive' => true,
-		'menu_icon' => get_stylesheet_directory_uri() .'/img/function_icon.png', // иконка в меню
+	$args   = array(
+		'labels'        => $labels,
+		'public'        => true,
+		'show_ui'       => true, // показывать интерфейс в админке
+		'has_archive'   => true,
+		'menu_icon'     => get_stylesheet_directory_uri() . '/img/function_icon.png', // иконка в меню
 		'menu_position' => 21, // порядок в меню
-		'supports' => array( 'title', 'editor', 'comments', 'author', 'thumbnail')
+		'supports'      => array( 'title', 'editor', 'comments', 'author', 'thumbnail' )
 	);
-	register_post_type('services', $args);
+	register_post_type( 'services', $args );
 }
+
+function image_full_width_shortcode_func( $attrs ) {
+	$params = shortcode_atts( array(
+		'first' => ''
+	),
+		$attrs );
+
+	return "<div class='d-flex proj-one-img'><span data-fancybox='gallery' href='{$params['first']}'><img class='project_image full_width lazy' data-src='{$params['first']}'></span></div>";
+}
+
+add_shortcode( 'full_wid_img', 'image_full_width_shortcode_func' );
+
+function image_double_shortcode_func( $attrs ) {
+	$params = shortcode_atts( array(
+		'first'  => '',
+		'second' => ''
+	),
+		$attrs );
+
+	return "<div class='d-flex proj-two-img'><span data-fancybox='gallery' href='{$params['first']}'><img class='project_image half_width lazy' data-src={$params['first']}'></span><span data-fancybox='gallery' href='{$params['second']}'><img class='lazy project_image half_width' data-src={$params['second']}'></span></div>";
+}
+
+add_shortcode( 'double_img', 'image_double_shortcode_func' );
