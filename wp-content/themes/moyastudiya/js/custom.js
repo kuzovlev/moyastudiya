@@ -24,12 +24,17 @@ $(window).on('load', function () {
             'animation-name': 'fade-in-up'
     });
     if ($('#about-us').length){
-        var textWrapper = document.querySelector('.about_text_animate');
+
+
+        var textWrapper = document.querySelector('.about_text_animate'),
+            processTextWrapper = document.querySelectorAll('.process-text');
+        $.each(processTextWrapper, function () {
+            this.innerHTML = this.textContent.replace(/[\wа-яёіє]+./gim, "<span class='letter'>$&</span>");
+        });
 
         textWrapper.innerHTML = textWrapper.textContent.replace(/[\wа-яёіє]+./gim, "<span class='letter'>$&</span>");
 
-        anime.timeline({loop: false})
-            .add({
+        anime.timeline({loop: false}).add({
                 targets: '.about_text_animate .letter',
                 translateX: [40,0],
                 translateZ: 0,
@@ -37,7 +42,7 @@ $(window).on('load', function () {
                 easing: "easeOutExpo",
                 duration: 300,
                 delay: (el, i) => 500 + 10 * i
-            });
+        });
         $('.about-right-block').css({
             'animation-duration': '1s',
             'animation-name': 'fade-in-right'
@@ -73,6 +78,21 @@ $(window).on('load', function () {
         });
     }
     if ($('.proj-one-img').length){
+        var projTextWrapper = document.querySelectorAll('.single-post-content p');
+
+        $.each(projTextWrapper, function (i) {
+            projTextWrapper[i].innerHTML = projTextWrapper[i].textContent.replace(/[\wа-яёіє]+./gim, "<span class='letter'>$&</span>");
+        });
+
+        anime.timeline({loop: false}).add({
+            targets: '.single-post-content p .letter',
+            translateX: [40,0],
+            translateZ: 0,
+            opacity: [0,1],
+            easing: "easeOutExpo",
+            duration: 300,
+            delay: (el, i) => 500 + 20 * i
+        });
         $('.post-header').css({
             'animation-duration': '1s',
             'animation-name': 'fade-in-left',
@@ -83,11 +103,11 @@ $(window).on('load', function () {
             'animation-name': 'fade-in-right',
             'visibility':'visible'
         });
-        $('.single-post-content').css({
-            'animation-duration': '1s',
-            'animation-name': 'fade-in-down',
-            'visibility':'visible'
-        })
+        // $('.single-post-content').css({
+        //     'animation-duration': '1s',
+        //     'animation-name': 'fade-in-down',
+        //     'visibility':'visible'
+        // })
     };
     if($('.section-main_top').length){
         $('.header-mainpage').css({
@@ -188,7 +208,8 @@ $(function () {
 });
 
 $(document).ready(function () {
-    var singlePost = $('.single-post');
+    var singlePost = $('.single-post'),
+        processContainer =$('.process-container');
     singlePost.mouseenter(function () {
         $(this).find('.post-contents').fadeOut(200);
         $(this).find('.post-gradient').fadeOut(200);
@@ -197,6 +218,25 @@ $(document).ready(function () {
         $(this).find('.post-contents').fadeIn(200);
         $(this).find('.post-gradient').fadeIn(200);
     });
+    processContainer.mouseenter(function () {
+        var element = $(this).find('.process-text .letter');
+        anime.timeline({loop: false}).add({
+            targets: $(this).find('.process-title'),
+            translateX: [0,-30],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 100,
+            delay: (el, i) => 100 + 30 * i
+        });
+        anime.timeline({loop: false}).add({
+            targets: $(this).find('.process-text .letter'),
+            scale: [14,1],
+            opacity: [0,1],
+            easing: "easeOutCirc",
+            duration: 1000,
+            delay: (el, i) => 800 * i
+        })
+    })
 });
 
 $(document).ready(function () {
@@ -319,7 +359,7 @@ $(document).ready(function () {
                     $('.star-2-overlay').fadeOut(100);
                     secondAct.css({
                         "animation-duration": ".5s",
-                        "animation-name": "fade-in-down",
+                        "animation-name": "fade-in-up",
                         "visibility": "visible",
                         "display":"block"
                     });

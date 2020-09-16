@@ -592,7 +592,7 @@ body header .main_rus .mobile-langmenu, body header .main_eng .mobile-langmenu {
   display: none;
   position: absolute;
   width: 100%;
-  top: 36%;
+  top: 50%;
   left: 50%;
   transform: translateX(-50%);
   height: 40%;
@@ -611,7 +611,7 @@ body header .main_rus .mobile-langmenu .mobile-menu-contacts, body header .main_
   width: 100%;
   height: inherit;
   position: absolute;
-  top: 40%;
+  bottom: 0;
   padding-left: 40px;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 300;
@@ -1687,18 +1687,15 @@ body #process .process-container .process-title {
   line-height: 21px;
   color: #fff;
   margin: 13px 13px 0 13px;
-  transition: all 0.3s;
+  opacity: 1;
 }
 body #process .process-container .process-text {
   margin: 15px 9px 0 13px;
   font-size: 16px;
   line-height: 19px;
   color: rgba(255, 255, 255, 0.75);
-  position: absolute;
   top: 0;
-  visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s;
 }
 @media screen and (max-width: 768px) {
   body #process .process-container .process-text {
@@ -1734,20 +1731,6 @@ body #process .process-container:after {
     height: 80px;
     line-height: 80px;
   }
-}
-body #process .process-container:hover .process-title {
-  visibility: hidden;
-  opacity: 0;
-}
-@media screen and (max-width: 768px) {
-  body #process .process-container:hover .process-title {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-body #process .process-container:hover .process-text {
-  visibility: visible;
-  opacity: 1;
 }
 body #c-form h3 {
   font-size: 36px;
