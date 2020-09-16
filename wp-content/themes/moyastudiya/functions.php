@@ -145,11 +145,7 @@ add_action( 'widgets_init', 'moyastudiya_widgets_init' );
  * Enqueue scripts and styles.
  */
 function moyastudiya_scripts() {
-	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/fonts/stylesheet.css', array(), _S_VERSION );
-	wp_enqueue_style( 'moyastudiya-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?4', array(), false );
-	wp_enqueue_style( 'moyastudiya-style-bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), _S_VERSION );
-	wp_style_add_data( 'moyastudiya-style', 'rtl', 'replace' );
+
 
 	wp_enqueue_script( 'moyastudiya-jquery', get_template_directory_uri() . '/js/jquery.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-custom', get_template_directory_uri() . '/js/custom.js?5', array(), false, true );
@@ -157,13 +153,22 @@ function moyastudiya_scripts() {
 	wp_enqueue_script( 'moyastudiya-bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-lines', get_template_directory_uri() . '/js/lazy-line-painter-1.9.6.min.js', array(), _S_VERSION, true );
 	//	wp_enqueue_script( 'moyastudiya-tween', get_template_directory_uri() . '/js/TweenMax.js', array(), _S_VERSION, true );
-
+	wp_deregister_script('jquery');
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 
 add_action( 'wp_enqueue_scripts', 'moyastudiya_scripts' );
+
+function prefix_add_footer_styles() {
+	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/fonts/stylesheet.css', array(), _S_VERSION );
+//	wp_enqueue_style( 'moyastudiya-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?4', array(), false );
+	wp_enqueue_style( 'moyastudiya-style-bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), _S_VERSION );
+	wp_style_add_data( 'moyastudiya-style', 'rtl', 'replace' );
+};
+add_action( 'get_footer', 'prefix_add_footer_styles' );
 
 /**
  * Implement the Custom Header feature.
