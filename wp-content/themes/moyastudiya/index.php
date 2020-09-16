@@ -15,14 +15,14 @@
 get_header();
 ?>
     <section class="section-main_top">
-        <div class="container">
+        <div class="container header-mainpage">
             <div class="row justify-content-md-center">
                 <h1 class="text-white text-center col-md-8 col-sm-12 col-lg-6 col-xl-5 col-xs-12">
 					<?php echo get_bloginfo( 'description' ); ?>
                 </h1>
             </div>
         </div>
-        <div style="padding-top: 50%; position: relative; overflow: hidden;">
+        <div style="padding-top: 50%; position: relative; overflow: hidden;" class="video-mainpage">
             <iframe frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen"
                     src="https://onelineplayer.com/player.html?autoplay=false&autopause=false&muted=false&loop=false&url=https%3A%2F%2Fvimeo.com%2F226137389&poster=&time=false&progressBar=false&overlay=true&muteButton=true&fullscreenButton=false&style=light&quality=auto&playButton=true"
                     style="position: absolute; height: 100%; width: 100%; left: 50%; top: 0px; max-width: 1087px; transform: translateX(-50%); border-radius: 20px;"></iframe>
@@ -103,6 +103,7 @@ get_header();
             <div class="star-1-overlay"></div>
             <div class="star-2-overlay"></div>
             <div class="star-3-overlay"></div>
+            <div class="full-height-star-overlay"></div>
             <div class="container activities-container">
                 <div class="first-activity p-3 px-md-4 text-white">
 					<?= get_field( 'what_do_title_1' ); ?>
@@ -129,18 +130,28 @@ get_header();
                 <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5"
                       data-llp-id="VectorLg-0" data-llp-duration="750" data-llp-delay="0" style=""/>
             </svg>
-<!--            <svg class="mainpage-svg-lg lazy-line-painter" width="1440" height="230" viewBox="0 0 1440 230" fill="none"-->
-<!--                 xmlns="http://www.w3.org/2000/svg" data-llp-composed="true" id="VectorLg">-->
-<!--                <path d="M0 77.5H486H503C530.614 77.5 553 99.8858 553 127.5V153V178.5C553 206.114 575.386 228.5 603 228.5H832.5C860.114 228.5 882.5 206.114 882.5 178.5V51C882.5 23.3858 904.886 1 932.5 1H1440.5"-->
-<!--                      data-llp-id="VectorLg-0" data-llp-duration="500" data-llp-delay="0" fill-opacity="0" style=""/>-->
-<!--            </svg>-->
-            <svg class="mainpage-svg-sm" width="165" height="448" viewBox="0 0 165 448" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
+            <svg width="165" height="448" viewBox="0 0 165 448" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 data-llp-composed="true" id="Vector3" class="lazy-line-painter mainpage-svg-sm">
                 <path d="M79.5 448L79.5 296.852L79.5 283.648C79.5 279.433 82.9174 276.015 87.133 276.015V276.015L153.5 276.015C159.023 276.015 163.5 271.538 163.5 266.015L163.5 183.54C163.5 178.017 159.023 173.54 153.5 173.54L11 173.54C5.47714 173.54 0.999988 169.063 0.999988 163.54L0.99998 0"
-                      stroke="#C99B69" stroke-width="2"/>
+                      data-llp-id="Vector3-0" data-llp-duration="750" data-llp-delay="0" style=""/>
+                <defs>
+                    <linearGradient id="paint0_linear" x1="1" y1="-4.5" x2="1" y2="423.5"
+                                    gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#C99B69" stop-opacity="0"/>
+                        <stop offset="0.1875" stop-color="#C99B69"/>
+                        <stop offset="0.84375" stop-color="#C99B69"/>
+                        <stop offset="1" stop-color="#C99B69" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <svg width="194" height="292" viewBox="0 0 194 292" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 class="stars-overlay-small">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M18.3556 12.64L24 0.143555L16 11.28L8.00002 0.143555L13.6444 12.64L2.23653e-05 14L13.6444 15.36L8.00002 27.8564L16 16.72L24 27.8564L18.3556 15.36L32 14L18.3556 12.64ZM102.856 264L97.2121 276.496L110.856 277.856L97.2121 279.216L102.856 291.713L94.8565 280.576L86.8565 291.713L92.5009 279.216L78.8565 277.856L92.5009 276.496L86.8565 264L94.8565 275.136L102.856 264ZM177.856 140.28L169.856 129.144L175.501 141.64L161.856 143L175.501 144.36L169.856 156.856L177.856 145.72L185.856 156.856L180.212 144.36L193.856 143L180.212 141.64L185.856 129.144L177.856 140.28Z"
+                      fill="#C99B69"/>
             </svg>
             <svg width="878" height="259" viewBox="0 0 878 259" fill="none" xmlns="http://www.w3.org/2000/svg"
-                 class="stars-overlay">
+                 class="stars-overlay-big">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M865.04 14.1987L864 0L862.96 14.1987L850.144 8L861.92 16L850.144 24L862.96 17.8013L864 32L865.04 17.8013L877.856 24L866.08 16L877.856 8L865.04 14.1987ZM15.36 89.6444L14 76L12.64 89.6444L0.143616 84L11.28 92L0.143616 100L12.64 94.3556L14 108L15.36 94.3556L27.8564 100L16.72 92L27.8564 84L15.36 89.6444ZM481 227L482.36 240.644L494.856 235L483.72 243L494.856 251L482.36 245.356L481 259L479.64 245.356L467.144 251L478.28 243L467.144 235L479.64 240.644L481 227Z"
                       fill="#C99B69"/>

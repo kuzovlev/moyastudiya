@@ -24,10 +24,20 @@ $(window).on('load', function () {
             'animation-name': 'fade-in-up'
     });
     if ($('#about-us').length){
-        $('.about-left-block').css({
-            'animation-duration': '1s',
-            'animation-name': 'fade-in-left'
-        });
+        var textWrapper = document.querySelector('.about_text_animate');
+
+        textWrapper.innerHTML = textWrapper.textContent.replace(/[\wа-яёіє]+./gim, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: false})
+            .add({
+                targets: '.about_text_animate .letter',
+                translateX: [40,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 300,
+                delay: (el, i) => 500 + 10 * i
+            });
         $('.about-right-block').css({
             'animation-duration': '1s',
             'animation-name': 'fade-in-right'
@@ -50,11 +60,46 @@ $(window).on('load', function () {
                 });
                 myAnimation.paint();
                 $('.about-header').css({
-                    'animation-duration': '.3s',
-                    'animation-name': 'fade-in-up'
+                    'animation-duration': '1s',
+                    'animation-name': 'fade-in-up',
+                    'visibility':'visible'
+                });
+                $('#clients .about-us_text').css({
+                    'animation-duration': '1s',
+                    'animation-name': 'fade-in-left',
+                    'visibility':'visible'
                 })
             }
         });
+    }
+    if ($('.proj-one-img').length){
+        $('.post-header').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-in-left',
+            'visibility':'visible'
+        });
+        $('.post-text-head').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-in-right',
+            'visibility':'visible'
+        });
+        $('.single-post-content').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-in-down',
+            'visibility':'visible'
+        })
+    };
+    if($('.section-main_top').length){
+        $('.header-mainpage').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-in-left',
+            'visibility':'visible'
+        });
+        $('.video-mainpage').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-in-right',
+            'visibility':'visible'
+        })
     }
 });
 $(document).ready(function () {
@@ -393,6 +438,60 @@ $(document).ready(function () {
             }
         })
     }
+    if ($('.mainpage-svg-sm').length && $(".mainpage-svg-sm").css("display")!=="none") {
+        var mpsm = $('.mainpage-svg-sm');
+        var mpsmStatus = true;
+        $(window).scroll(function () {
+            var scrollEvent = ($(window).scrollTop() > (mpsm.position().top - $(window).height()));
+            if (scrollEvent && mpsmStatus) {
+                mpsmStatus = false;
+                var el = document.querySelector('#Vector3');
+                var myAnimationSM = new LazyLinePainter(el, {
+                    "ease":"easeOutQuad",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1,
+                    "strokeColor": "#C99B69",
+                    "strokeCap": "square",
+                    "reverse":"true"
+                });
+                myAnimationSM.paint();
+                $('.full-height-star-overlay').css({
+                    "animation-duration": ".7s",
+                    "animation-name": "fade-out-down",
+                    "visibility": "hidden",
+                })
+                var firstAct = $('.first-activity');
+                var secondAct = $('.second-activity');
+                var thirdAct = $('.third-activity');
+                setTimeout(function () {
+                    firstAct.css({
+                        "animation-duration": "1s",
+                        "animation-name": "fade-in-left",
+                        "visibility": "visible",
+                        "display":"block"
+                    });
+                }, 150);
+
+                setTimeout(function () {
+                    secondAct.css({
+                        "animation-duration": ".5s",
+                        "animation-name": "fade-in-right",
+                        "visibility": "visible",
+                        "display":"block"
+                    });
+                }, 333);
+                setTimeout(function () {
+                    thirdAct.css({
+                        "animation-duration": ".5s",
+                        "animation-name": "fade-in-left",
+                        "visibility": "visible",
+                        "display":"block"
+                    });
+                }, 600);
+            }
+        })
+    }
+
 
 // Create a lightbox
     (function () {

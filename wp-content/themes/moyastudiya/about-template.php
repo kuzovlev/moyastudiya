@@ -10,7 +10,7 @@ get_header(); ?>
                     <h1>
 						<? the_title() ?>
                     </h1>
-                    <div class="about-us_text">
+                    <div class="about-us_text about_text_animate">
 						<?= get_field( "main_text" ) ?>
                     </div>
                 </div>
