@@ -22,23 +22,12 @@ get_header();
                 </h1>
             </div>
         </div>
-        <div style="padding-top: 50%; position: relative; overflow: hidden;" class="video-mainpage">
-            <iframe frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen"
-                    src="https://onelineplayer.com/player.html?autoplay=false&autopause=false&muted=false&loop=false&url=https%3A%2F%2Fvimeo.com%2F226137389&poster=&time=false&progressBar=false&overlay=true&muteButton=true&fullscreenButton=false&style=light&quality=auto&playButton=true"
-                    style="position: absolute; height: 100%; width: 100%; left: 50%; top: 0px; max-width: 1087px; transform: translateX(-50%); border-radius: 20px;"></iframe>
-        </div>
-        <!--        <div id="video-bg" class="youtube" data-videoid="--><?//= get_field( "mainpage_video" ) ?><!--">-->
-        <!--            <div class="showreel-container">-->
-        <!--                <a class="start-video"></a>-->
-        <!--                <a class="start-video start-video_text">-->
-        <!--					--><? // if ( wpm_get_language() === "ru" ):
-		//						echo 'Смотреть шоурил';
-		//					else:
-		//						echo "Watch video";
-		//					endif; ?>
-        <!--                </a>-->
-        <!--            </div>-->
-        <!--        </div>-->
+        <div class="gif-container" data-src="<?=get_template_directory_uri()?>/images/moyastudiya_small.mp4"></div>
+<!--        <div style="padding-top: 50%; position: relative; overflow: hidden;" class="video-mainpage">-->
+<!--            <iframe frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen"-->
+<!--                    src="https://onelineplayer.com/player.html?autoplay=false&autopause=false&muted=false&loop=true&url=https%3A%2F%2Fvimeo.com%2F458982550&poster=https%3A%2F%2Fmoyastudiya.com%2Fwp-content%2Fthemes%2Fmoyastudiya%2Fimages%2Fcover-image.png&time=false&progressBar=false&overlay=true&muteButton=true&fullscreenButton=false&style=light&quality=auto&playButton=true"-->
+<!--                    style="position: absolute; height: 100%; width: 100%; left: 50%; top: 0px; max-width: 1087px; transform: translateX(-50%); border-radius: 20px;"></iframe>-->
+<!--        </div>-->
     </section>
     <section id="our_projects">
 		<?
@@ -85,7 +74,7 @@ get_header();
     <section id="activities">
         <div class="container">
             <div class="row justify-content-md-center">
-                <h2 class="text-white">
+                <h2 class="text-white activities-header">
 					<?
 					if ( wpm_get_language() === "ru" ):
 						echo 'Чем мы занимаемся?';
@@ -157,7 +146,7 @@ get_header();
                       fill="#C99B69"/>
             </svg>
         </div>
-        <a href="/moyastudiya/projects/" class="link-button draw">
+        <a href="/o-nas/" class="link-button draw">
 			<?
 			if ( wpm_get_language() === "ru" ):
 				echo 'Больше о нас';

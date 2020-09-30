@@ -1,5 +1,5 @@
 $(window).on('load', function () {
-    var $preloader = $('.preloader-1'),
+    var $preloader = $('.vertical-centered-box'),
         // $svg_anm = $preloader.find('.svg_anm'),
         $main_content = $('.main-content');
     // $svg_anm.fadeOut();
@@ -19,34 +19,49 @@ $(window).on('load', function () {
     $preloader.delay(500).fadeOut('slow');
     $main_content.delay(500).fadeIn('slow');
 
-    $('header').css({
-            'animation-duration': '1s',
-            'animation-name': 'fade-in-up'
+    $('body h1').css({
+        'animation-duration': '1s',
+        'animation-name': 'fade-down',
+        'visibility': 'visible',
+        'transition-timing-function': 'ease-out'
     });
-    if ($('#about-us').length){
 
-
-        var textWrapper = document.querySelector('.about_text_animate'),
-            processTextWrapper = document.querySelectorAll('.process-text');
-        $.each(processTextWrapper, function () {
-            this.innerHTML = this.textContent.replace(/[\wа-яёіє]+./gim, "<span class='letter'>$&</span>");
-        });
-
-        textWrapper.innerHTML = textWrapper.textContent.replace(/[\wа-яёіє]+./gim, "<span class='letter'>$&</span>");
-
-        anime.timeline({loop: false}).add({
-                targets: '.about_text_animate .letter',
-                translateX: [40,0],
-                translateZ: 0,
-                opacity: [0,1],
-                easing: "easeOutExpo",
-                duration: 300,
-                delay: (el, i) => 500 + 10 * i
-        });
-        $('.about-right-block').css({
-            'animation-duration': '1s',
-            'animation-name': 'fade-in-right'
-        })
+    setTimeout(function () {
+        if (window.location.pathname === "/projects/" || window.location.pathname === "/o-nas/" || window.location.pathname === "/") {
+            var y = $(window).scrollTop();  //your current y position on the page
+            $(window).scrollTop(y + 1);
+        }
+    }, 501);
+    if ($('.single-post-content').length) {
+        setTimeout(function () {
+            var y = $(window).scrollTop();  //your current y position on the page
+            $(window).scrollTop(y + 1);
+        }, 501);
+    }
+    $('header').css({
+        'animation-duration': '1s',
+        'animation-name': 'fade-in-up',
+        'transition-timing-function': 'ease-out'
+    });
+    if ($('#about-us').length) {
+        setTimeout(function () {
+            $('.about-left-block h1').css({
+                'animation-duration': '1500ms',
+                'animation-name': 'fade-down',
+                'visibility': 'visible',
+                'transition-timing-function': 'ease-out'
+            });
+            $('.about-left-block .about-us_text').css({
+                'animation-duration': '1s',
+                'animation-name': 'fade-in-down-curve',
+                'visibility': 'visible'
+            });
+            // $('.about-right-block').css({
+            //     'animation-duration': '1s',
+            //     'animation-name': 'fade-in-down-curve',
+            //     'visibility': 'visible'
+            // });
+        }, 700);
     }
     if ($('.about-us-underline').length) {
         var aboutUnder = $('.about-us-underline'); // селектор для вашего блока
@@ -57,7 +72,7 @@ $(window).on('load', function () {
                 aboutUnderStatus = false;
                 var el = document.querySelector('#aboutUsLine');
                 var myAnimation = new LazyLinePainter(el, {
-                    "ease":"easeOutQuad",
+                    "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
                     "strokeColor": "#C99B69",
@@ -66,64 +81,57 @@ $(window).on('load', function () {
                 myAnimation.paint();
                 $('.about-header').css({
                     'animation-duration': '1s',
-                    'animation-name': 'fade-in-up',
-                    'visibility':'visible'
+                    'animation-name': 'fade-down',
+                    'visibility': 'visible'
                 });
                 $('#clients .about-us_text').css({
                     'animation-duration': '1s',
-                    'animation-name': 'fade-in-left',
-                    'visibility':'visible'
+                    'animation-name': 'fade-in-down-curve',
+                    'visibility': 'visible'
                 })
             }
         });
     }
-    if ($('.proj-one-img').length){
-        var projTextWrapper = document.querySelectorAll('.single-post-content p');
-
-        $.each(projTextWrapper, function (i) {
-            projTextWrapper[i].innerHTML = projTextWrapper[i].textContent.replace(/[\wа-яёіє]+./gim, "<span class='letter'>$&</span>");
-        });
-
-        anime.timeline({loop: false}).add({
-            targets: '.single-post-content p .letter',
-            translateX: [40,0],
-            translateZ: 0,
-            opacity: [0,1],
-            easing: "easeOutExpo",
-            duration: 300,
-            delay: (el, i) => 500 + 20 * i
-        });
+    if ($('.proj-one-img').length) {
         $('.post-header').css({
             'animation-duration': '1s',
-            'animation-name': 'fade-in-left',
-            'visibility':'visible'
+            'animation-name': 'fade-down',
+            'visibility': 'visible',
+            'transition-timing-function': 'ease-out'
         });
         $('.post-text-head').css({
             'animation-duration': '1s',
-            'animation-name': 'fade-in-right',
-            'visibility':'visible'
+            'animation-name': 'fade-down',
+            'visibility': 'visible',
+            'transition-timing-function': 'ease-out'
         });
-        // $('.single-post-content').css({
-        //     'animation-duration': '1s',
-        //     'animation-name': 'fade-in-down',
-        //     'visibility':'visible'
-        // })
-    };
-    if($('.section-main_top').length){
+        $('.single-post-content p').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-down',
+            'visibility': 'visible',
+            'transition-timing-function': 'ease-out'
+        })
+    }
+    if ($('.section-main_top').length) {
         $('.header-mainpage').css({
             'animation-duration': '1s',
-            'animation-name': 'fade-in-left',
-            'visibility':'visible'
+            'animation-name': 'fade-down',
+            'visibility': 'visible',
+            'transition-timing-function': 'ease-out'
         });
         $('.video-mainpage').css({
             'animation-duration': '1s',
-            'animation-name': 'fade-in-right',
-            'visibility':'visible'
+            'animation-name': 'fade-down',
+            'visibility': 'visible',
+            'transition-timing-function': 'ease-out'
         })
     }
+    var videoSrc = $('.gif-container').attr('data-src');
+    var addVideoEl = $(`<video id="video_cut" src="`+videoSrc+`" preload="auto" autoplay="true" loop="true" muted="muted"></video>`);
+    $('.gif-container').append(addVideoEl);
 });
 $(document).ready(function () {
-    if($('.project_image').length){
+    if ($('.project_image').length) {
         [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
             img.setAttribute('src', img.getAttribute('data-src'));
             img.onload = function () {
@@ -131,11 +139,11 @@ $(document).ready(function () {
             };
         });
     }
-    $("a").click(function(event){
+    $("a").click(function (event) {
         event.preventDefault();
         var linkLocation = this.href;
         $('.main-content').delay(100).fadeOut(200);
-        $('.preloader-1').delay(100).fadeIn(200);
+        $('.vertical-centered-box').delay(100).fadeIn(200);
         window.location = linkLocation;
     });
     var menuInfoPhone = $('.phone-Ukr').html(),
@@ -158,14 +166,14 @@ $(document).ready(function () {
                 </li>
             </ul>
             <div class="mobile-menu-contacts">
-                <a mailto="`+menuInfoMail+`">` + menuInfoMail + `</a>
-                <a tel="`+menuInfoPhone+`">` + menuInfoPhone + `</a>
+                <a mailto="` + menuInfoMail + `">` + menuInfoMail + `</a>
+                <a tel="` + menuInfoPhone + `">` + menuInfoPhone + `</a>
                 <p>` + menuInfoAddr + `</p>
             </div>
         </div>
         <div class="mobile-menu-footer">
-            <div class="logo">`+logoMobile+`</div>
-            <div class="soc-netw">`+mobileSocial+`</div>
+            <div class="logo">` + logoMobile + `</div>
+            <div class="soc-netw">` + mobileSocial + `</div>
         </div>
     `);
     if (window.location.href.indexOf("uk") > -1) {
@@ -177,7 +185,65 @@ $(document).ready(function () {
     if (window.location.href.indexOf("uk") === -1 && window.location.href.indexOf("en") === -1) {
         $('.mobile-lang-rus').remove();
     }
-})
+
+    if ($('#services').length) {
+
+        var servicesHeader = $('#services h3'); // селектор для вашего блока
+        var servisesHeaderStatus = true;
+        $(window).scroll(function () {
+            var scrollService = ($(window).scrollTop() > (servicesHeader.position().top - $(window).height()));
+            if (scrollService && servisesHeaderStatus) {
+                servisesHeaderStatus = false;
+                $('#services h3').css({
+                    'animation-duration': '1s',
+                    'animation-name': 'fade-down',
+                    'visibility': 'visible'
+                });
+            }
+        });
+    }
+    if ($('#process').length) {
+        var processHeader = $('#process h3'); // селектор для вашего блока
+        var processHeaderStatus = true;
+        $(window).scroll(function () {
+            var scrollProcess = ($(window).scrollTop() > (processHeader.position().top - $(window).height()));
+            if (scrollProcess && processHeaderStatus) {
+                processHeaderStatus = false;
+                $('#process h3').css({
+                    'animation-duration': '1s',
+                    'animation-name': 'fade-down',
+                    'visibility': 'visible'
+                });
+                $('#process .process-header_text').css({
+                    'animation-duration': '1s',
+                    'animation-name': 'fade-down',
+                    'visibility': 'visible'
+                });
+                // setTimeout(function () {
+                //     $('.processes-wrapper').css({
+                //         'animation-duration': '1s',
+                //         'animation-name': 'fade-down',
+                //         'visibility': 'visible'
+                //     });
+                // }, 1000)
+            }
+        });
+    }
+
+    var cForm = $('#c-form'),
+        formStatus = true;
+    $(window).scroll(function () {
+        var scrollForm = ($(window).scrollTop() > (cForm.position().top - $(window).height()));
+        if (scrollForm && formStatus) {
+            formStatus = false;
+            cForm.css({
+                'animation-duration': '1s',
+                'animation-name': 'fade-down',
+                'visibility': 'visible'
+            })
+        }
+    })
+});
 //youtube script
 
 "use strict";
@@ -209,7 +275,7 @@ $(function () {
 
 $(document).ready(function () {
     var singlePost = $('.single-post'),
-        processContainer =$('.process-container');
+        processContainer = $('.process-container, .process-text');
     singlePost.mouseenter(function () {
         $(this).find('.post-contents').fadeOut(200);
         $(this).find('.post-gradient').fadeOut(200);
@@ -218,28 +284,48 @@ $(document).ready(function () {
         $(this).find('.post-contents').fadeIn(200);
         $(this).find('.post-gradient').fadeIn(200);
     });
-    processContainer.mouseenter(function () {
-        var element = $(this).find('.process-text .letter');
-        anime.timeline({loop: false}).add({
-            targets: $(this).find('.process-title'),
-            translateX: [0,-30],
-            opacity: [1,0],
-            easing: "easeInExpo",
-            duration: 100,
-            delay: (el, i) => 100 + 30 * i
-        });
-        anime.timeline({loop: false}).add({
-            targets: $(this).find('.process-text .letter'),
-            scale: [14,1],
-            opacity: [0,1],
-            easing: "easeOutCirc",
-            duration: 1000,
-            delay: (el, i) => 800 * i
-        })
-    })
+    // processContainer.mouseover(function () {
+    //     var element = $(this).find('.process-text'),
+    //         elemHeader = $(this).find('.process-title');
+    //
+    //     elemHeader.css({
+    //         'animation-duration': '.5s',
+    //         'animation-name': 'fade-out-down',
+    //         'display': 'none'
+    //     });
+    //     element.css({
+    //         'animation-duration': '.5s',
+    //         'animation-name': 'fade-down',
+    //         'visibility': 'visible',
+    //         "opacity": '1',
+    //         'transition-timing-function': 'ease-out'
+    //     })
+    // });
+    // processContainer.mouseout(function (e) {
+    //     var element = $(this).find('.process-text'),
+    //         elemHeader = $(this).find('.process-title');
+    //
+    //     elemHeader.css({
+    //         'animation-duration': '.5s',
+    //         'animation-name': 'fade-in-up',
+    //         'display': 'block'
+    //     });
+    //     element.css({
+    //         'animation-duration': '.5s',
+    //         'animation-name': 'fade-out-down',
+    //         'visibility': 'hidden',
+    //         "opacity": '0'
+    //     });
+    //     e.stopPropagation();
+    // })
 });
 
 $(document).ready(function () {
+    setTimeout(function () {
+        $('iframe .vp-controls').css({
+            "display": "none"
+        });
+    }, 5000);
     //-
     var hLine = 3;
     var sepLine = 7;
@@ -274,8 +360,8 @@ $(document).ready(function () {
         //tlOver.pause();
         if (!menuOpened) {
             menuOpened = true;
-            $('.burger-menu').css({"position":"fixed"});
-            $('.header-logo').css({"position":"fixed"});
+            $('.burger-menu').css({"position": "fixed"});
+            $('.header-logo').css({"position": "fixed"});
             // TweenMax.to(txtBurger, 0.3, {y: (hLine + sepLine), height: 0, ease: ease, overwrite: overwrite});
             TweenMax.to(line0, 0.3, {
                 rotation: 45,
@@ -294,8 +380,8 @@ $(document).ready(function () {
             });
 
         } else {
-            $('.burger-menu').css({"position":"absolute"});
-            $('.header-logo').css({"position":"unset"});
+            $('.burger-menu').css({"position": "absolute"});
+            $('.header-logo').css({"position": "unset"});
             menuOpened = undefined;
             TweenMax.to(line0, 0.3, {rotation: 0, y: 0, ease: ease, overwrite: overwrite});
             TweenMax.to(line2, 0.3, {rotation: 0, y: 0, ease: ease, overwrite: overwrite});
@@ -315,18 +401,10 @@ $(document).ready(function () {
                         img.removeAttribute('data-src');
                     };
                 });
-                //
-                // ОДИН ИЗ ВАРИАНТОВ РЕШЕНИЯ ПРОБЛЕМЫ ВЫСОТЫ БЛОКА //
-
-                // var postImages = $('.single-post_image').toArray();
-                // $.each(postImages, function () {
-                //     var naturalHeight =  this.naturalHeight;
-                //     $(this).parent('.single-post').css({'height':naturalHeight});
-                // })
             }
         });
     }
-    if ($('.mainpage-svg-lg').length && $(".mainpage-svg-lg").css("display")!=="none") {
+    if ($('.mainpage-svg-lg').length && $(".mainpage-svg-lg").css("display") !== "none") {
         var jqBar = $('.mainpage-svg-lg'); // селектор для вашего блока
         var jqBarStatus = true;
         $(window).scroll(function () {
@@ -335,7 +413,7 @@ $(document).ready(function () {
                 jqBarStatus = false;
                 var el = document.querySelector('#VectorLg');
                 var myAnimation = new LazyLinePainter(el, {
-                    "ease":"easeOutQuad",
+                    "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
                     "strokeColor": "#C99B69",
@@ -351,7 +429,7 @@ $(document).ready(function () {
                         "animation-duration": "1s",
                         "animation-name": "fade-in-left",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 77);
 
@@ -361,7 +439,7 @@ $(document).ready(function () {
                         "animation-duration": ".5s",
                         "animation-name": "fade-in-up",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 319);
                 setTimeout(function () {
@@ -370,7 +448,7 @@ $(document).ready(function () {
                         "animation-duration": ".5s",
                         "animation-name": "fade-in-left",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 520);
             }
@@ -378,7 +456,7 @@ $(document).ready(function () {
     }
 
 
-    if ($('.mainpage-svg-xxl').length && $(".mainpage-svg-xxl").css("display")!=="none") {
+    if ($('.mainpage-svg-xxl').length && $(".mainpage-svg-xxl").css("display") !== "none") {
         var mpxxl = $('.mainpage-svg-xxl');
         var mpxxlStatus = true;
         $(window).scroll(function () {
@@ -387,7 +465,7 @@ $(document).ready(function () {
                 mpxxlStatus = false;
                 var el = document.querySelector('#Vectorxxl');
                 var myAnimationXXL = new LazyLinePainter(el, {
-                    "ease":"easeOutQuad",
+                    "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
                     "strokeColor": "#C99B69",
@@ -403,16 +481,16 @@ $(document).ready(function () {
                         "animation-duration": "1s",
                         "animation-name": "fade-in-left",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 204);
                 setTimeout(function () {
                     $('.star-2-overlay').fadeOut(100);
                     secondAct.css({
                         "animation-duration": ".5s",
-                        "animation-name": "fade-in-down",
+                        "animation-name": "fade-in-down-curve",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 345);
                 setTimeout(function () {
@@ -421,14 +499,14 @@ $(document).ready(function () {
                         "animation-duration": ".5s",
                         "animation-name": "fade-in-left",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 457);
             }
         })
     }
 
-    if ($('.mainpage-svg-xl').length && $(".mainpage-svg-xl").css("display")!=="none") {
+    if ($('.mainpage-svg-xl').length && $(".mainpage-svg-xl").css("display") !== "none") {
         var mpxl = $('.mainpage-svg-xl');
         var mpxlStatus = true;
         $(window).scroll(function () {
@@ -437,7 +515,7 @@ $(document).ready(function () {
                 mpxlStatus = false;
                 var el = document.querySelector('#Vector2000');
                 var myAnimationXL = new LazyLinePainter(el, {
-                    "ease":"easeOutQuad",
+                    "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
                     "strokeColor": "#C99B69",
@@ -453,7 +531,7 @@ $(document).ready(function () {
                         "animation-duration": "1s",
                         "animation-name": "fade-in-left",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 150);
 
@@ -461,9 +539,9 @@ $(document).ready(function () {
                     $('.star-2-overlay').fadeOut(100);
                     secondAct.css({
                         "animation-duration": ".5s",
-                        "animation-name": "fade-in-down",
+                        "animation-name": "fade-down",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 333);
                 setTimeout(function () {
@@ -472,13 +550,13 @@ $(document).ready(function () {
                         "animation-duration": ".5s",
                         "animation-name": "fade-in-left",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 600);
             }
         })
     }
-    if ($('.mainpage-svg-sm').length && $(".mainpage-svg-sm").css("display")!=="none") {
+    if ($('.mainpage-svg-sm').length && $(".mainpage-svg-sm").css("display") !== "none") {
         var mpsm = $('.mainpage-svg-sm');
         var mpsmStatus = true;
         $(window).scroll(function () {
@@ -487,12 +565,12 @@ $(document).ready(function () {
                 mpsmStatus = false;
                 var el = document.querySelector('#Vector3');
                 var myAnimationSM = new LazyLinePainter(el, {
-                    "ease":"easeOutQuad",
+                    "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
                     "strokeColor": "#C99B69",
                     "strokeCap": "square",
-                    "reverse":"true"
+                    "reverse": "true"
                 });
                 myAnimationSM.paint();
                 $('.full-height-star-overlay').css({
@@ -508,7 +586,7 @@ $(document).ready(function () {
                         "animation-duration": "1s",
                         "animation-name": "fade-in-left",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 150);
 
@@ -517,7 +595,7 @@ $(document).ready(function () {
                         "animation-duration": ".5s",
                         "animation-name": "fade-in-right",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 333);
                 setTimeout(function () {
@@ -525,14 +603,27 @@ $(document).ready(function () {
                         "animation-duration": ".5s",
                         "animation-name": "fade-in-left",
                         "visibility": "visible",
-                        "display":"block"
+                        "display": "block"
                     });
                 }, 600);
             }
         })
     }
 
-
+    var footer = $('footer');
+    var footerStatus = true;
+    $(window).scroll(function () {
+        var scrollFooter = ($(window).scrollTop() > (footer.position().top - $(window).height()));
+        if (scrollFooter && footerStatus) {
+            footerStatus = false;
+            footer.css({
+                'animation-duration': '1s',
+                'animation-name': 'fade-down',
+                'visibility': 'visible',
+                'transition-timing-function': 'ease-out'
+            })
+        }
+    });
 // Create a lightbox
     (function () {
         var $lightbox = $("<div class='lightbox'></div>");
@@ -565,6 +656,35 @@ $(document).ready(function () {
         });
 
     }());
+    $(function () {
+
+        var $btn = $('#btnTop');
+        var $home = $('#header');
+        var startpoint = $home.scrollTop() + $home.height();
+
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() > startpoint + 50) {
+                $btn.show();
+            } else {
+                $btn.hide();
+            }
+        });
+        const scrollToTopButton = document.getElementById('btnTop');
+
+
+        const scrollToTop = () => {
+            const c = document.documentElement.scrollTop || document.body.scrollTop;
+
+            if (c > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, c - c / 10);
+            }
+        };
+        scrollToTopButton.onclick = function (e) {
+            e.preventDefault();
+            scrollToTop();
+        }
+    });
     $('.agree').attr('checked', false);
     var wpcf7Elm = document.querySelector('.wpcf7');
     $('.but-to-submit').on("click", function () {
@@ -586,7 +706,6 @@ $(document).ready(function () {
 
         $('#c-form').append(formMess);
 
-        // Либо что-то более полезное
     }, false);
     var buttonsToHover = $('.link-button.draw');
     $.each(buttonsToHover, function (i) {
@@ -600,4 +719,88 @@ $(document).ready(function () {
             }
         })
     });
+});
+
+$(document).ready(function () {
+
+    var isScrolling = false;
+
+    window.addEventListener("scroll", throttleScroll, false);
+
+    function throttleScroll(e) {
+        if (isScrolling == false) {
+            window.requestAnimationFrame(function () {
+                scrolling(e);
+                isScrolling = false;
+            });
+        }
+        isScrolling = true;
+    }
+
+    document.addEventListener("DOMContentLoaded", scrolling, false);
+
+    var listItems = document.querySelectorAll(".project_image");
+    var projList = document.querySelectorAll(".single-post");
+    var servicesList = document.querySelectorAll(".services-item");
+    var processList = document.querySelectorAll('.process-container');
+    var aboutUsRightBlock = document.querySelector('.about-right-block');
+    var activitiesHeader = document.querySelector('.activities-header');
+
+
+    function scrolling(e) {
+        for (var i = 0; i < listItems.length; i++) {
+            var listItem = listItems[i];
+            if (isPartiallyVisible(listItem)) {
+                listItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
+            }
+        }
+        for (var j = 0; j < projList.length; j++) {
+            var projItem = projList[j];
+            if (isPartiallyVisible(projItem)) {
+                projItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
+            }
+        }
+        for (var q = 0; q < processList.length; q++) {
+            var processItem = processList[q];
+            if (isPartiallyVisible(processItem)) {
+                processItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
+            }
+        }
+        setTimeout(function () {
+            for (var k = 0; k < servicesList.length; k++) {
+                var serviceItem = servicesList[k];
+                if (isPartiallyVisible(serviceItem)) {
+                    serviceItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
+                }
+            }
+        }, 500);
+        if (aboutUsRightBlock && isPartiallyVisible(aboutUsRightBlock)) {
+            aboutUsRightBlock.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
+        }
+        if (activitiesHeader && isPartiallyVisible(activitiesHeader)) {
+            activitiesHeader.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
+        }
+    }
+
+    function isPartiallyVisible(el) {
+        var elementBoundary = el.getBoundingClientRect();
+
+        var top = elementBoundary.top;
+        var bottom = elementBoundary.bottom;
+        var height = elementBoundary.height;
+
+        return ((top + height >= 0) && (height + window.innerHeight >= bottom));
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var videoMain = document.getElementById('video_cut');
+    if (videoMain) {
+        videoMain.setAttribute('src', videoMain.getAttribute('data-src'));
+        videoMain.onload = function () {
+            videoMain.removeAttribute('data-src');
+            console.log('removed');
+        };
+        console.log('video data-src changed!');
+    }
 });

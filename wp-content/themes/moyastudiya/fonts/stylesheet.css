@@ -117,10 +117,31 @@
 
 @font-face {
     font-family: 'Garamond';
-    src: url('AGaramondPro-Regular.eot');
-    src: url('AGaramondPro-Regular.eot?#iefix') format('embedded-opentype'),
-    url('AGaramondPro-Regular.woff') format('woff'),
-    url('AGaramondPro-Regular.ttf') format('truetype');
+    src: url('Garamond-Premier-Pro.ttf') format('truetype');
+    src: url('Garamond-Premier-Pro.otf') format('opentype'),
+         url('GaramondPremrPro.woff2') format('woff2'),
+         url('GaramondPremrPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GaramondLight';
+    src: url('Garamond-Premier-Pro-Light-Display.ttf') format('truetype');
+    src: url('Garamond-Premier-Pro-Light-Display.otf') format('opentype'),
+         url('GaramondPremrPro-LtDisp.woff2') format('woff2'),
+         url('GaramondPremrPro-LtDisp.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GaramondSubhead';
+    src: url('Garamond-Premier-Pro-Subhead.ttf') format('truetype'),
+         url('Garamond-Premier-Pro-Light-Display.otf') format('opentype'),
+         url('GaramondPremrPro-BdSubh.woff2') format('woff2'),
+         url('GaramondPremrPro-BdSubh.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

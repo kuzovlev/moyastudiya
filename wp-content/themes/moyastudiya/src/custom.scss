@@ -39,7 +39,6 @@ input[type=text], div[type=button] {
   color: rgba(255,255,255,.7);
   font-size: 24px;
   line-height: 22px;
-  margin-bottom: 90px;
 }
 
 .neighbour_projects{
@@ -148,6 +147,11 @@ input[type=text], div[type=button] {
   }
 
 .single-post-content{
+  margin-top: 90px;
+
+  .project_image{
+    visibility: hidden;
+  }
   p{
     color: #929292;
     font-family: "Garamond", Serif;
@@ -158,6 +162,11 @@ input[type=text], div[type=button] {
     margin: 0 auto 20px;
     &:last-of-type{
       margin-bottom: 150px;
+    }
+  }
+  .d-flex{
+    &:first-of-type{
+      margin-top: 150px;
     }
   }
   .proj-one-img {
@@ -231,5 +240,26 @@ input[type=text], div[type=button] {
     .footer-logo{
       margin: 100px auto!important;
     }
+  }
+}
+.fixed-action-btn{
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50px;
+  color: rgba(255,255,255,.7);
+  border: 1px solid rgba(255,255,255,.7);
+  transition: all .3s ease-in;
+  cursor: pointer;
+  .to-top{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  &:hover{
+    color: #C99B69;
+    border: 1px solid #C99B69;
   }
 }

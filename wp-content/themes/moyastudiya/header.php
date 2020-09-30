@@ -22,24 +22,16 @@
 </head>
 
 <body>
-<div class="preloader-1">
-    <div>
-        <span>Loading</span>
-<!--        <div class="lines">-->
-        <span class="line line-1"></span>
-        <span class="line line-2"></span>
-        <span class="line line-3"></span>
-        <span class="line line-4"></span>
-        <span class="line line-5"></span>
-        <span class="line line-6"></span>
-        <span class="line line-7"></span>
-        <span class="line line-8"></span>
-        <span class="line line-9"></span>
-<!--        </div>-->
+<div class="vertical-centered-box">
+    <div class="content">
+        <div class="loader-circle"></div>
+        <div class="loader-line-mask">
+            <div class="loader-line"></div>
+        </div>
     </div>
 </div>
 <div class="main-content">
-    <header class="mt-3">
+    <header class="mt-3" id="header">
         <div class="featurebox col-md-12 col-sm-12 col-xs-12">
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="navbar navbar-light d-none d-sm-block col-4">

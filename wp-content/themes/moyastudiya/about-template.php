@@ -5,10 +5,12 @@
 get_header(); ?>
     <section id="about-us">
         <div class="container">
-            <div class="row">
-                <div class="col-md-7 text-white about-left-block">
-                    <h1>
-						<? the_title() ?>
+            <div class="about-us-blocks_wrapper">
+                <div class="col-md-6 text-white about-left-block">
+                    <h1 class="ml10">
+                        <span class="text-wrapper">
+                            <span class="letters"><? the_title()?></span>
+                        </span>
                     </h1>
                     <div class="about-us_text about_text_animate">
 						<?= get_field( "main_text" ) ?>
@@ -79,7 +81,7 @@ get_header(); ?>
             <p class="col-md-5 process-header_text">
 				<?= get_field( "proc_text" ) ?>
             </p>
-            <div class="row justify-content-between">
+            <div class="row justify-content-between processes-wrapper">
 				<? $posts = get_posts( array(
 					'numberposts'      => 0,
 					'category'         => 0,
