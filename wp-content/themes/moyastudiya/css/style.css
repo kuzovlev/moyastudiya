@@ -917,6 +917,7 @@ body .section-main_top .gif-container {
   width: fit-content;
   margin: 100px auto 0 auto;
   text-align: center;
+  position: relative;
 }
 body .section-main_top .gif-container img {
   width: 850px;
@@ -928,6 +929,74 @@ body .section-main_top .gif-container video {
   width: 100%;
   border-radius: 20px;
   max-width: 1087px;
+}
+body .section-main_top .gif-container .showreel-container {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+body .section-main_top .gif-container .showreel-container .start-video {
+  display: block;
+  margin: 0 auto;
+  padding: 12px;
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+  transition: all 0.1s;
+  background: url("../src/player_button.png") no-repeat;
+  background-size: 100%;
+}
+@media screen and (max-width: 425px) {
+  body .section-main_top .gif-container .showreel-container .start-video {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+}
+body .section-main_top .gif-container .showreel-container .start-video_text.start-video {
+  background: none;
+  width: max-content;
+  height: unset;
+  color: white;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 300;
+  transition: all 0.1s;
+}
+body .section-main_top .gif-container .showreel-container .start-video_text.start-video:hover {
+  color: #C99B69;
+}
+@media screen and (max-width: 425px) {
+  body .section-main_top .gif-container .showreel-container .start-video_text.start-video {
+    font-size: 18px;
+  }
+}
+body .section-main_top .gif-container .showreel-container:hover .start-video {
+  background: url("../src/player_button_hov.png");
+  background-size: 100%;
+}
+body .section-main_top .gif-container .showreel-container:hover .start-video.start-video_text {
+  color: #C99B69;
+  background: none;
+  width: max-content;
+  height: unset;
+}
+body .section-main_top .gif-container .showreel-container:active .start-video {
+  background: url("../src/player_button_hov.png");
+  background-size: 100%;
+}
+body .section-main_top .gif-container .showreel-container:active .start-video.start-video_text {
+  color: #C99B69;
+  background: none;
+  width: max-content;
+  height: unset;
+  font-weight: 400;
+}
+body .section-main_top .gif-container .showreel-container:active {
+  font-weight: 400;
 }
 body .section-main_top #video-bg {
   position: relative;
@@ -963,73 +1032,6 @@ body .section-main_top #video-bg iframe {
   body .section-main_top #video-bg iframe {
     height: 180px !important;
   }
-}
-body .section-main_top #video-bg .showreel-container {
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-body .section-main_top #video-bg .showreel-container .start-video {
-  display: block;
-  margin: 0 auto;
-  padding: 12px;
-  width: 64px;
-  height: 64px;
-  cursor: pointer;
-  transition: all 0.1s;
-  background: url("../src/player_button.png") no-repeat;
-  background-size: 100%;
-}
-@media screen and (max-width: 425px) {
-  body .section-main_top #video-bg .showreel-container .start-video {
-    width: 44px;
-    height: 44px;
-    padding: 0;
-  }
-}
-body .section-main_top #video-bg .showreel-container .start-video_text.start-video {
-  background: none;
-  width: max-content;
-  height: unset;
-  color: white;
-  font-size: 24px;
-  line-height: 28px;
-  font-weight: 300;
-  transition: all 0.1s;
-}
-body .section-main_top #video-bg .showreel-container .start-video_text.start-video:hover {
-  color: #C99B69;
-}
-@media screen and (max-width: 425px) {
-  body .section-main_top #video-bg .showreel-container .start-video_text.start-video {
-    font-size: 18px;
-  }
-}
-body .section-main_top #video-bg .showreel-container:hover .start-video {
-  background: url("../src/player_button_hov.png");
-  background-size: 100%;
-}
-body .section-main_top #video-bg .showreel-container:hover .start-video.start-video_text {
-  color: #C99B69;
-  background: none;
-  width: max-content;
-  height: unset;
-}
-body .section-main_top #video-bg .showreel-container:active .start-video {
-  background: url("../src/player_button_hov.png");
-  background-size: 100%;
-}
-body .section-main_top #video-bg .showreel-container:active .start-video.start-video_text {
-  color: #C99B69;
-  background: none;
-  width: max-content;
-  height: unset;
-  font-weight: 400;
-}
-body .section-main_top #video-bg .showreel-container:active {
-  font-weight: 400;
 }
 body .section-main_top #video-bg div.thumbnail_container {
   max-width: 1087px;
@@ -2044,6 +2046,51 @@ body #c-form form input[type=submit]:hover {
 }
 body #c-form form input[type=submit]:active {
   font-weight: bold;
+}
+body .modal-video.video-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 200;
+}
+body .modal-video.video-background .full-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  max-width: 100%;
+  width: 85%;
+}
+body .modal-video.video-background .close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+}
+body .modal-video.video-background .close:hover {
+  color: #C99B69;
+  opacity: 1;
+}
+body .modal-video.video-background .close:before, body .modal-video.video-background .close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: white;
+}
+body .modal-video.video-background .close:before {
+  transform: rotate(45deg);
+}
+body .modal-video.video-background .close:after {
+  transform: rotate(-45deg);
 }
 
 /*# sourceMappingURL=style.css.map */

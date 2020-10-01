@@ -22,7 +22,20 @@ get_header();
                 </h1>
             </div>
         </div>
-        <div class="gif-container" data-src="<?=get_template_directory_uri()?>/images/moyastudiya_small.mp4"></div>
+        <div class="gif-container" data-src="<?=get_template_directory_uri()?>/images/moyastudiya_small.mp4">
+            <div class="showreel-container" data-toggle="modal" data-target="#exampleModal">
+                <p class="start-video"></p>
+                <p class="start-video start-video_text">
+			        <? if ( wpm_get_language() === "ru" ):
+				        echo 'Смотреть шоурил';
+			        elseif (wpm_get_language() === "uk" ):
+				        echo "Дивитись відео";
+			        else:
+				        echo "Watch video";
+			        endif; ?>
+                </p>
+            </div>
+        </div>
 <!--        <div style="padding-top: 50%; position: relative; overflow: hidden;" class="video-mainpage">-->
 <!--            <iframe frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen"-->
 <!--                    src="https://onelineplayer.com/player.html?autoplay=false&autopause=false&muted=false&loop=true&url=https%3A%2F%2Fvimeo.com%2F458982550&poster=https%3A%2F%2Fmoyastudiya.com%2Fwp-content%2Fthemes%2Fmoyastudiya%2Fimages%2Fcover-image.png&time=false&progressBar=false&overlay=true&muteButton=true&fullscreenButton=false&style=light&quality=auto&playButton=true"-->
@@ -158,6 +171,10 @@ get_header();
 			?>
         </a>
     </section>
+	<div class="modal-video video-background">
+        <p class="close"></p>
+		<video class="full-video" data-src="<?=get_template_directory_uri()?>/images/moyastudiya_small.mp4" autoplay></video>
+	</div>
 	<?php
 }
 get_footer();
