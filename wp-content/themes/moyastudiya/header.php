@@ -13,8 +13,17 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KCXC4ZP');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="p:domain_verify" content="b039ba3eeca54ed9979b5de7781b7bca"/>
+<!--    <meta name="google-site-verification" content="SDhYObGQqSwMVsdvZPo0EmTqekSmgqC0wF7FW4Qcjg">-->
     <!--    <link rel="profile" href="https://gmpg.org/xfn/11">-->
     <script async src="https://use.fontawesome.com/f3f98404c8.js"></script>
 	<?php wp_head(); ?>
@@ -22,6 +31,10 @@
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCXC4ZP"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div class="vertical-centered-box">
     <div class="content">
         <div class="loader-circle"></div>

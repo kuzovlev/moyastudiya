@@ -127,8 +127,18 @@ $(window).on('load', function () {
         })
     }
     var videoSrc = $('.gif-container').attr('data-src');
-    var addVideoEl = $(`<video id="video_cut" src="`+videoSrc+`" preload="auto" autoplay="true" loop="true" muted="muted"></video>`);
+    var addVideoEl = $(`<video id="video_cut" src="`+videoSrc+`" preload="auto" autoplay="true" loop="true" muted="muted" playsinline></video>`);
     $('.gif-container').append(addVideoEl);
+    var cutVideo = document.getElementById("video_cut");
+    setTimeout(function () {
+        $('.watch_button').css({
+            'animation-duration': '1s',
+            'animation-name': 'fade-portrait',
+            'visibility': 'visible',
+            'transition-timing-function': 'ease-out'
+        })
+    },500)
+    // cutVideo.play();
 });
 $(document).ready(function () {
     if ($('.project_image').length) {
@@ -144,7 +154,9 @@ $(document).ready(function () {
         var linkLocation = this.href;
         $('.main-content').delay(100).fadeOut(200);
         $('.vertical-centered-box').delay(100).fadeIn(200);
-        window.location = linkLocation;
+        setTimeout(function () {
+            window.location = linkLocation;
+        },500);
     });
     var menuInfoPhone = $('.phone-Ukr').html(),
         menuInfoMail = $('.email-foot-link').html(),
@@ -276,21 +288,27 @@ $(function () {
 $(document).ready(function () {
     var singlePost = $('.single-post'),
         processContainer = $('.process-container, .process-text');
+    function hoverSingleProject(element){
+        element.find('.post-contents').fadeOut(200);
+        element.find('.post-gradient').fadeOut(200);
+    }
+    function hoverOutSingleProj(element){
+        element.find('.post-contents').fadein(200);
+        element.find('.post-gradient').fadein(200);
+    }
     singlePost.mouseenter(function () {
-        $(this).find('.post-contents').fadeOut(200);
-        $(this).find('.post-gradient').fadeOut(200);
+        hoverSingleProject($(this));
     });
     singlePost.mouseleave(function () {
-        $(this).find('.post-contents').fadeIn(200);
-        $(this).find('.post-gradient').fadeIn(200);
+        hoverSingleProject($(this));
     });
 
-    $('.start-video, .start-video.start-video_text, .showreel-container').click(function (event) {
+    $('.gif-container').click(function (event) {
         event.stopImmediatePropagation();
         $('.modal-video.video-background').fadeIn(500);
         var fullVideo = $('.full-video')[0];
         fullVideo.setAttribute('src', fullVideo.getAttribute('data-src'));
-
+        fullVideo.play();
     });
     $('.video-background, .modal-video, .video-background.modal-video').click(function () {
         var fullVideo = $('.full-video')[0];
@@ -706,7 +724,8 @@ $(document).ready(function () {
         $('.wpcf7-form-control.wpcf7-submit.submit-hidden').click();
     });
     wpcf7Elm.addEventListener('wpcf7mailsent', function (event) {
-        event.preventDefault();
+        console.log('mail event');
+        event.stopImmediatePropagation();
         if (window.location.href.indexOf("uk") > -1) {
             var formMess = "<div class='respon_mess'><p>Дякуємо! Незабаром мі з Вамі зв'яжемось!</p></div>"
         }
@@ -789,7 +808,7 @@ $(document).ready(function () {
             }
         }, 500);
         if (aboutUsRightBlock && isPartiallyVisible(aboutUsRightBlock)) {
-            aboutUsRightBlock.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
+            aboutUsRightBlock.style = "animation-duration:1s; animation-name: fade-portrait; visibility: visible; transition-timing-function: ease-out";
         }
         if (activitiesHeader && isPartiallyVisible(activitiesHeader)) {
             activitiesHeader.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";

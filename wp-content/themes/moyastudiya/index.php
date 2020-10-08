@@ -23,17 +23,16 @@ get_header();
             </div>
         </div>
         <div class="gif-container" data-src="<?=get_template_directory_uri()?>/images/moyastudiya_small.mp4">
-            <div class="showreel-container" data-toggle="modal" data-target="#exampleModal">
-                <p class="start-video"></p>
-                <p class="start-video start-video_text">
-			        <? if ( wpm_get_language() === "ru" ):
-				        echo 'Смотреть шоурил';
-			        elseif (wpm_get_language() === "uk" ):
-				        echo "Дивитись відео";
-			        else:
-				        echo "Watch video";
-			        endif; ?>
-                </p>
+            <div class="watch_button">
+                <span>
+                    <? if ( wpm_get_language() === "ru" ):
+	                    echo 'Смотреть шоурил';
+                    elseif (wpm_get_language() === "uk" ):
+	                    echo "Дивитись відео";
+                    else:
+	                    echo "Watch video";
+                    endif; ?>
+                </span>
             </div>
         </div>
 <!--        <div style="padding-top: 50%; position: relative; overflow: hidden;" class="video-mainpage">-->
@@ -173,7 +172,7 @@ get_header();
     </section>
 	<div class="modal-video video-background">
         <p class="close"></p>
-		<video class="full-video" data-src="<?=get_template_directory_uri()?>/images/moyastudiya_small.mp4" autoplay></video>
+		<video class="full-video" data-src="<?=get_template_directory_uri()?>/images/moya_full.mp4" autoplay></video>
 	</div>
 	<?php
 }

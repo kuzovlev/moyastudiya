@@ -4,7 +4,7 @@
  */
 get_header(); ?>
     <section id="about-us">
-        <div class="container">
+        <div class="container about-us_container">
             <div class="about-us-blocks_wrapper">
                 <div class="col-md-6 text-white about-left-block">
                     <h1 class="ml10">
