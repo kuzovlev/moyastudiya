@@ -148,7 +148,7 @@ function moyastudiya_scripts() {
 
 
 	wp_enqueue_script( 'moyastudiya-jquery', get_template_directory_uri() . '/js/jquery.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'moyastudiya-custom', get_template_directory_uri() . '/js/custom.js?14', array(), false, true );
+	wp_enqueue_script( 'moyastudiya-custom', get_template_directory_uri() . '/js/custom.js?17', array(), false, true );
 	wp_enqueue_script( 'moyastudiya-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-lines', get_template_directory_uri() . '/js/lazy-line-painter-1.9.6.min.js', array(), _S_VERSION, true );
@@ -164,7 +164,7 @@ add_action( 'wp_enqueue_scripts', 'moyastudiya_scripts' );
 function prefix_add_footer_styles() {
 	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/fonts/stylesheet.css?3', array(), _S_VERSION );
 //	wp_enqueue_style( 'moyastudiya-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?18', array(), false );
+	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?21', array(), false );
 	wp_enqueue_style( 'moyastudiya-style-bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), _S_VERSION );
 	wp_style_add_data( 'moyastudiya-style', 'rtl', 'replace' );
 };

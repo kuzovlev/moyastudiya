@@ -152,11 +152,13 @@ $(document).ready(function () {
     $("a").click(function (event) {
         event.preventDefault();
         var linkLocation = this.href;
-        $('.main-content').delay(100).fadeOut(200);
-        $('.vertical-centered-box').delay(100).fadeIn(200);
-        setTimeout(function () {
-            window.location = linkLocation;
-        },500);
+        if ($(this).attr('href')!="#") {
+            $('.main-content').delay(100).fadeOut(200);
+            $('.vertical-centered-box').delay(100).fadeIn(200);
+            setTimeout(function () {
+                window.location = linkLocation;
+            }, 500);
+        }
     });
     var menuInfoPhone = $('.phone-Ukr').html(),
         menuInfoMail = $('.email-foot-link').html(),
@@ -293,14 +295,14 @@ $(document).ready(function () {
         element.find('.post-gradient').fadeOut(200);
     }
     function hoverOutSingleProj(element){
-        element.find('.post-contents').fadein(200);
-        element.find('.post-gradient').fadein(200);
+        element.find('.post-gradient').fadeIn(100);
+        element.find('.post-contents').fadeIn(100);
     }
     singlePost.mouseenter(function () {
         hoverSingleProject($(this));
     });
     singlePost.mouseleave(function () {
-        hoverSingleProject($(this));
+        hoverOutSingleProj($(this));
     });
 
     $('.gif-container').click(function (event) {

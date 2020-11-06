@@ -139,7 +139,7 @@ input[type=text], div[type=button] {
 }
 .single-post-content p {
   color: #929292;
-  font-family: "Garamond", Serif;
+  font-family: "GaramondLight", Serif;
   font-size: 24px;
   line-height: 29px;
   font-weight: 300;
@@ -1275,7 +1275,7 @@ body #our_projects .single-post .post-contents .post-title {
 body #our_projects .single-post .post-contents .post-text {
   font-size: 18px;
   font-weight: 300;
-  font-family: "Garamond", serif;
+  font-family: "GaramondLight", serif;
   color: #929292;
 }
 @media screen and (max-width: 425px) {
@@ -1731,7 +1731,7 @@ body #about-us h1 {
   }
 }
 body #about-us .about-us_text {
-  font-family: "Garamond", serif;
+  font-family: "GaramondLight", serif;
   font-size: 24px;
   line-height: 29px;
   color: rgba(255, 255, 255, 0.7);
@@ -1848,7 +1848,7 @@ body #clients .header-container h3 {
   }
 }
 body #clients .about-us_text {
-  font-family: "Garamond", serif;
+  font-family: "GaramondLight", serif;
   font-size: 24px;
   line-height: 29px;
   color: rgba(255, 255, 255, 0.7);
@@ -1922,7 +1922,7 @@ body #services .services-item .services-title:before {
   }
 }
 body #services .services-item .services-text {
-  font-family: "Garamond", serif;
+  font-family: "GaramondLight", serif;
   font-size: 18px;
   line-height: 22px;
   color: rgba(255, 255, 255, 0.5);
@@ -1943,7 +1943,7 @@ body #process h3 {
   visibility: hidden;
 }
 body #process .process-header_text {
-  font-family: "Garamond", serif;
+  font-family: "GaramondLight", serif;
   color: rgba(255, 255, 255, 0.7);
   padding: 0;
   margin-top: 25px;
