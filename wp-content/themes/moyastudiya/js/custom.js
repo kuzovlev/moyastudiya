@@ -826,4 +826,36 @@ $(document).ready(function () {
 
         return ((top + height >= 0) && (height + window.innerHeight >= bottom));
     }
+    $('.accordion').accordion({
+        "transitionSpeed": 400,
+        "singleOpen":false
+    });
+    $(".to-cForm a").click(function(e) {
+        e.preventDefault();
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#c-form").offset().top
+        }, 500);
+    });
+    var contactsRussia = $('.country-russia'),
+        contactsUkraine = $('.country-ukraine'),
+        contactsPoland = $('.country-poland');
+
+    contactsRussia.on('mouseenter', function () {
+        $("#use5578").attr("fill","#C99B69");
+    });
+    contactsRussia.on('mouseleave', function () {
+        $("#use5578").attr("fill","#323232");
+    });
+    contactsUkraine.on('mouseenter', function () {
+        $("#use5581").attr("fill","#C99B69");
+    });
+    contactsUkraine.on('mouseleave', function () {
+        $("#use5581").attr("fill","#323232");
+    });
+    contactsPoland.on('mouseenter', function () {
+        $("#use5725").attr("fill","#C99B69");
+    });
+    contactsPoland.on('mouseleave', function () {
+        $("#use5725").attr("fill","#323232");
+    });
 });

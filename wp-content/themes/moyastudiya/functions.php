@@ -148,8 +148,9 @@ function moyastudiya_scripts() {
 
 
 	wp_enqueue_script( 'moyastudiya-jquery', get_template_directory_uri() . '/js/jquery.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'moyastudiya-custom', get_template_directory_uri() . '/js/custom.js?17', array(), false, true );
+	wp_enqueue_script( 'moyastudiya-custom', get_template_directory_uri() . '/js/custom.js?19', array(), false, true );
 	wp_enqueue_script( 'moyastudiya-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'moyastudiya-accordion', get_template_directory_uri() . '/js/accordion.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'moyastudiya-lines', get_template_directory_uri() . '/js/lazy-line-painter-1.9.6.min.js', array(), _S_VERSION, true );
 	//	wp_enqueue_script( 'moyastudiya-tween', get_template_directory_uri() . '/js/TweenMax.js', array(), _S_VERSION, true );
@@ -164,7 +165,7 @@ add_action( 'wp_enqueue_scripts', 'moyastudiya_scripts' );
 function prefix_add_footer_styles() {
 	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/fonts/stylesheet.css?3', array(), _S_VERSION );
 //	wp_enqueue_style( 'moyastudiya-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?21', array(), false );
+	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?24', array(), false );
 	wp_enqueue_style( 'moyastudiya-style-bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), _S_VERSION );
 	wp_style_add_data( 'moyastudiya-style', 'rtl', 'replace' );
 };
@@ -297,6 +298,36 @@ function services_reg() {
 		'supports'      => array( 'title', 'editor', 'comments', 'author', 'thumbnail' )
 	);
 	register_post_type( 'services', $args );
+}
+
+add_action( 'init', 'packages_reg' ); // Использовать функцию только внутри хука init
+
+function packages_reg() {
+	$labels = array(
+		'name'               => 'Пакеты',
+		'singular_name'      => 'Пакет', // админ панель Добавить->Функцию
+		'add_new'            => 'Добавить пакет',
+		'add_new_item'       => 'Добавить новую пакет', // заголовок тега <title>
+		'edit_item'          => 'Редактировать пакет',
+		'new_item'           => 'Новый пакет',
+		'all_items'          => 'Все пакеты',
+		'view_item'          => 'Просмотр',
+		'search_items'       => 'Найти пакет',
+		'not_found'          => 'Пакетов не найдено',
+		'not_found_in_trash' => 'В корзине нет пакетов.',
+		'menu_name'          => 'Пакеты услуг' // ссылка в меню в админке
+	);
+	$args   = array(
+		'labels'        => $labels,
+		'public'        => true,
+		'show_ui'       => true, // показывать интерфейс в админке
+		'has_archive'   => true,
+		'show_in_rest'  => true,
+		'menu_icon'     => get_stylesheet_directory_uri() . '/img/function_icon.png', // иконка в меню
+		'menu_position' => 21, // порядок в меню
+		'supports'      => array( 'title', 'editor')
+	);
+	register_post_type( 'packages', $args );
 }
 
 function image_full_width_shortcode_func( $attrs ) {

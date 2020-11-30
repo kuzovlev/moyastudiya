@@ -36,7 +36,7 @@
                    href="mailto:<?= get_field( 'elektronnaya_pochta', 32 ) ?>"><?= get_field( 'elektronnaya_pochta', 32 ); ?></a>
             </div>
 			<?php wp_nav_menu( [
-				'menu'            => 'main_rus',
+				'menu'            => 'footer',
 				'container'       => 'div',
 				'container_class' => 'my-2 my-md-0 mr-md-3 foot_menu',
 				'container_id'    => '',
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
-                <p class="addr-Ukr"><?= get_field( 'address_ukr', 32 ); ?>
+                <p class="addr-Ukr"><?= get_field( 'ukr_city', 32 ).", ";?><?= get_field( 'address_ukr', 32 ); ?>
                 </p>
                 <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block phone-Ukr"
                    href="tel:<?= get_field( 'telefon_ukr', 32 ); ?>">
@@ -64,7 +64,7 @@
                 </a>
             </div>
             <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
-                <p><?= get_field( 'address_rus', 32 ); ?>
+                <p><?= get_field( 'rus_city', 32 ).", ";?><?= get_field( 'address_rus', 32 ); ?>
                 </p>
                 <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block "
                    href="tel:<?= get_field( 'telefon_rus', 32 ); ?>">
@@ -72,7 +72,7 @@
                 </a>
             </div>
             <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
-                <p><?= get_field( 'address_pol', 32 ); ?>
+                <p><?= get_field( 'pol_city', 32 ).", ";?><?= get_field( 'address_pol', 32 ); ?>
                 </p>
                 <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block "
                    href="tel:<?= get_field( 'telefon_pol', 32 ); ?>">
