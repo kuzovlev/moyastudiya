@@ -1,5 +1,5 @@
 $(window).on('load', function () {
-    var $preloader = $('.vertical-centered-box'),
+    let $preloader = $('.vertical-centered-box'),
         // $svg_anm = $preloader.find('.svg_anm'),
         $main_content = $('.main-content');
     // $svg_anm.fadeOut();
@@ -28,13 +28,13 @@ $(window).on('load', function () {
 
     setTimeout(function () {
         if (window.location.pathname === "/projects/" || window.location.pathname === "/o-nas/" || window.location.pathname === "/") {
-            var y = $(window).scrollTop();  //your current y position on the page
+            let y = $(window).scrollTop();  //your current y position on the page
             $(window).scrollTop(y + 1);
         }
     }, 501);
     if ($('.single-post-content').length) {
         setTimeout(function () {
-            var y = $(window).scrollTop();  //your current y position on the page
+            let y = $(window).scrollTop();  //your current y position on the page
             $(window).scrollTop(y + 1);
         }, 501);
     }
@@ -64,14 +64,14 @@ $(window).on('load', function () {
         }, 700);
     }
     if ($('.about-us-underline').length) {
-        var aboutUnder = $('.about-us-underline'); // селектор для вашего блока
-        var aboutUnderStatus = true;
+        let aboutUnder = $('.about-us-underline'); // селектор для вашего блока
+        let aboutUnderStatus = true;
         $(window).scroll(function () {
-            var scrollAbout = ($(window).scrollTop() > (aboutUnder.position().top - $(window).height()));
+            let scrollAbout = ($(window).scrollTop() > (aboutUnder.position().top - $(window).height()));
             if (scrollAbout && aboutUnderStatus) {
                 aboutUnderStatus = false;
-                var el = document.querySelector('#aboutUsLine');
-                var myAnimation = new LazyLinePainter(el, {
+                let el = document.querySelector('#aboutUsLine');
+                let myAnimation = new LazyLinePainter(el, {
                     "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
@@ -126,10 +126,10 @@ $(window).on('load', function () {
             'transition-timing-function': 'ease-out'
         })
     }
-    var videoSrc = $('.gif-container').attr('data-src');
-    var addVideoEl = $(`<video id="video_cut" src="`+videoSrc+`" preload="auto" autoplay="true" loop="true" muted="muted" playsinline></video>`);
+    let videoSrc = $('.gif-container').attr('data-src');
+    let addVideoEl = $(`<video id="video_cut" src="`+videoSrc+`" preload="auto" autoplay="true" loop="true" muted="muted" playsinline></video>`);
     $('.gif-container').append(addVideoEl);
-    var cutVideo = document.getElementById("video_cut");
+    let cutVideo = document.getElementById("video_cut");
     setTimeout(function () {
         $('.watch_button').css({
             'animation-duration': '1s',
@@ -151,7 +151,7 @@ $(document).ready(function () {
     }
     $("a").click(function (event) {
         event.preventDefault();
-        var linkLocation = this.href;
+        let linkLocation = this.href;
         if ($(this).attr('href')!="#") {
             $('.main-content').delay(100).fadeOut(200);
             $('.vertical-centered-box').delay(100).fadeIn(200);
@@ -160,7 +160,7 @@ $(document).ready(function () {
             }, 500);
         }
     });
-    var menuInfoPhone = $('.phone-Ukr').html(),
+    let menuInfoPhone = $('.phone-Ukr').html(),
         menuInfoMail = $('.email-foot-link').html(),
         menuInfoAddr = $('.addr-Ukr').html(),
         logoMobile = $('footer .custom-logo-link').html(),
@@ -202,10 +202,10 @@ $(document).ready(function () {
 
     if ($('#services').length) {
 
-        var servicesHeader = $('#services h3'); // селектор для вашего блока
-        var servisesHeaderStatus = true;
+        let servicesHeader = $('#services h3'); // селектор для вашего блока
+        let servisesHeaderStatus = true;
         $(window).scroll(function () {
-            var scrollService = ($(window).scrollTop() > (servicesHeader.position().top - $(window).height()));
+            let scrollService = ($(window).scrollTop() > (servicesHeader.position().top - $(window).height()));
             if (scrollService && servisesHeaderStatus) {
                 servisesHeaderStatus = false;
                 $('#services h3').css({
@@ -217,10 +217,10 @@ $(document).ready(function () {
         });
     }
     if ($('#process').length) {
-        var processHeader = $('#process h3'); // селектор для вашего блока
-        var processHeaderStatus = true;
+        let processHeader = $('#process h3'); // селектор для вашего блока
+        let processHeaderStatus = true;
         $(window).scroll(function () {
-            var scrollProcess = ($(window).scrollTop() > (processHeader.position().top - $(window).height()));
+            let scrollProcess = ($(window).scrollTop() > (processHeader.position().top - $(window).height()));
             if (scrollProcess && processHeaderStatus) {
                 processHeaderStatus = false;
                 $('#process h3').css({
@@ -244,10 +244,10 @@ $(document).ready(function () {
         });
     }
 
-    var cForm = $('#c-form'),
+    let cForm = $('#c-form'),
         formStatus = true;
     $(window).scroll(function () {
-        var scrollForm = ($(window).scrollTop() > (cForm.position().top - $(window).height()));
+        let scrollForm = ($(window).scrollTop() > (cForm.position().top - $(window).height()));
         if (scrollForm && formStatus) {
             formStatus = false;
             cForm.css({
@@ -262,18 +262,18 @@ $(document).ready(function () {
 
 "use strict";
 $(function () {
-    var videoID = $('#video-bg').data('videoid');
+    let videoID = $('#video-bg').data('videoid');
     $(".youtube").each(function () {
         // Based on the YouTube ID, we can easily find the thumbnail image
         $(this).css('background-image', 'url(https://i.ytimg.com/vi/' + videoID + '/maxresdefault.jpg)');
 
         $(document).delegate('#' + this.id, 'click', function () {
             // Create an iFrame with autoplay set to true
-            var iframe_url = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&autohide=1";
+            let iframe_url = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&autohide=1";
             if ($(this).data('params')) iframe_url += '&' + $(this).data('params');
 
             // The height and width of the iFrame should be the same as parent
-            var iframe = $('<iframe/>', {
+            let iframe = $('<iframe/>', {
                 id: 'player',
                 'frameborder': '0',
                 'src': iframe_url,
@@ -288,7 +288,7 @@ $(function () {
 });
 
 $(document).ready(function () {
-    var singlePost = $('.single-post'),
+    let singlePost = $('.single-post'),
         processContainer = $('.process-container, .process-text');
     function hoverSingleProject(element){
         element.find('.post-contents').fadeOut(200);
@@ -308,18 +308,18 @@ $(document).ready(function () {
     $('.gif-container').click(function (event) {
         event.stopImmediatePropagation();
         $('.modal-video.video-background').fadeIn(500);
-        var fullVideo = $('.full-video')[0];
+        let fullVideo = $('.full-video')[0];
         fullVideo.setAttribute('src', fullVideo.getAttribute('data-src'));
         fullVideo.play();
     });
     $('.video-background, .modal-video, .video-background.modal-video').click(function () {
-        var fullVideo = $('.full-video')[0];
+        let fullVideo = $('.full-video')[0];
         fullVideo.pause();
         fullVideo.currentTime = 0;
         $('.modal-video.video-background').fadeOut(500);
     })
     // processContainer.mouseover(function () {
-    //     var element = $(this).find('.process-text'),
+    //     let element = $(this).find('.process-text'),
     //         elemHeader = $(this).find('.process-title');
     //
     //     elemHeader.css({
@@ -336,7 +336,7 @@ $(document).ready(function () {
     //     })
     // });
     // processContainer.mouseout(function (e) {
-    //     var element = $(this).find('.process-text'),
+    //     let element = $(this).find('.process-text'),
     //         elemHeader = $(this).find('.process-title');
     //
     //     elemHeader.css({
@@ -361,16 +361,16 @@ $(document).ready(function () {
         });
     }, 5000);
     //-
-    var hLine = 3;
-    var sepLine = 7;
-    var ease = Power2.easeOut;
-    var menuOpened = false;
-    var overwrite = "all";
+    let hLine = 3;
+    let sepLine = 7;
+    let ease = Power2.easeOut;
+    let menuOpened = false;
+    let overwrite = "all";
     //-
-    var line0 = $('.burger-menu #line0');
-    var line1 = $('.burger-menu #line1');
-    var line2 = $('.burger-menu #line2');
-    var txtBurger = $('.burger-menu .txt-container');
+    let line0 = $('.burger-menu #line0');
+    let line1 = $('.burger-menu #line1');
+    let line2 = $('.burger-menu #line2');
+    let txtBurger = $('.burger-menu .txt-container');
     //-
     TweenMax.set(txtBurger, {y: (hLine + sepLine)});
     TweenMax.set([line0, line2], {transformOrigin: 'center center', z: 0.01});
@@ -422,11 +422,11 @@ $(document).ready(function () {
             line1.fadeIn(300);
         }
     });
-    var scrollProjects = $('#our_projects');
-    var scrollProjStatus = true;
+    let scrollProjects = $('#our_projects');
+    let scrollProjStatus = true;
     if (scrollProjects.length) {
         $(window).scroll(function () {
-            var scrollEvent = ($(window).scrollTop() > (scrollProjects.position().top - $(window).height()));
+            let scrollEvent = ($(window).scrollTop() > (scrollProjects.position().top - $(window).height()));
             if (scrollEvent && scrollProjStatus) {
                 scrollProjStatus = false;
                 [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
@@ -439,14 +439,14 @@ $(document).ready(function () {
         });
     }
     if ($('.mainpage-svg-lg').length && $(".mainpage-svg-lg").css("display") !== "none") {
-        var jqBar = $('.mainpage-svg-lg'); // селектор для вашего блока
-        var jqBarStatus = true;
+        let jqBar = $('.mainpage-svg-lg'); // селектор для вашего блока
+        let jqBarStatus = true;
         $(window).scroll(function () {
-            var scrollEvent = ($(window).scrollTop() > (jqBar.position().top - $(window).height()));
+            let scrollEvent = ($(window).scrollTop() > (jqBar.position().top - $(window).height()));
             if (scrollEvent && jqBarStatus) {
                 jqBarStatus = false;
-                var el = document.querySelector('#VectorLg');
-                var myAnimation = new LazyLinePainter(el, {
+                let el = document.querySelector('#VectorLg');
+                let myAnimation = new LazyLinePainter(el, {
                     "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
@@ -454,9 +454,9 @@ $(document).ready(function () {
                     "strokeCap": "square"
                 });
                 myAnimation.paint();
-                var firstAct = $('.first-activity');
-                var secondAct = $('.second-activity');
-                var thirdAct = $('.third-activity');
+                let firstAct = $('.first-activity');
+                let secondAct = $('.second-activity');
+                let thirdAct = $('.third-activity');
                 setTimeout(function () {
                     $('.star-1-overlay').fadeOut(100);
                     firstAct.css({
@@ -491,14 +491,14 @@ $(document).ready(function () {
 
 
     if ($('.mainpage-svg-xxl').length && $(".mainpage-svg-xxl").css("display") !== "none") {
-        var mpxxl = $('.mainpage-svg-xxl');
-        var mpxxlStatus = true;
+        let mpxxl = $('.mainpage-svg-xxl');
+        let mpxxlStatus = true;
         $(window).scroll(function () {
-            var scrollEvent = ($(window).scrollTop() > (mpxxl.position().top - $(window).height()));
+            let scrollEvent = ($(window).scrollTop() > (mpxxl.position().top - $(window).height()));
             if (scrollEvent && mpxxlStatus) {
                 mpxxlStatus = false;
-                var el = document.querySelector('#Vectorxxl');
-                var myAnimationXXL = new LazyLinePainter(el, {
+                let el = document.querySelector('#Vectorxxl');
+                let myAnimationXXL = new LazyLinePainter(el, {
                     "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
@@ -506,9 +506,9 @@ $(document).ready(function () {
                     "strokeCap": "square"
                 });
                 myAnimationXXL.paint();
-                var firstAct = $('.first-activity');
-                var secondAct = $('.second-activity');
-                var thirdAct = $('.third-activity');
+                let firstAct = $('.first-activity');
+                let secondAct = $('.second-activity');
+                let thirdAct = $('.third-activity');
                 setTimeout(function () {
                     $('.star-1-overlay').fadeOut(100);
                     firstAct.css({
@@ -541,14 +541,14 @@ $(document).ready(function () {
     }
 
     if ($('.mainpage-svg-xl').length && $(".mainpage-svg-xl").css("display") !== "none") {
-        var mpxl = $('.mainpage-svg-xl');
-        var mpxlStatus = true;
+        let mpxl = $('.mainpage-svg-xl');
+        let mpxlStatus = true;
         $(window).scroll(function () {
-            var scrollEvent = ($(window).scrollTop() > (mpxl.position().top - $(window).height()));
+            let scrollEvent = ($(window).scrollTop() > (mpxl.position().top - $(window).height()));
             if (scrollEvent && mpxlStatus) {
                 mpxlStatus = false;
-                var el = document.querySelector('#Vector2000');
-                var myAnimationXL = new LazyLinePainter(el, {
+                let el = document.querySelector('#Vector2000');
+                let myAnimationXL = new LazyLinePainter(el, {
                     "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
@@ -556,9 +556,9 @@ $(document).ready(function () {
                     "strokeCap": "square"
                 });
                 myAnimationXL.paint();
-                var firstAct = $('.first-activity');
-                var secondAct = $('.second-activity');
-                var thirdAct = $('.third-activity');
+                let firstAct = $('.first-activity');
+                let secondAct = $('.second-activity');
+                let thirdAct = $('.third-activity');
                 setTimeout(function () {
                     $('.star-1-overlay').fadeOut(100);
                     firstAct.css({
@@ -591,14 +591,14 @@ $(document).ready(function () {
         })
     }
     if ($('.mainpage-svg-sm').length && $(".mainpage-svg-sm").css("display") !== "none") {
-        var mpsm = $('.mainpage-svg-sm');
-        var mpsmStatus = true;
+        let mpsm = $('.mainpage-svg-sm');
+        let mpsmStatus = true;
         $(window).scroll(function () {
-            var scrollEvent = ($(window).scrollTop() > (mpsm.position().top - $(window).height()));
+            let scrollEvent = ($(window).scrollTop() > (mpsm.position().top - $(window).height()));
             if (scrollEvent && mpsmStatus) {
                 mpsmStatus = false;
-                var el = document.querySelector('#Vector3');
-                var myAnimationSM = new LazyLinePainter(el, {
+                let el = document.querySelector('#Vector3');
+                let myAnimationSM = new LazyLinePainter(el, {
                     "ease": "easeOutQuad",
                     "strokeWidth": 1,
                     "strokeOpacity": 1,
@@ -612,9 +612,9 @@ $(document).ready(function () {
                     "animation-name": "fade-out-down",
                     "visibility": "hidden",
                 })
-                var firstAct = $('.first-activity');
-                var secondAct = $('.second-activity');
-                var thirdAct = $('.third-activity');
+                let firstAct = $('.first-activity');
+                let secondAct = $('.second-activity');
+                let thirdAct = $('.third-activity');
                 setTimeout(function () {
                     firstAct.css({
                         "animation-duration": "1s",
@@ -644,10 +644,10 @@ $(document).ready(function () {
         })
     }
 
-    var footer = $('footer');
-    var footerStatus = true;
+    let footer = $('footer');
+    let footerStatus = true;
     $(window).scroll(function () {
-        var scrollFooter = ($(window).scrollTop() > (footer.position().top - $(window).height()));
+        let scrollFooter = ($(window).scrollTop() > (footer.position().top - $(window).height()));
         if (scrollFooter && footerStatus) {
             footerStatus = false;
             footer.css({
@@ -660,9 +660,9 @@ $(document).ready(function () {
     });
 // Create a lightbox
     (function () {
-        var $lightbox = $("<div class='lightbox'></div>");
-        var $img = $("<img>");
-        var $caption = $("<p class='caption'></p>");
+        let $lightbox = $("<div class='lightbox'></div>");
+        let $img = $("<img>");
+        let $caption = $("<p class='caption'></p>");
 
         // Add image and caption to lightbox
 
@@ -676,8 +676,8 @@ $(document).ready(function () {
 
         $('.mgl-img-container img').click(function (e) {
             e.preventDefault();
-            var src = $(this).attr("src");
-            var cap = $(this).attr("alt");
+            let src = $(this).attr("src");
+            let cap = $(this).attr("alt");
 
             $img.attr('src', src);
             $caption.text(cap);
@@ -692,9 +692,9 @@ $(document).ready(function () {
     }());
     $(function () {
 
-        var $btn = $('#btnTop');
-        var $home = $('#header');
-        var startpoint = $home.scrollTop() + $home.height();
+        let $btn = $('#btnTop');
+        let $home = $('#header');
+        let startpoint = $home.scrollTop() + $home.height();
 
         $(window).on('scroll', function () {
             if ($(window).scrollTop() > startpoint + 50) {
@@ -720,7 +720,7 @@ $(document).ready(function () {
         }
     });
     $('.agree').attr('checked', false);
-    var wpcf7Elm = document.querySelector('.wpcf7');
+    let wpcf7Elm = document.querySelector('.wpcf7');
     $('.but-to-submit').on("click", function () {
         console.log('ss');
         $('.wpcf7-form-control.wpcf7-submit.submit-hidden').click();
@@ -729,25 +729,25 @@ $(document).ready(function () {
         console.log('mail event');
         event.stopImmediatePropagation();
         if (window.location.href.indexOf("uk") > -1) {
-            var formMess = "<div class='respon_mess'><p>Дякуємо! Незабаром мі з Вамі зв'яжемось!</p></div>"
+            let formMess = "<div class='respon_mess'><p>Дякуємо! Незабаром мі з Вамі зв'яжемось!</p></div>"
         }
         if (window.location.href.indexOf("en") > -1) {
-            var formMess = "<div class='respon_mess'><p>Thanks! Will contact you as soon as possible!</p></div>"
+            let formMess = "<div class='respon_mess'><p>Thanks! Will contact you as soon as possible!</p></div>"
         }
         if (window.location.href.indexOf("uk") === -1 && window.location.href.indexOf("en") === -1) {
-            var formMess = "<div class='respon_mess'><p>Спасибо! Мы скоро с Вами свяжемся!</p></div>"
+            let formMess = "<div class='respon_mess'><p>Спасибо! Мы скоро с Вами свяжемся!</p></div>"
         }
         $(this).fadeOut(300);
 
         $('#c-form').append(formMess);
 
     }, false);
-    var buttonsToHover = $('.link-button.draw');
+    let buttonsToHover = $('.link-button.draw');
     $.each(buttonsToHover, function (i) {
-        var btnHov = $(this);
-        var btnHovStat = true;
+        let btnHov = $(this);
+        let btnHovStat = true;
         $(window).scroll(function () {
-            var btnEvent = ($(window).scrollTop() > (btnHov.position().top - $(window).height()));
+            let btnEvent = ($(window).scrollTop() > (btnHov.position().top - $(window).height()));
             if (btnEvent && btnHovStat) {
                 btnHovStat = false;
                 btnHov.addClass('hovered');
@@ -758,7 +758,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 
-    var isScrolling = false;
+    let isScrolling = false;
 
     window.addEventListener("scroll", throttleScroll, false);
 
@@ -774,36 +774,36 @@ $(document).ready(function () {
 
     document.addEventListener("DOMContentLoaded", scrolling, false);
 
-    var listItems = document.querySelectorAll(".project_image");
-    var projList = document.querySelectorAll(".single-post");
-    var servicesList = document.querySelectorAll(".services-item");
-    var processList = document.querySelectorAll('.process-container');
-    var aboutUsRightBlock = document.querySelector('.about-right-block');
-    var activitiesHeader = document.querySelector('.activities-header');
+    let listItems = document.querySelectorAll(".project_image");
+    let projList = document.querySelectorAll(".single-post");
+    let servicesList = document.querySelectorAll(".services-item");
+    let processList = document.querySelectorAll('.process-container');
+    let aboutUsRightBlock = document.querySelector('.about-right-block');
+    let activitiesHeader = document.querySelector('.activities-header');
 
 
     function scrolling(e) {
-        for (var i = 0; i < listItems.length; i++) {
-            var listItem = listItems[i];
+        for (let i = 0; i < listItems.length; i++) {
+            let listItem = listItems[i];
             if (isPartiallyVisible(listItem)) {
                 listItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
             }
         }
-        for (var j = 0; j < projList.length; j++) {
-            var projItem = projList[j];
+        for (let j = 0; j < projList.length; j++) {
+            let projItem = projList[j];
             if (isPartiallyVisible(projItem)) {
                 projItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
             }
         }
-        for (var q = 0; q < processList.length; q++) {
-            var processItem = processList[q];
+        for (let q = 0; q < processList.length; q++) {
+            let processItem = processList[q];
             if (isPartiallyVisible(processItem)) {
                 processItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
             }
         }
         setTimeout(function () {
-            for (var k = 0; k < servicesList.length; k++) {
-                var serviceItem = servicesList[k];
+            for (let k = 0; k < servicesList.length; k++) {
+                let serviceItem = servicesList[k];
                 if (isPartiallyVisible(serviceItem)) {
                     serviceItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
                 }
@@ -818,11 +818,11 @@ $(document).ready(function () {
     }
 
     function isPartiallyVisible(el) {
-        var elementBoundary = el.getBoundingClientRect();
+        let elementBoundary = el.getBoundingClientRect();
 
-        var top = elementBoundary.top;
-        var bottom = elementBoundary.bottom;
-        var height = elementBoundary.height;
+        let top = elementBoundary.top;
+        let bottom = elementBoundary.bottom;
+        let height = elementBoundary.height;
 
         return ((top + height >= 0) && (height + window.innerHeight >= bottom));
     }
@@ -836,7 +836,7 @@ $(document).ready(function () {
             scrollTop: $("#c-form").offset().top
         }, 500);
     });
-    var contactsRussia = $('.country-russia'),
+    let contactsRussia = $('.country-russia'),
         contactsUkraine = $('.country-ukraine'),
         contactsPoland = $('.country-poland');
 

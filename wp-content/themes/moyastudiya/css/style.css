@@ -850,6 +850,7 @@ body header .main_rus .menu-item-has-children .sub-menu, body header .main_eng .
   left: 0 !important;
   background: #383838;
   border-radius: 5px;
+  z-index: 999;
 }
 body header .main_rus .menu-item-has-children .sub-menu .menu-item, body header .main_eng .menu-item-has-children .sub-menu .menu-item {
   margin: 0 !important;
