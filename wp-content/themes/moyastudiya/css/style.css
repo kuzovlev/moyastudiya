@@ -670,6 +670,7 @@ body header .custom-logo-link .custom-logo {
 body header .lang-menu {
   display: block;
   color: rgba(255, 255, 255, 0.7) !important;
+  margin-left: 15px;
 }
 body header .lang-menu .lang-menu_item {
   display: block;
@@ -744,9 +745,12 @@ body header .lang-menu:hover .sub-menu {
     border-bottom: 1px solid #C99B69;
   }
 }
+body header .main_rus, body header .main_eng {
+  z-index: 999;
+}
 body header .main_rus li, body header .main_eng li {
   list-style: none;
-  margin: 0 30px;
+  margin: 0 25px;
   text-transform: uppercase;
   width: max-content;
 }
@@ -944,7 +948,7 @@ body header .nav-container .burger-menu .container .txt-container span {
   }
 }
 body .section-main_top {
-  margin-top: 200px;
+  margin-top: 150px;
   margin-bottom: 150px;
 }
 @media screen and (max-width: 425px) {
@@ -965,7 +969,7 @@ body .section-main_top h1 {
 }
 body .section-main_top .gif-container {
   width: fit-content;
-  margin: 100px auto 0 auto;
+  margin: 150px auto 0 auto;
   text-align: center;
   position: relative;
   cursor: pointer !important;
@@ -2217,6 +2221,10 @@ body .prices_main-content .price_title {
   line-height: 42.5px;
   font-weight: 300;
 }
+body .prices_main-content .package_container {
+  visibility: hidden;
+  cursor: pointer;
+}
 body .prices_main-content .package_container .package_header {
   height: 113px;
   position: relative;
@@ -2250,7 +2258,8 @@ body .prices_main-content .package_container .package_header .package_additional
   font-family: "GaramondLight", serif;
   color: rgba(255, 255, 255, 0.5);
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 body .prices_main-content .package_container .package_header .package_price {
   font-size: 24px;
@@ -2316,7 +2325,7 @@ body .prices_main-content .package_container:nth-child(3) .package_header .packa
     position: absolute;
   }
   body .prices_main-content .package_container .package_header .package_additional-text {
-    top: 70%;
+    top: 55%;
     left: 0;
     text-align: left !important;
     margin-left: 15px;
@@ -2626,6 +2635,79 @@ body .map_container .map__image {
 }
 body .map_container .map__image #layer1 g use {
   transition: all 0.3s ease-in-out;
+}
+@media screen and (max-width: 767px) {
+  body .map_container {
+    display: none;
+  }
+}
+body .contacts-title {
+  display: none;
+  margin: 110px auto 50px auto;
+}
+body .contacts-title h1 {
+  font-size: 48px;
+  font-weight: 300;
+}
+@media screen and (max-width: 768px) {
+  body .contacts-title h1 {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 425px) {
+  body .contacts-title h1 {
+    text-align: center;
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  body .contacts-title {
+    display: block;
+  }
+}
+body #mobile-contacts {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  body #mobile-contacts {
+    display: block;
+  }
+  body #mobile-contacts .country-contacts {
+    display: block;
+    margin-bottom: 60px;
+    padding-left: 40px;
+    position: relative;
+  }
+  body #mobile-contacts .country-contacts:before {
+    content: "";
+    display: block;
+    background: url("../src/marker.png") no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+  }
+  body #mobile-contacts .country-contacts .city {
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  body #mobile-contacts .country-contacts .phone {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 100;
+  }
+  body #mobile-contacts .country-contacts .address {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 100;
+    margin-bottom: 15px;
+  }
+  body #mobile-contacts .country-contacts p {
+    margin-bottom: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

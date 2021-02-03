@@ -27,12 +27,12 @@ $(window).on('load', function () {
     });
 
     setTimeout(function () {
-        if (window.location.pathname === "/projects/" || window.location.pathname === "/o-nas/" || window.location.pathname === "/") {
+        if (window.location.pathname === "/projects/" || window.location.pathname === "/o-nas/" || window.location.pathname === "/" || window.location.pathname === "/prices/") {
             let y = $(window).scrollTop();  //your current y position on the page
             $(window).scrollTop(y + 1);
         }
     }, 501);
-    if ($('.single-post-content').length) {
+    if ($('.single-post-content').length || $('.package_container').length) {
         setTimeout(function () {
             let y = $(window).scrollTop();  //your current y position on the page
             $(window).scrollTop(y + 1);
@@ -780,6 +780,7 @@ $(document).ready(function () {
     let processList = document.querySelectorAll('.process-container');
     let aboutUsRightBlock = document.querySelector('.about-right-block');
     let activitiesHeader = document.querySelector('.activities-header');
+    let packagesList = document.querySelectorAll('.package_container');
 
 
     function scrolling(e) {
@@ -799,6 +800,12 @@ $(document).ready(function () {
             let processItem = processList[q];
             if (isPartiallyVisible(processItem)) {
                 processItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
+            }
+        }
+        for (let s = 0; s < packagesList.length; s++) {
+            let packagesItem = packagesList[s];
+            if (isPartiallyVisible(packagesItem)) {
+                packagesItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
             }
         }
         setTimeout(function () {
