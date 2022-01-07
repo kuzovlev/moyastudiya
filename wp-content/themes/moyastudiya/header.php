@@ -13,6 +13,7 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+	<?php wp_head(); ?>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5F712GZ3N2"></script>
     <script>
@@ -32,13 +33,45 @@
 
         gtag('config', 'UA-188185274-1');
     </script>
+    <!-- Разметка JSON-LD, созданная Мастером разметки структурированных данных Google. -->
+    <script type="application/ld+json">
+        {
+            "@context" : "http://schema.org",
+            "@type" : "LocalBusiness",
+            "name" : "MOYA Studiya",
+            "image" : "https://moyastudiya.com/wp-content/uploads/2020/09/cropped-icon_small-1.png",
+            "telephone" : "+380444660151",
+            "telephone" : "+79957915311",
+            "telephone" : "+48730059192",
+            "email" : "moyastudiyaa@gmail.com",
+            "address" : {
+                "@type" : "PostalAddress",
+                "streetAddress" : "Cурикова 3А",
+                "addressLocality" : "Киев"
+            }
+            "address" : {
+                "@type" : "PostalAddress",
+                "streetAddress" : "Павелецкая набережная 2",
+                "addressLocality" : "Москва"
+            }
+            "address" : {
+                "@type" : "PostalAddress",
+                "streetAddress" : "Palisadowa 20/22",
+                "addressLocality" : "Варшава"
+            }
+        }
+    </script>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="p:domain_verify" content="b039ba3eeca54ed9979b5de7781b7bca"/>
+    <meta property="og:title" content="MOYA STUDIYA">
+    <meta property="og:image" content="<img class=" redactor-autoparser-object="" src="https://moyastudiya.com/wp-content/uploads/2020/09/cropped-icon_small-1.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moyastudiya.com/">
+    <meta property="og:description" content="Новые решения в дизайне интерьера">
 <!--    <meta name="google-site-verification" content="SDhYObGQqSwMVsdvZPo0EmTqekSmgqC0wF7FW4Qcjg">-->
     <!--    <link rel="profile" href="https://gmpg.org/xfn/11">-->
     <script async src="https://use.fontawesome.com/f3f98404c8.js"></script>
-	<?php wp_head(); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 </head>
 

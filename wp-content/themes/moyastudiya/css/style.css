@@ -2656,8 +2656,7 @@ body .map_container:after {
   background: linear-gradient(90deg, rgba(4, 4, 4, 0) 0%, #040404 100%);
 }
 body .contacts-title {
-  display: none;
-  margin: 110px auto 50px auto;
+  margin: 110px auto 85px auto;
 }
 body .contacts-title h1 {
   font-size: 48px;
@@ -2674,54 +2673,52 @@ body .contacts-title h1 {
     font-size: 24px;
   }
 }
-@media screen and (max-width: 767px) {
-  body .contacts-title {
-    display: block;
-  }
-}
 body #mobile-contacts {
-  display: none;
+  display: block;
 }
-@media screen and (max-width: 767px) {
-  body #mobile-contacts {
-    display: block;
+body #mobile-contacts .c-container {
+  visibility: hidden;
+}
+body #mobile-contacts .c-container:before {
+  content: "";
+  display: block;
+  background: url("../src/marker.png") no-repeat;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+}
+@media screen and (max-width: 500px) {
+  body #mobile-contacts .c-container {
+    width: 250px;
   }
-  body #mobile-contacts .country-contacts {
-    display: block;
-    margin-bottom: 60px;
-    padding-left: 40px;
-    position: relative;
-  }
-  body #mobile-contacts .country-contacts:before {
-    content: "";
-    display: block;
-    background: url("../src/marker.png") no-repeat;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 0;
-  }
-  body #mobile-contacts .country-contacts .city {
-    color: #ffffff;
-    font-size: 24px;
-    line-height: 28px;
-  }
-  body #mobile-contacts .country-contacts .phone {
-    font-size: 14px;
-    line-height: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 100;
-  }
-  body #mobile-contacts .country-contacts .address {
-    font-size: 14px;
-    line-height: 20px;
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 100;
-    margin-bottom: 15px;
-  }
-  body #mobile-contacts .country-contacts p {
-    margin-bottom: 0;
-  }
+}
+body #mobile-contacts .country-contacts {
+  display: block;
+  margin-bottom: 60px;
+  padding-left: 40px;
+  position: relative;
+}
+body #mobile-contacts .country-contacts .city {
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 28px;
+}
+body #mobile-contacts .country-contacts .phone {
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 100;
+}
+body #mobile-contacts .country-contacts .address {
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 100;
+  margin-bottom: 15px;
+}
+body #mobile-contacts .country-contacts p {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

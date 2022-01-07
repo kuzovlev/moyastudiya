@@ -27,7 +27,7 @@ $(window).on('load', function () {
     });
 
     setTimeout(function () {
-        if (window.location.pathname === "/projects/" || window.location.pathname === "/o-nas/" || window.location.pathname === "/" || window.location.pathname === "/prices/") {
+        if (window.location.pathname === "/projects/" || window.location.pathname === "/about/" || window.location.pathname === "/" || window.location.pathname === "/prices/" || window.location.pathname === "/contact/") {
             let y = $(window).scrollTop();  //your current y position on the page
             $(window).scrollTop(y + 1);
         }
@@ -150,14 +150,18 @@ $(document).ready(function () {
         });
     }
     $("a").click(function (event) {
-        event.preventDefault();
-        let linkLocation = this.href;
-        if ($(this).attr('href')!="#") {
-            $('.main-content').delay(100).fadeOut(200);
-            $('.vertical-centered-box').delay(100).fadeIn(200);
-            setTimeout(function () {
-                window.location = linkLocation;
-            }, 500);
+        if (!$(this).hasClass("phone")) {
+            event.preventDefault();
+            let linkLocation = this.href;
+            if ($(this).hasClass("address") || $(this).hasClass("city")) {
+                window.open(event.target.href, '_blank');
+            } else if ($(this).attr('href') != "#") {
+                $('.main-content').delay(100).fadeOut(200);
+                $('.vertical-centered-box').delay(100).fadeIn(200);
+                setTimeout(function () {
+                    window.location = linkLocation;
+                }, 500);
+            }
         }
     });
     let menuInfoPhone = $('.phone-Ukr').html(),
@@ -781,6 +785,7 @@ $(document).ready(function () {
     let aboutUsRightBlock = document.querySelector('.about-right-block');
     let activitiesHeader = document.querySelector('.activities-header');
     let packagesList = document.querySelectorAll('.package_container');
+    let contactsContainer = document.querySelectorAll('.c-container');
 
 
     function scrolling(e) {
@@ -806,6 +811,12 @@ $(document).ready(function () {
             let packagesItem = packagesList[s];
             if (isPartiallyVisible(packagesItem)) {
                 packagesItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
+            }
+        }
+        for (let o=0; o<contactsContainer.length; o++){
+            let contactItem = contactsContainer[o];
+            if (isPartiallyVisible(contactItem)) {
+                contactItem.style = "animation-duration:1s; animation-name: fade-down; visibility: visible; transition-timing-function: ease-out";
             }
         }
         setTimeout(function () {
