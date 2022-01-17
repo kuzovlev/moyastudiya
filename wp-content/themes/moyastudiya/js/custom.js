@@ -726,20 +726,20 @@ $(document).ready(function () {
     $('.agree').attr('checked', false);
     let wpcf7Elm = document.querySelector('.wpcf7');
     $('.but-to-submit').on("click", function () {
-        console.log('ss');
+        // console.log('ss');
         $('.wpcf7-form-control.wpcf7-submit.submit-hidden').click();
     });
     wpcf7Elm.addEventListener('wpcf7mailsent', function (event) {
-        console.log('mail event');
+        // console.log('mail event');
         event.stopImmediatePropagation();
         if (window.location.href.indexOf("uk") > -1) {
-            let formMess = "<div class='respon_mess'><p>Дякуємо! Незабаром мі з Вамі зв'яжемось!</p></div>"
+            var formMess = "<div class='respon_mess'><p>Дякуємо! Незабаром ми з Вами зв'яжемось!</p></div>"
         }
         if (window.location.href.indexOf("en") > -1) {
-            let formMess = "<div class='respon_mess'><p>Thanks! Will contact you as soon as possible!</p></div>"
+            var formMess = "<div class='respon_mess'><p>Thanks! Will contact you as soon as possible!</p></div>"
         }
         if (window.location.href.indexOf("uk") === -1 && window.location.href.indexOf("en") === -1) {
-            let formMess = "<div class='respon_mess'><p>Спасибо! Мы скоро с Вами свяжемся!</p></div>"
+            var formMess = "<div class='respon_mess'><p>Спасибо! Мы скоро с Вами свяжемся!</p></div>"
         }
         $(this).fadeOut(300);
 
