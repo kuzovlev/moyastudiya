@@ -161,7 +161,7 @@ $(document).ready(function () {
             if($(this).scrollTop() > 300) {
                 header.css({
                     // 'padding': '5px 0',
-                    'background': 'black',
+                    'background': '#0d0d0d',
                     'transition': '.3s'
                 });
             } else {

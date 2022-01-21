@@ -644,9 +644,28 @@ body .link-button:hover {
 body .link-button:active {
   font-weight: 400;
 }
+body .header_fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+}
 body header {
   max-width: 1440px;
   margin: 0 auto;
+  background: url("../src/main_back_2.png") repeat;
+  background-size: 14%;
+}
+@media screen and (min-width: 1441px) {
+  body header {
+    max-width: unset;
+  }
+}
+@media screen and (max-width: 569px) {
+  body header {
+    background-size: 70%;
+  }
 }
 body header .navbar-brand {
   font-size: 18px !important;
@@ -946,6 +965,24 @@ body header .nav-container .burger-menu .container .txt-container span {
 @media screen and (max-width: 767px) {
   body header .nav-container .lang-nav li a {
     color: rgba(255, 255, 255, 0.5);
+  }
+}
+body header .mobile-phones {
+  display: none;
+}
+@media screen and (max-width: 576px) {
+  body header .mobile-phones {
+    width: 100%;
+    color: #fff;
+    display: block;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1441px) {
+  body header .to-fix-mobile {
+    display: block;
+    margin: 0 auto;
+    max-width: 1440px;
   }
 }
 body .section-main_top {

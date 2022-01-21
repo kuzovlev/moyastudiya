@@ -237,9 +237,24 @@ body {
   }
 
   // HEADER сайта
+  .header_fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+  }
   header {
     max-width: 1440px;
     margin: 0 auto;
+    background: url("../src/main_back_2.png") repeat;
+    background-size: 14%;
+    @media screen and (min-width:1441px){
+      max-width: unset;
+    }
+    @media screen and (max-width: 569px) {
+      background-size: 70%;
+    }
 
     .navbar-brand { //Надпись "Моя студия"
       font-size: 18px !important;
@@ -597,6 +612,22 @@ body {
             }
           }
         }
+      }
+    }
+    .mobile-phones{
+      display: none;
+      @media screen and (max-width: 576px) {
+        width:100%;
+        color: #fff;
+        display: block;
+        text-align: center;
+      }
+    }
+    .to-fix-mobile{
+      @media screen and (min-width: 1441px){
+        display: block;
+        margin: 0 auto;
+        max-width: 1440px;
       }
     }
   }
