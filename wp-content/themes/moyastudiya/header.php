@@ -98,15 +98,52 @@
         </div>
     </div>
 </div>
+<style>
+    body header .mobile_phones {
+        display: none;
+    }
+    @media screen and (max-width: 576px) {
+        /*body header .to-fix-mobile{*/
+        /*    position: fixed;*/
+        /*    top: 20px;*/
+        /*    background: url('/wp-content/themes/moyastudiya/src/main_back_2.png') repeat;*/
+        /*    z-index: 9999;*/
+        /*}*/
+        header{
+            background: url('/wp-content/themes/moyastudiya/src/main_back_2.png') repeat;
+            background-size: 70%;
+        }
+        body header .mobile_phones {
+            width:100%;
+            color: #fff;
+            display: block;
+            text-align: center;
+        }
+        .header_fixed {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 99999;
+        }
+    }
+</style>
 <div class="main-content">
-    <header class="mt-3" id="header">
-        <div class="featurebox col-md-12 col-sm-12 col-xs-12">
+    <header class="pt-3 pb-3" id="header">
+        <div class="featurebox col-md-12 col-sm-12 col-xs-12 to-fix-mobile">
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="navbar navbar-light d-none d-sm-block col-4">
                     <a class="navbar-brand header-brand" href="<?= get_home_url(); ?>"><?= get_bloginfo() ?></a>
                 </div>
                 <div class="col-4 text-center header-logo"style="z-index: 1">
 					<?= the_custom_logo() ?>
+                </div>
+                <div class="mobile_phones col-sm-4 col-xs-6 justify-content-center">
+                    <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block phone-Ukr phone"
+                        href="tel:<?= get_field( 'telefon_ukr', 32 ); ?>"
+                        style="text-align: center;">
+					    <?= get_field( 'telefon_ukr', 32 ); ?>
+                    </a>
                 </div>
                 <nav class="navbar navbar-expand-md col-sm-4 col-xs-6 justify-content-end navigation nav-container">
                     <div class="burger-menu navbar-toggler" type="button" data-toggle="collapse"

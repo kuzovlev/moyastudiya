@@ -141,6 +141,36 @@ $(window).on('load', function () {
     // cutVideo.play();
 });
 $(document).ready(function () {
+    $(function() {
+        let header = $('#header');
+        let headerHeight = header.height(),
+            bgStyle = header.css('background');// вычисляем высоту шапки
+        // console.log(headerHeight);
+        $(window).scroll(function() {
+            if($(this).scrollTop() > 1) {
+                header.addClass('header_fixed');
+                $('body').css({
+                    'padding-top': '67px' // делаем отступ у body, равный высоте шапки
+                });
+            } else {
+                header.removeClass('header_fixed');
+                $('body').css({
+                    'paddingTop': 0 // удаляю отступ у body, равный высоте шапки
+                })
+            }
+            if($(this).scrollTop() > 300) {
+                header.css({
+                    // 'padding': '5px 0',
+                    'background': 'black',
+                    'transition': '.3s'
+                });
+            } else {
+                header.css({
+                    'background': bgStyle,
+                });
+            }
+        });
+    });
     if ($('.project_image').length) {
         [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
             img.setAttribute('src', img.getAttribute('data-src'));
@@ -733,17 +763,21 @@ $(document).ready(function () {
         // console.log('mail event');
         event.stopImmediatePropagation();
         if (window.location.href.indexOf("uk") > -1) {
-            var formMess = "<div class='respon_mess'><p>Дякуємо! Незабаром ми з Вами зв'яжемось!</p></div>"
+            var formMess = "<div class='respon_mess'><p>Незабаром ми з Вами зв'яжемось для уточнення деталей проєкту</p></div>",
+                formHeader = 'Вашу заявку отримано!'
         }
         if (window.location.href.indexOf("en") > -1) {
-            var formMess = "<div class='respon_mess'><p>Thanks! Will contact you as soon as possible!</p></div>"
+            var formMess = "<div class='respon_mess'><p>We will contact you shortly to clarify the details of the project.</p></div>",
+                formHeader = 'We received your message'
         }
         if (window.location.href.indexOf("uk") === -1 && window.location.href.indexOf("en") === -1) {
-            var formMess = "<div class='respon_mess'><p>Спасибо! Мы скоро с Вами свяжемся!</p></div>"
+            var formMess = "<div class='respon_mess'><p>В скором времени мы свяжемся с вами для уточнения деталей проекта</p></div>",
+                formHeader = 'Ваша заявка принята!'
         }
         $(this).fadeOut(300);
 
         $('#c-form').append(formMess);
+        $('.form-header').text(formHeader);
 
     }, false);
     let buttonsToHover = $('.link-button.draw');
