@@ -492,6 +492,7 @@ input[type=text], div[type=button] {
   font-size: 18px;
   display: flex;
   align-items: center;
+  z-index: 9999;
 }
 .pulse p {
   margin-top: inherit;

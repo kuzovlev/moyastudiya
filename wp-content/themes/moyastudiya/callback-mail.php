@@ -35,7 +35,7 @@ if ($_POST) {
         $otvet_serv = json_encode(array('text' => 'Не могу отправить почту! Пожалуйста, проверьте ваши настройки PHP почты.'));
         die($otvet_serv);
     } else {
-        $otvet_serv = json_encode(array('text' => 'Спасибо! ' . $user_Name . ', ваше сообщение отправлено.'));
+        $otvet_serv = json_encode(array('text' => 'Спасибо! ' . $user_Name . ', мы получили Ваш запрос.'));
         die($otvet_serv);
     }
 }
