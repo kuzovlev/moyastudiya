@@ -28,6 +28,47 @@
     </div>
 	<?= do_shortcode( '[contact-form-7 id="119" title="Contact form 1"]' ) ?>
 </section>
+<div class="pulse" data-toggle="modal" data-target="#callbackModal">
+    <p>Кнопка связи</p>
+</div>
+<div class="modal fade" id="callbackModal" tabindex="-1" role="dialog" aria-labelledby="callbackModalLabel"
+     aria-hidden="true">
+    <?
+    if (wpm_get_language() === "ru"):
+        $modalHeader = 'Мы Вам перезвоним';
+        $modalInputPlaceholder = 'Телефон';
+        $modalSubmitButton = 'Перезвоните';
+    elseif (wpm_get_language() === "uk"):
+        $modalHeader = "Ми вам зателефонуємо";
+        $modalInputPlaceholder = 'Телефон';
+        $modalSubmitButton = 'Зателефонуйте';
+    else:
+        $modalHeader = "We'll call you back";
+        $modalInputPlaceholder = 'Phone number';
+        $modalSubmitButton = 'Call me';
+    endif;
+    ?>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><?=$modalHeader?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="text" name="fio" placeholder="Имя" required>
+                    <input type="text" name="tel" placeholder="Телефон" required>
+                    <div id="form_result"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div id="submit" class="link-button draw" type="submit"><?=$modalSubmitButton?></div>
+            </div>
+        </div>
+    </div>
+</div>
 <footer>
     <div class="container">
         <div class="d-flex flex-column flex-md-row align-items-md-center p-3 px-md-4 text-white top-footer-line">
@@ -87,6 +128,10 @@
 </div>
 </div>
 <?php wp_footer(); ?>
+<script type="text/javascript">
+    // записываем путь к шаблону в переменну для использования в js
+    const _templateDir = "<?php bloginfo('template_directory') ?>";
+</script>
 <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <script async defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>

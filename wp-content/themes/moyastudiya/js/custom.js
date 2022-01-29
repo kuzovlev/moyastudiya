@@ -911,3 +911,27 @@ $(document).ready(function () {
         $("#use5725").attr("fill","#323232");
     });
 });
+$("#submit").click(function () {
+    var name = $('input[name=fio]').val();
+    var tel = $('input[name=tel]').val();
+    var otpravka = true;
+    if (name == "") {
+        otpravka = false;
+    }
+    if (tel == "") {
+        otpravka = false;
+    }
+    if (otpravka) {
+
+        var data = {'polz_name': name, 'polz_tel': tel};
+        $.post(_templateDir+'/callback-mail.php', data, function (res) {
+            var result = '<div style="color:#D80018;">' + res.text + '</div>';
+            $("#form_result").hide().html(result).slideDown();
+        }, 'json');
+    }
+});
+$('#callbackModal').on('show.bs.modal', function (event) {
+    $(window).scrollTop($(window).scrollTop()+1);
+});
+// let y = $(window).scrollTop();  //your current y position on the page
+// $(window).scrollTop(y + 1);

@@ -477,6 +477,106 @@ input[type=text], div[type=button] {
   background-color: white;
 }
 
+.pulse {
+  cursor: pointer;
+  position: fixed;
+  bottom: 5%;
+  left: 3%;
+  background: #c99b69;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  text-align: center;
+  line-height: 15px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+.pulse p {
+  margin-top: inherit;
+  margin-bottom: inherit;
+}
+
+.pulse:before,
+.pulse:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  border: 1px solid #c99b69;
+  left: -20px;
+  right: -20px;
+  top: -20px;
+  bottom: -20px;
+  border-radius: 50%;
+  animation: animate 1.5s linear infinite;
+  opacity: 0;
+  backface-visibility: hidden;
+}
+
+.pulse:after {
+  animation-delay: 0.5s;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+#callbackModal .modal-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: 90%;
+}
+#callbackModal .modal-dialog .modal-content {
+  border: 1px solid #C99B69;
+  color: white;
+  background: black;
+  height: fit-content;
+  border-radius: 15px;
+}
+#callbackModal .modal-dialog .modal-content .modal-header {
+  border-bottom: none;
+}
+#callbackModal .modal-dialog .modal-content .modal-body input {
+  width: 100%;
+  background: transparent;
+  color: #C99B69;
+  outline: none;
+  padding: 10px;
+  margin: 15px auto;
+  border: none;
+  border-bottom: 1px solid rgba(201, 155, 105, 0.5);
+}
+#callbackModal .modal-dialog .modal-content .modal-footer {
+  border-top: none;
+}
+#callbackModal .modal-dialog .modal-content .modal-footer #submit {
+  background: transparent;
+  color: #C99B69;
+  padding: 5px 42px;
+  margin: 57px auto 0 auto;
+  display: block;
+  width: max-content;
+  font-size: 18px;
+  font-weight: lighter;
+  transition: all 0.3s;
+}
+#callbackModal .modal-dialog .modal-content .modal-footer #submit:hover {
+  background: #C99B69;
+}
+
 @keyframes fade-in-left {
   0% {
     visibility: hidden;
