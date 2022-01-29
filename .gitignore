@@ -108,14 +108,6 @@ Thumbs.db
 # track these mu-plugins, plugins, and themes
 # add your own entries here
 
-/wp-content/languages/themes/twentynineteen-ru_RU.mo
-/wp-content/languages/themes/twentynineteen-ru_RU.po
-/wp-content/languages/themes/twentyseventeen-ru_RU.mo
-/wp-content/languages/themes/twentyseventeen-ru_RU.po
-/wp-content/languages/themes/twentysixteen-ru_RU.mo
-/wp-content/languages/themes/twentysixteen-ru_RU.po
-/wp-content/languages/themes/twentytwenty-ru_RU.mo
-/wp-content/languages/themes/twentytwenty-ru_RU.po
 /wp-content/themes/moyastudiya/src/style.scss
 /wp-content/themes/moyastudiya/images/fontan/
 /wp-content/themes/moyastudiya/images/taryan/
@@ -124,9 +116,11 @@ Thumbs.db
 /wp-content/themes/moyastudiya/images/lviv/
 /wp-content/themes/moyastudiya/images/chocolate/
 /wp-content/themes/moyastudiya/images/clinic/
-/wp-content/themes/moyastudiya/images/fontan/
 /wp-content/themes/moyastudiya/images/france/
-/wp-content/themes/moyastudiya/images/heart/
-/wp-content/themes/moyastudiya/images/lviv/
-/wp-content/themes/moyastudiya/images/taryan/
-/wp-content/themes/moyastudiya/images/Шоколад/
+/wp-content/cache_old/
+/wp-content/languages/
+/wp-content/uploads/
+/wp-content/.well-known/
+/wp-content/plugins/
+/wp-content/mu-plugins/
+/wp-content/w3tc-config/
