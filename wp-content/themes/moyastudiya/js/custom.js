@@ -912,8 +912,10 @@ $(document).ready(function () {
     });
 });
 $("#submit").click(function () {
+    const formResult = $('#form_result');
     var name = $('input[name=fio]').val();
     var tel = $('input[name=tel]').val();
+    const lang = $('input[name=lang]').val();
     var otpravka = true;
     if (name == "") {
         otpravka = false;
@@ -923,13 +925,14 @@ $("#submit").click(function () {
     }
     if (otpravka) {
 
-        var data = {'polz_name': name, 'polz_tel': tel};
-        $.post(_templateDir+'/callback-mail.php', data, function (res) {
+        var data = {'polz_name': name, 'polz_tel': tel, 'lang': lang};
+        $.post(_templateDir + '/callback-mail.php', data, function (res) {
             var result = '<div style="color:#C99B69; text-align: center">' + res.text + '</div>';
-            // $('input[name=fio]').fadeOut();
-            // $('input[name=tel]').fadeOut();
-            // $('.modal-footer').fadeOut();
-            $("#form_result").hide().html(result).slideDown();
+            if (formResult.html().trim() !== '') {
+                formResult.html(result);
+            } else {
+                formResult.hide().html(result).slideDown();
+            }
         }, 'json');
     }
 });
