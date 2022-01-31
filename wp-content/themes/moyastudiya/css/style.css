@@ -550,6 +550,13 @@ input[type=text], div[type=button] {
 #callbackModal .modal-dialog .modal-content .modal-header {
   border-bottom: none;
 }
+#callbackModal .modal-dialog .modal-content .modal-header h5 {
+  margin: 0 auto;
+}
+#callbackModal .modal-dialog .modal-content .modal-header button {
+  padding: unset;
+  margin: unset;
+}
 #callbackModal .modal-dialog .modal-content .modal-body input {
   width: 100%;
   background: transparent;
@@ -564,10 +571,11 @@ input[type=text], div[type=button] {
   border-top: none;
 }
 #callbackModal .modal-dialog .modal-content .modal-footer #submit {
+  -webkit-appearance: none;
   background: transparent;
   color: #C99B69;
   padding: 5px 42px;
-  margin: 57px auto 0 auto;
+  margin: 17px auto 0 auto;
   display: block;
   width: max-content;
   font-size: 18px;

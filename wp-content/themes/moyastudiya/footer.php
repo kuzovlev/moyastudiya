@@ -58,8 +58,8 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <input type="text" name="fio" placeholder="Имя" required>
-                    <input type="text" name="tel" placeholder="Телефон" required>
+                    <input type="text" name="tel" placeholder="Телефон" required maxlength="13">
+                    <input type="hidden" name='lang' value="<?=wpm_get_language();?>">
                     <div id="form_result"></div>
                 </form>
             </div>
