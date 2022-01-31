@@ -913,19 +913,20 @@ $(document).ready(function () {
 });
 $("#submit").click(function () {
     const formResult = $('#form_result');
-    var name = $('input[name=fio]').val();
+    // var name = $('input[name=fio]').val();
     var tel = $('input[name=tel]').val();
     const lang = $('input[name=lang]').val();
     var otpravka = true;
-    if (name == "") {
-        otpravka = false;
-    }
+    // if (name == "") {
+    //     otpravka = false;
+    // }
     if (tel == "") {
         otpravka = false;
     }
     if (otpravka) {
 
-        var data = {'polz_name': name, 'polz_tel': tel, 'lang': lang};
+        // var data = {'polz_name': name, 'polz_tel': tel, 'lang': lang};
+        var data = {'polz_tel': tel, 'lang': lang};
         $.post(_templateDir + '/callback-mail.php', data, function (res) {
             var result = '<div style="color:#C99B69; text-align: center">' + res.text + '</div>';
             if (formResult.html().trim() !== '') {
@@ -936,6 +937,11 @@ $("#submit").click(function () {
         }, 'json');
     }
 });
+$('input[name=tel]').keyup(function (){
+    if($(this).val().length < 2){
+        $(this).val("+"+$(this).val());
+    }
+})
 $('#callbackModal').on('show.bs.modal', function (event) {
     $(window).scrollTop($(window).scrollTop()+1);
 });
