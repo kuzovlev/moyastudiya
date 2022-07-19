@@ -128,9 +128,9 @@
 @font-face {
     font-family: 'GaramondLight';
     src: url('Garamond-Premier-Pro-Light-Display.ttf') format('truetype');
-    src: url('Garamond-Premier-Pro-Light-Display.otf') format('opentype'),
+    /* src: url('Garamond-Premier-Pro-Light-Display.otf') format('opentype'),
          url('GaramondPremrPro-LtDisp.woff2') format('woff2'),
-         url('GaramondPremrPro-LtDisp.woff') format('woff');
+         url('GaramondPremrPro-LtDisp.woff') format('woff'); */
     font-weight: normal;
     font-style: normal;
     font-display: swap;

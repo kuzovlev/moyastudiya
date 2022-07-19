@@ -105,14 +105,6 @@
                 </a>
             </div>
             <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
-                <p><?= get_field( 'rus_city', 32 ).", ";?><?= get_field( 'address_rus', 32 ); ?>
-                </p>
-                <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block "
-                   href="tel:<?= get_field( 'telefon_rus', 32 ); ?>">
-					<?= get_field( 'telefon_rus', 32 ); ?>
-                </a>
-            </div>
-            <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
                 <p><?= get_field( 'pol_city', 32 ).", ";?><?= get_field( 'address_pol', 32 ); ?>
                 </p>
                 <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block "
@@ -124,7 +116,8 @@
     </div>
 </footer>
 <div id="btnTop" class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;display: none;">
-    <i class="fa fa-arrow-up to-top"></i>
+    <!-- <i class="fa fa-arrow-up to-top"></i> -->
+    <span style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">↑</span>
 </div>
 </div>
 <?php wp_footer(); ?>
@@ -134,7 +127,9 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-<script async defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<?if (strpos($_SERVER['REQUEST_URI'], "projects")):?>
+    <script async defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<?endif;?>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </body>
 </html>

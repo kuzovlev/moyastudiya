@@ -1,4 +1,5 @@
 <?php
+// if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'],'gzip')) ob_start(«ob_gzhandler»); else ob_start(); 
 /**
  * The header for our theme
  *
@@ -78,8 +79,9 @@
     <meta property="og:description" content="Новые решения в дизайне интерьера">
 <!--    <meta name="google-site-verification" content="SDhYObGQqSwMVsdvZPo0EmTqekSmgqC0wF7FW4Qcjg">-->
     <!--    <link rel="profile" href="https://gmpg.org/xfn/11">-->
-    <script async src="https://use.fontawesome.com/f3f98404c8.js"></script>
+    <!-- <script async src="https://use.fontawesome.com/f3f98404c8.js"></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="preload" as="font" href="<?= get_template_directory_uri() ?>/fonts/Garamond-Premier-Pro-Light-Display.ttf" type="font/ttf" crossorigin="anonymous">
 </head>
 
 <body>
@@ -132,7 +134,7 @@
     <header class="pt-3 pb-3" id="header">
         <div class="featurebox col-md-12 col-sm-12 col-xs-12 to-fix-mobile">
             <div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="navbar navbar-light d-none d-sm-block col-4">
+                <div class="navbar navbar-light d-none d-lg-block col-4">
                     <a class="navbar-brand header-brand" href="<?= get_home_url(); ?>"><?= get_bloginfo() ?></a>
                 </div>
                 <div class="col-4 text-center header-logo"style="z-index: 1">

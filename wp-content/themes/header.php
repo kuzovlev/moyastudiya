@@ -71,7 +71,7 @@
     <meta property="og:description" content="Новые решения в дизайне интерьера">
 <!--    <meta name="google-site-verification" content="SDhYObGQqSwMVsdvZPo0EmTqekSmgqC0wF7FW4Qcjg">-->
     <!--    <link rel="profile" href="https://gmpg.org/xfn/11">-->
-    <script async src="https://use.fontawesome.com/f3f98404c8.js"></script>
+    <!-- <script async src="https://use.fontawesome.com/f3f98404c8.js"></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 </head>
 

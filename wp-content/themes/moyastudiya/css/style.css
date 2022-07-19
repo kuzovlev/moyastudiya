@@ -883,6 +883,11 @@ body header .main_rus li, body header .main_eng li {
   text-transform: uppercase;
   width: max-content;
 }
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  body header .main_rus li, body header .main_eng li {
+    margin: 0 12px;
+  }
+}
 body header .main_rus li a, body header .main_eng li a {
   font-weight: 300;
   color: rgba(255, 255, 255, 0.7);
@@ -1076,22 +1081,22 @@ body header .nav-container .burger-menu .container .txt-container span {
     color: rgba(255, 255, 255, 0.5);
   }
 }
-body header .mobile-phones {
+body header .mobile_phones {
   display: none;
 }
 @media screen and (max-width: 576px) {
-  body header .mobile-phones {
+  body header .mobile_phones {
     width: 100%;
     color: #fff;
     display: block;
     text-align: center;
   }
-}
-@media screen and (min-width: 1441px) {
-  body header .to-fix-mobile {
-    display: block;
-    margin: 0 auto;
-    max-width: 1440px;
+  body header .mobile_phones .header_fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
   }
 }
 body .section-main_top {

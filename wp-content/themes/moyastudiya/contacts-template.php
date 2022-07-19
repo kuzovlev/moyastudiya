@@ -20,13 +20,6 @@ get_header(); ?>
                 </div>
             </div>
             <div class="col-auto c-container">
-                <div class="country-contacts country-russia">
-                    <a href="https://goo.gl/maps/UgNr8tyeEF4YRkR1A" class="city" style="display:block;" target="_blank"><?= get_field( 'rus_city', 32 ) ?></a>
-                    <a href="https://goo.gl/maps/UgNr8tyeEF4YRkR1A" class="address" style="display:block;" target="_blank"><?= get_field( 'address_rus', 32 ); ?></a>
-                    <a href="tel:<?= get_field( 'telefon_rus', 32 );?>" class="phone"><?= get_field( 'telefon_rus', 32 ); ?></a>
-                </div>
-            </div>
-            <div class="col-auto c-container">
                 <div class="country-contacts country-poland">
                     <a href="https://goo.gl/maps/wApJkaYFGC7xC99F7" class="city" style="display:block;" target="_blank"><?= get_field( 'pol_city', 32 ) ?></a>
                     <a href="https://goo.gl/maps/wApJkaYFGC7xC99F7" class="address" style="display:block;" target="_blank"><?= get_field( 'address_pol', 32 ); ?></a>

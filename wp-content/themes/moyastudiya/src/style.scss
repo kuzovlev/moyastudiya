@@ -381,7 +381,9 @@ body {
         margin: 0 25px;
         text-transform: uppercase;
         width: max-content;
-
+        @media screen and (min-width: 992px) and (max-width:1200px){
+          margin: 0 12px;
+        }
         a {
           font-weight: 300;
           color: rgba(255, 255, 255, .7);
@@ -615,22 +617,39 @@ body {
         }
       }
     }
-    .mobile-phones{
+
+    .mobile_phones {
       display: none;
       @media screen and (max-width: 576px) {
-        width:100%;
+        width: 100%;
         color: #fff;
         display: block;
         text-align: center;
+        .header_fixed {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100%;
+          z-index: 99999;
+        }
       }
     }
-    .to-fix-mobile{
-      @media screen and (min-width: 1441px){
-        display: block;
-        margin: 0 auto;
-        max-width: 1440px;
-      }
-    }
+    //.mobile-phones{
+    //  display: none;
+    //  @media screen and (max-width: 576px) {
+    //    width:100%;
+    //    color: #fff;
+    //    display: block;
+    //    text-align: center;
+    //  }
+    //}
+    //.to-fix-mobile{
+    //  @media screen and (min-width: 1441px){
+    //    display: block;
+    //    margin: 0 auto;
+    //    max-width: 1440px;
+    //  }
+    //}
   }
 
   // Конец HEADER
