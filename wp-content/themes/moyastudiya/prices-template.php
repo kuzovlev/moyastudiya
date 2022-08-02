@@ -12,6 +12,12 @@ else:
 	$priceAd = '$ sq/m';
 endif;
 ?>
+<?function getPost ($postNum){
+    $package_object = get_field( $postNum );
+    $post = get_post( $package_object->ID );
+    $output =  apply_filters( 'the_content', $post->post_content );
+    return $output;
+}?>
 <div class="container prices_main-content">
     <h1 class="price_title text-white">
 		<? the_title() ?>
@@ -31,9 +37,7 @@ endif;
                 </div>
             </div>
             <div data-content class="package_content text-white">
-				<?php
-				$package_object = get_field( 'first_content' ); ?>
-				<?= $package_object->post_content; ?>
+                <?=getPost('first_content');?>
             </div>
         </div>
         <div class="accordion package_container" data-accordion>
@@ -46,13 +50,11 @@ endif;
 					<?= get_field( "second_additional" ); ?>
                 </div>
                 <div class="col-md-4 package_price text-white text-right">
-					<?= get_field( "second_price" ) . $priceAd;; ?>
+					<?= get_field( "second_price" ) . $priceAd; ?>
                 </div>
             </div>
             <div data-content class="package_content text-white">
-				<?php
-				$package_object = get_field( 'second_content' ); ?>
-				<?= $package_object->post_content; ?>
+                <?=getPost('second_content');?>
             </div>
         </div>
         <div class="accordion package_container" data-accordion>
@@ -65,13 +67,11 @@ endif;
 					<?= get_field( "third_additional" ); ?>
                 </div>
                 <div class="col-md-4 package_price text-white text-right">
-					<?= get_field( "third_price" ) . $priceAd;; ?>
+					<?= get_field( "third_price" ) . $priceAd; ?>
                 </div>
             </div>
             <div data-content class="package_content text-white">
-				<?php
-				$package_object = get_field( 'third_content' ); ?>
-				<?= $package_object->post_content; ?>
+                <?=getPost('third_content');?>
             </div>
         </div>
     </div>

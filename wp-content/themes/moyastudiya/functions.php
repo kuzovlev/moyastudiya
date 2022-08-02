@@ -163,9 +163,9 @@ function moyastudiya_scripts() {
 add_action( 'wp_enqueue_scripts', 'moyastudiya_scripts' );
 
 function prefix_add_footer_styles() {
-	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/fonts/stylesheet.css?3', array(), _S_VERSION );
+	wp_enqueue_style( 'moyastudiya-style-fonts', get_template_directory_uri() . '/fonts/stylesheet.css?4', array(), _S_VERSION );
 //	wp_enqueue_style( 'moyastudiya-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?28223', array(), false );
+	wp_enqueue_style( 'moyastudiya-style-main', get_template_directory_uri() . '/css/style.css?28224', array(), false );
 	wp_enqueue_style( 'moyastudiya-style-bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), _S_VERSION );
 	wp_style_add_data( 'moyastudiya-style', 'rtl', 'replace' );
 };
@@ -332,11 +332,16 @@ function packages_reg() {
 
 function image_full_width_shortcode_func( $attrs ) {
 	$params = shortcode_atts( array(
-		'first' => ''
+		'first' => '',
+		'lazy' => ''
 	),
 		$attrs );
-
-	return "<div class='d-flex proj-one-img'><span data-fancybox='gallery' href='{$params['first']}'><img class='project_image full_width lazy' data-src='{$params['first']}'></span></div>";
+	if ($params['lazy']=='lazy'){
+		$lazyLoad = 'loading="lazy"';
+	} else {
+		$lazyLoad = '';
+	}
+	return "<div class='d-flex proj-one-img'><span data-fancybox='gallery' href='{$params['first']}'><img class='project_image full_width lazy' {$lazyLoad} src='{$params['first']}'></span></div>";
 }
 
 add_shortcode( 'full_wid_img', 'image_full_width_shortcode_func' );
@@ -344,11 +349,16 @@ add_shortcode( 'full_wid_img', 'image_full_width_shortcode_func' );
 function image_double_shortcode_func( $attrs ) {
 	$params = shortcode_atts( array(
 		'first'  => '',
-		'second' => ''
+		'second' => '',
+		'lazy' => ''
 	),
 		$attrs );
-
-	return "<div class='d-flex proj-two-img'><span data-fancybox='gallery' href='{$params['first']}'><img class='project_image half_width lazy' data-src={$params['first']}'></span><span data-fancybox='gallery' href='{$params['second']}'><img class='lazy project_image half_width' data-src={$params['second']}'></span></div>";
+	if ($params['lazy']=='lazy'){
+		$lazyLoad = 'loading="lazy"';
+	} else {
+		$lazyLoad = '';
+	}
+	return "<div class='d-flex proj-two-img'><span data-fancybox='gallery' href='{$params['first']}'><img class='project_image half_width lazy' {$lazyLoad} src={$params['first']}'></span><span data-fancybox='gallery' href='{$params['second']}'><img class='lazy project_image half_width' {$lazyLoad} src={$params['second']}'></span></div>";
 }
 
 add_shortcode( 'double_img', 'image_double_shortcode_func' );

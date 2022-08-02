@@ -28,8 +28,13 @@
     </div>
 	<?= do_shortcode( '[contact-form-7 id="119" title="Contact form 1"]' ) ?>
 </section>
+<?if (wpm_get_language() === "uk"):
+    $callButton = "Кнопка зв'язку";
+else:
+    $callButton = "Callback button";
+endif;?>
 <div class="pulse" data-toggle="modal" data-target="#callbackModal">
-    <p>Кнопка связи</p>
+    <p><?=$callButton;?></p>
 </div>
 <div class="modal fade" id="callbackModal" tabindex="-1" role="dialog" aria-labelledby="callbackModalLabel"
      aria-hidden="true">
@@ -99,19 +104,23 @@
             <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
                 <p class="addr-Ukr"><?= get_field( 'ukr_city', 32 ).", ";?><?= get_field( 'address_ukr', 32 ); ?>
                 </p>
+                <?if (!empty(get_field( 'address_ukr_additional', 32 ))):?>
+                    <p class="addr-Ukr"><?=get_field( 'address_ukr_additional', 32 );?>
+                    </p>
+                <?endif;?>
                 <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block phone-Ukr"
                    href="tel:<?= get_field( 'telefon_ukr', 32 ); ?>">
 					<?= get_field( 'telefon_ukr', 32 ); ?>
                 </a>
             </div>
-            <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
+            <!-- <div class="my-2 my-md-0 mr-md-4 col-xs-12  contacts">
                 <p><?= get_field( 'pol_city', 32 ).", ";?><?= get_field( 'address_pol', 32 ); ?>
                 </p>
                 <a class="m-xs-auto mr-md-3 d-xs-block d-md-inline-block "
                    href="tel:<?= get_field( 'telefon_pol', 32 ); ?>">
 					<?= get_field( 'telefon_pol', 32 ); ?>
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 </footer>

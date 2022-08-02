@@ -791,9 +791,9 @@ body header .custom-logo-link .custom-logo {
   height: 50px;
   width: auto;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 500px) {
   body header .custom-logo-link .custom-logo {
-    height: 35px;
+    height: 25px;
   }
 }
 body header .lang-menu {
@@ -1880,6 +1880,11 @@ body #activities .activities-block .activities-container .first-activity, body #
     height: 140px;
     line-height: 40px;
     padding-top: 75px !important;
+  }
+}
+@media screen and (min-width: 425px)and (max-width: 767px) {
+  body #activities .activities-block .activities-container .third-activity {
+    line-height: 170px;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 425px) {

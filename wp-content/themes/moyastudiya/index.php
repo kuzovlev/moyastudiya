@@ -160,7 +160,7 @@ get_header();
                       fill="#C99B69"/>
             </svg>
         </div>
-        <a href="/o-nas/" class="link-button draw">
+        <a href="/about/" class="link-button draw">
 			<?
 			if ( wpm_get_language() === "ru" ):
 				echo 'Больше о нас';

@@ -18,7 +18,7 @@ $prev_post = get_previous_post( true, '' );?>
 		$post      = get_post( $prev_post->ID );
 		setup_postdata( $post ); ?>
         <section id="our_projects">
-            <p class="neighbour_projects text-center">Следующий проект</p>
+            <p class="neighbour_projects text-center">Наступний проєкт</p>
             <a href="<?= get_permalink( $prev_post->ID ) ?>" class="single-post">
                 <img src="<? the_post_thumbnail_url( $prev_post->ID ); ?>" alt="" class="single-post_image">
                 <div class="post-contents">

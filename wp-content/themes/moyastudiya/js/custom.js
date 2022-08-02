@@ -171,14 +171,14 @@ $(document).ready(function () {
             }
         });
     });
-    if ($('.project_image').length) {
-        [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
-            img.setAttribute('src', img.getAttribute('data-src'));
-            img.onload = function () {
-                img.removeAttribute('data-src');
-            };
-        });
-    }
+    // if ($('.project_image').length) {
+    //     [].forEach.call(document.querySelectorAll('img[data-src]'), function (img) {
+    //         img.setAttribute('src', img.getAttribute('data-src'));
+    //         img.onload = function () {
+    //             img.removeAttribute('data-src');
+    //         };
+    //     });
+    // }
     $("a").click(function (event) {
         if (!$(this).hasClass("phone")) {
             event.preventDefault();
@@ -203,9 +203,6 @@ $(document).ready(function () {
     $('#collapsibleNavbar').append(`
         <div class="mobile-langmenu" style="position:absolute; bottom: 0;">
             <ul>
-                <li class="mobile-lang-rus">
-                    <a href="/">РУС</a>
-                </li>
                 <li class="mobile-lang-ukr">
                     <a href="/uk">УКР</a>
                 </li>
@@ -762,16 +759,16 @@ $(document).ready(function () {
     wpcf7Elm.addEventListener('wpcf7mailsent', function (event) {
         // console.log('mail event');
         event.stopImmediatePropagation();
-        if (window.location.href.indexOf("uk") > -1) {
-            var formMess = "<div class='respon_mess'><p>Незабаром ми з Вами зв'яжемось для уточнення деталей проєкту</p></div>",
+        if (window.location.href.indexOf("ru") > -1) {
+            var formMess = "<div class='respon_mess'><p>В скором времени мы свяжемся с вами для уточнения деталей проекта</p></div>",
                 formHeader = 'Вашу заявку отримано!'
         }
         if (window.location.href.indexOf("en") > -1) {
             var formMess = "<div class='respon_mess'><p>We will contact you shortly to clarify the details of the project.</p></div>",
                 formHeader = 'We received your message'
         }
-        if (window.location.href.indexOf("uk") === -1 && window.location.href.indexOf("en") === -1) {
-            var formMess = "<div class='respon_mess'><p>В скором времени мы свяжемся с вами для уточнения деталей проекта</p></div>",
+        if (window.location.href.indexOf("ru") === -1 && window.location.href.indexOf("en") === -1) {
+            var formMess = "<div class='respon_mess'><p>Незабаром ми з Вами зв'яжемось для уточнення деталей проєкту</p></div>",
                 formHeader = 'Ваша заявка принята!'
         }
         $(this).fadeOut(300);

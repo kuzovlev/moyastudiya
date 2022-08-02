@@ -44,7 +44,9 @@ get_header(); ?>
     </section>
     <section id="services">
         <div class="container">
-            <h3 class="text-white">Наши услуги</h3>
+            <h3 class="text-white">
+                <?= get_field( "services_heading" ) ?>
+            </h3>
             <div class="row">
 				<?
 				$posts = get_posts( array(
@@ -77,7 +79,9 @@ get_header(); ?>
     </section>
     <section id="process">
         <div class="container">
-            <h3 class="text-white">Этапы работы</h3>
+            <h3 class="text-white">
+                <?= get_field( "proc_heading" ) ?>
+            </h3>
             <p class="col-md-5 process-header_text">
 				<?= get_field( "proc_text" ) ?>
             </p>
