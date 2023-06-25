@@ -13,33 +13,61 @@
  */
 
 get_header();
+$templatePath = get_template_directory_uri();
+$sliderImages = [
+    $templatePath.'/images/slider-images/4.webp',
+    $templatePath.'/images/slider-images/1.webp',
+    $templatePath.'/images/slider-images/2.webp',
+    $templatePath.'/images/slider-images/3.webp',
+    $templatePath.'/images/slider-images/5.webp',
+    $templatePath.'/images/slider-images/6.webp',
+    $templatePath.'/images/slider-images/7.webp',
+    $templatePath.'/images/slider-images/8.webp',
+    $templatePath.'/images/slider-images/9.webp',
+    $templatePath.'/images/slider-images/10.webp',
+];
 ?>
     <section class="section-main_top">
-        <div class="container header-mainpage">
+        <div class="container header-mainpage main_heading">
             <div class="row justify-content-md-center">
                 <h1 class="text-white text-center col-md-8 col-sm-12 col-lg-6 col-xl-5 col-xs-12">
 					<?php echo get_bloginfo( 'description' ); ?>
                 </h1>
             </div>
         </div>
-        <div class="gif-container" data-src="<?= get_template_directory_uri() ?>/images/moyastudiya_small.mp4">
-            <div class="watch_button">
-                <span>
-                    <? if ( wpm_get_language() === "ru" ):
-	                    echo 'Смотреть шоурил';
-                    elseif ( wpm_get_language() === "uk" ):
-	                    echo "Дивитись відео";
-                    else:
-	                    echo "Watch video";
-                    endif; ?>
-                </span>
+        <div class="swiper">
+             <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <?php foreach($sliderImages as &$singleSlide):?>
+                    <div class="swiper-slide">
+                        <img src=<?=$singleSlide?> width="100%"/>
+                        <div class="swiper-lazy-preloader" style="display: none;"></div>
+                    </div>
+                <?endforeach;?>
             </div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper_nav-container">
+                <div class="prev-slide"></div>
+                <div class="next-slide"></div>
+                <!-- <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div> -->
+            </div>
+
         </div>
-        <!--        <div style="padding-top: 50%; position: relative; overflow: hidden;" class="video-mainpage">-->
-        <!--            <iframe frameborder="0" allowfullscreen="" scrolling="no" allow="autoplay;fullscreen"-->
-        <!--                    src="https://onelineplayer.com/player.html?autoplay=false&autopause=false&muted=false&loop=true&url=https%3A%2F%2Fvimeo.com%2F458982550&poster=https%3A%2F%2Fmoyastudiya.com%2Fwp-content%2Fthemes%2Fmoyastudiya%2Fimages%2Fcover-image.png&time=false&progressBar=false&overlay=true&muteButton=true&fullscreenButton=false&style=light&quality=auto&playButton=true"-->
-        <!--                    style="position: absolute; height: 100%; width: 100%; left: 50%; top: 0px; max-width: 1087px; transform: translateX(-50%); border-radius: 20px;"></iframe>-->
-        <!--        </div>-->
+        <script>
+            const swiper = new Swiper('.swiper', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.next-slide',
+                    prevEl: '.prev-slide',
+                }
+            });
+        </script>
     </section>
     <section id="our_projects">
 		<?

@@ -82,6 +82,8 @@
     <!-- <script async src="https://use.fontawesome.com/f3f98404c8.js"></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="preload" as="font" href="<?= get_template_directory_uri() ?>/fonts/Garamond-Premier-Pro-Light-Display.ttf" type="font/ttf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </head>
 
 <body>
